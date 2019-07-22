@@ -1,0 +1,82 @@
+// @TODO Change parent class rule name to: .layout-1-grid
+
+.connect  {
+  &--page  {
+    // @media #{$mq_s_only} {
+    //   padding: 22px 0 46px;
+    // }
+
+    // @media #{$mq_m} {
+    //   padding: 72px 0;
+    // }
+  }
+
+  &--mini  {
+    label  {
+      display: none;
+    }
+    .form__group  {
+      margin-top: 16px;
+    }
+  }
+}
+
+.connect__option  {
+  &--register  {
+    background-color: #F5E5D9;
+
+    @media #{$mq_m} {
+      display: flex;
+      align-items: stretch;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  .connect--page &  {
+    padding: 42px 32px 50px;
+
+    @media #{$mq_m} {
+      padding: 72px 24px;
+    }
+
+
+    @media #{$mq_l} {
+      padding: 72px 48px;
+    }
+
+
+    @media #{$mq_xl} {
+      padding: 72px 96px;
+    }
+  }
+
+  .connect--mini &  {
+    width: 320px;
+    padding: 32px;
+
+    &--signin  {
+      background-color: $color_darkGrey;
+      color: #fff;
+    }
+  }
+}
+
+.connect__optionHeader  {
+  .connect--page &  {
+    margin-bottom: 42px;
+  }
+
+  .connect--mini &  {
+    margin-bottom: 24px;
+  }
+}
+
+.connect__optionFooter  {
+  margin-top: 42px;
+
+  @media #{$mq_m} {
+    margin-top: 48px;
+    display: flex;
+  }
+}

@@ -1,0 +1,39 @@
+.btn {
+    height:48px;
+    min-width:148px;
+    font-size:0.6rem;
+    font-weight:400;
+    text-align:center;
+    background-color:transparent;
+    text-transform:uppercase;
+    letter-spacing: 0.17em;
+        line-height: 47px;
+    padding: 0 24px;
+        white-space: nowrap;
+    cursor: pointer;
+    @include transition(background-color $transition-duration $transition-timing);
+}
+
+
+.btn {
+    &-bg-grey {
+        border:1px $theme-color-science-blue solid;
+        color: $theme-color-science-blue;
+    }
+
+    &-bg-grey:hover {
+        background-color: $theme-color-science-blue;
+        color: $theme-color-white;
+    }
+
+    &-bg-science-blue {
+        color: $theme-color-white;
+        border:1px $theme-color-white solid;
+        margin-top: 1.2em;
+    }
+
+    &-bg-science-blue:hover {
+        color: $theme-color-science-blue;
+        background-color: $theme-color-white;
+    }
+}

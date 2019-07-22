@@ -1,0 +1,86 @@
+// Two Col Grid
+.container {
+	width: 100%;
+}
+
+.row {
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+@include media-query($screen-type-tablet) {
+	.row {
+		flex-flow: column nowrap;
+	}
+}
+
+.col {
+	position: relative;
+	width: calc(100% / 2);
+	height: 100vh;
+}
+
+@include media-query($screen-type-tablet) {
+	.col {
+		width: 100%;
+	}
+}
+
+.content-wrapper {
+	display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.content-inner {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.content {
+	padding: 0 calc(3vh + 2rem);
+	// padding: calc(12rem + 5vh + 4.8em) calc(6rem + 6vh);
+
+	@include media-query($screen-type-tablet) {
+		padding-top: calc(2vh + 7rem);
+		text-align: center;
+	}
+
+	@include media-query($screen-type-mobile) {
+		padding: 12rem calc(2vh + 0rem) 0;
+	}
+
+	h1 {
+		font: {
+			weight: 100;
+		}
+ 		text-transform: uppercase;
+ 		letter-spacing: $letter-spacing;
+
+ 		@include media-query($screen-type-wide) {
+ 			font-size: calc((100vw - 1440px) * (40 - 16) / (2560 - 1440) + 16px);
+		}
+
+ 		@include media-query($screen-type-desktop) {
+			font-size: calc((100vw - 768px) * (24 - 16) / (1439 - 768) + 16px);
+		}
+
+ 		@include media-query($screen-type-tablet) {
+			font-size: calc((100vw - 768px) / (1439 - 768) + 16px);
+		}
+	}
+
+	p {
+		@include media-query($screen-type-wide) {
+				font-size: calc((100vw - 1440px) * (40 - 16) / (2560 - 1440) + 20px);
+		}
+
+ 		@include media-query($screen-type-desktop) {
+			font-size: calc((100vw - 768px) * (24 - 16) / (1439 - 768) + 20px);
+		}
+
+ 		@include media-query($screen-type-tablet) {
+			font-size: calc((100vw - 768px) / (1439 - 768) + 20px);
+		}
+	}
+}

@@ -1,0 +1,125 @@
+.container  {
+    $s_horizontal_padding: 24px;
+    $s_vertical_padding: 48px;
+    $s_narrow_maxWidth: 256px + $s_horizontal_padding * 2;
+
+    $m_horizontal_padding: 32px;
+    $m_vertical_padding: 96px;
+    $m_narrow_maxWidth: 544px + $m_horizontal_padding * 2;
+    $m_medium_maxWidth: 736px + $m_horizontal_padding * 2;
+    $m_large_maxWidth: 1120px + $m_horizontal_padding * 2;
+
+    margin: 0 auto;
+
+    @media #{$mq_s_only} {
+        padding: 0 $s_horizontal_padding;
+    }
+
+
+    @media #{$mq_m} {
+        padding: 0 $m_horizontal_padding;
+        max-width: $m_large_maxWidth;
+    }
+    &--pad  {
+        padding-top: $s_vertical_padding;
+        padding-bottom: $s_vertical_padding;
+
+        @media #{$mq_m} {
+            padding-top: $m_vertical_padding;
+            padding-bottom: $m_vertical_padding;
+        }
+    }
+
+    &--s-pad  {
+        @media #{$mq_s_only} {
+            padding-top: $s_vertical_padding;
+            padding-bottom: $s_vertical_padding;
+        }
+    }
+
+    &--m-pad  {
+        @media #{$mq_m} {
+            padding-top: $m_vertical_padding;
+            padding-bottom: $m_vertical_padding;
+        }
+    }
+
+    // Classes generated :
+    // container--pad{SIZE}
+    // container--pad{SIZE}Top
+    // container--pad{SIZE}Bottom
+    // container--s-pad{SIZE}
+    // container--s-pad{SIZE}Top
+    // container--s-pad{SIZE}Bottom
+    // container--m-pad{SIZE}
+    // container--m-pad{SIZE}Top
+    // container--m-pad{SIZE}Bottom
+    $padding_sizes: 16px 24px 32px 48px 96px;
+    $sizes: ('s': #{$mq_s_only}, 'm': #{$mq_m});
+    @each $padding_size in $padding_sizes {
+        $padding_size_no_unit: $padding_size / 1px;
+
+        &--pad#{$padding_size_no_unit} {
+            padding-top: $padding_size;
+            padding-bottom: $padding_size;
+        }
+        &--pad#{$padding_size_no_unit}Top  {
+            padding-top: $padding_size;
+        }
+        &--pad-#{$padding_size_no_unit}Bottom  {
+            padding-bottom: $padding_size;
+        }
+
+        @each $size, $query in $sizes {
+            @media #{$query} {
+                &--#{$size}-pad#{$padding_size_no_unit} {
+                    padding-top: $padding_size;
+                    padding-bottom: $padding_size;
+                }
+                &--#{$size}-pad#{$padding_size_no_unit}Top  {
+                    padding-top: $padding_size;
+                }
+                &--#{$size}-pad#{$padding_size_no_unit}Bottom  {
+                    padding-bottom: $padding_size;
+                }
+            }
+        }
+    }
+
+  &--narrow  {
+    max-width: $s_narrow_maxWidth;
+
+    @media #{$mq_m} {
+      max-width: $m_narrow_maxWidth;
+    }
+  }
+
+  &--s-narrow  {
+    @media #{$mq_s_only} {
+      max-width: $s_narrow_maxWidth;
+    }
+  }
+
+  &--m-narrow  {
+    @media #{$mq_m} {
+      max-width: $m_narrow_maxWidth;
+    }
+  }
+
+  &--medium  {
+    @media #{$mq_m} {
+      max-width: $m_medium_maxWidth;
+    }
+  }
+
+  &--full  {
+    max-width: 100%;
+  }
+  &--left  {
+    margin-left: 0;
+  }
+
+  &--right  {
+    margin-right: 0;
+  }
+}

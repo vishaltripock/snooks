@@ -1,0 +1,28 @@
+$size: 40px;
+
+.burgerMenu {
+    position: relative;
+    display: inline-block;
+    width: $size;
+    height: $size;
+}
+
+.burgerMenu__bar {
+    position: absolute;
+    display: block;
+    height: 2px;
+    width: 18px;
+    background-color: $theme-color-science-blue;
+    top: 50%;
+    left: 50%;
+
+    &--top {
+        transform: translate(-50%, -6px);
+    }
+    &--middle {
+        transform: translate(-50%, -50%);
+    }
+    &--bottom {
+        transform: translate(-50%, 4px);
+    }
+}

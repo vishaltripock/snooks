@@ -1,0 +1,66 @@
+.link  {
+  text-decoration: none !important;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &::after  {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    @include transition(transform);
+    transform: translate(0%, 0);
+  }
+
+  &:focus  {
+    &::after  {
+      transform: translate(50%, 0);
+    }
+  }
+
+  &.is-active, 
+  &:hover  {
+    color: inherit;
+    &::after  {
+      transform: translate(101%, 0);
+    }
+  }
+
+  &--thick  {
+    padding-bottom: 1px;
+
+    &::after  {
+      height: 2px;
+    }
+  }
+
+  &--discrete  {
+    &::after  {
+      transform: translate(-101%, 0);
+    }
+
+    &:hover  {
+      &::after  {
+        transform: translate(0%, 0);
+      }
+    }
+
+    &:focus  {
+      &::after  {
+        transform: translate(-50%, 0);
+      }
+    }
+  }
+
+
+  &--matchFont  {
+    font-family: inherit;
+  }
+}

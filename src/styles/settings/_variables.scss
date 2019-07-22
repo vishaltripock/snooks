@@ -1,0 +1,81 @@
+// Theme Colors
+$theme-color-iceberg: #D4F4F1;
+$theme-color-white: #FFFFFF;
+$theme-color-yellow: #FFFF9D;
+$theme-color-science-blue: #096DC3;
+$theme-color-lavender-fog: #DCD3FF;
+$theme-color-grey: #F5F5F5;
+$theme-color-peach: #FFDED5;
+$theme-color-purple-rain: #5258FA;
+
+$color_darkGrey: #232323;
+$color_grey: #A3A3A3;
+$color_lightGrey: #F0F0F0;
+
+// Media queries
+$mq_breakpoints_sizes: 768px 1024px 1280px 1440px;
+$mq_breakpoints_name: 's' 'm' 'l' 'xl' 'xxl';
+
+$mq_s_only: '(max-width: ' + (nth($mq_breakpoints_sizes, 1) - 1) + ')';
+
+$mq_m: '(min-width: ' + nth($mq_breakpoints_sizes, 1) + ')';
+$mq_m_only: '(min-width: ' + nth($mq_breakpoints_sizes, 1) + ') and (max-width: ' + (nth($mq_breakpoints_sizes, 2) - 1) + ')';
+
+$mq_l: '(min-width: ' + nth($mq_breakpoints_sizes, 2) + ')';
+$mq_l_only: '(min-width: ' + nth($mq_breakpoints_sizes, 2) + ') and (max-width: ' + (nth($mq_breakpoints_sizes, 3) - 1) + ')';
+
+$mq_xl: '(min-width: ' + nth($mq_breakpoints_sizes, 3) + ')';
+$mq_xl_only: '(min-width: ' + nth($mq_breakpoints_sizes, 3) + ') and (max-width: ' + (nth($mq_breakpoints_sizes, 4) - 1) + ')';
+
+$mq_xxl: '(min-width: ' + nth($mq_breakpoints_sizes, 4) + ')';
+
+$mq_retina: '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)';
+
+meta[name="device-size"]  {
+  font-family: unquote('s');
+  @media #{$mq_m} {
+    font-family: unquote('m');
+  }
+
+  @media #{$mq_l} {
+    font-family: unquote('l');
+  }
+
+  @media #{$mq_xl} {
+    font-family: unquote('xl');
+  }
+
+  @media #{$mq_xxl} {
+    font-family: unquote('xxl');
+  }
+}
+
+// Typography
+$font-basis-grotesque-pro-regular: 'basis-grotesque-regular';
+$font-berlingske-serif-regular: 'berlingske-serif-regular';
+$letter-spacing: 0.15em;
+
+// Transitions
+$transition-duration: .3s;
+$transition-timing: ease-in-out;
+
+// Breakpoint sizes
+$screen-size-wide: 1400px;
+$screen-size-desktop: 1024px;
+$screen-size-tablet: 768px;
+$screen-size-mobile: 425px;
+
+// Breakpoint names
+$screen-type-wide: 'wide';
+$screen-type-desktop: 'desktop';
+$screen-type-tablet: 'tablet';
+$screen-type-mobile: 'mobile';
+
+// Breakpoint mapping
+$breakpoints: (
+	$screen-type-wide '(min-width: #{$screen-type-wide})',
+	$screen-type-desktop '(max-width: #{$screen-size-desktop})',
+	$screen-type-tablet '(max-width: #{$screen-size-tablet})',
+	$screen-type-mobile '(max-width: #{$screen-size-mobile})'
+);
+

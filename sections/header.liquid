@@ -1,0 +1,83 @@
+{% comment %}
+    @TODO: 
+    - #main-menu dynamic from shopify admin
+{% endcomment %}
+<header class="header">
+    <div class="header__bar cols cols--align-middle">
+        <nav class="header__nav header__nav--primary nav--inline">
+            <a href="\" title="Home">
+                <div class="logo">
+                    <span class="logo__icon">
+                        <img src="{{ 'Snooks-Angel-Books-logo.svg' | asset_url }}" alt="Snooks Angel Books Logo">
+                    </span>
+                </div>
+            </a>
+            <ul class="header__navList nav__list u-desktop-only">
+                <li class="header__navListItem">
+                    <a class="link link--thick link--discrete" href="" title="">Create Storybook</a>
+                </li>
+                <li class="header__navListItem">
+                    <a class="link link--thick link--discrete" href="" title="">How It Works</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="header__nav header__nav--secondary nav--inline">
+            <ul class="header__navList nav__list">
+                <li class="header__navListItem header_submenuToggler">
+                    <a class="header__linkWithNotif header_linkWithSubmenu link link--thick link--discrete" href="" title="My Account">
+                        <span class="u-desktop-only">My Account</span>
+                        <span class="fonticon fonticon--profile fonticon--box u-mobile-only"></span>
+                    </a>
+                </li>
+                <li class="header__navListItem header_submenuToggler">
+                    <a class="header__linkWithNotif header_linkWithSubmenu link link--thick link--discrete" href="" title="Shopping Bag">
+                        <span class="u-desktop-only">Shopping Bag (0)</span>
+                        <span class="fonticon fonticon--shoppingBag fonticon--box u-mobile-only"></span>
+                        {% comment %}
+                            @TODO make notif for basket having items on mobile & desktop (above) -> Shopping Bag (0)
+                            <span class="notif">{{ request.basket.num_lines }}</span>
+                        {% endcomment %}
+                    </a>
+                </li>
+            </ul>
+            <a class="burgerMenu u-mobile-only" href="#mobile-main-nav" title="Toggle Menu">
+                <span class="burgerMenu__bar burgerMenu__bar--top"></span>
+                <span class="burgerMenu__bar burgerMenu__bar--middle"></span>
+                <span class="burgerMenu__bar burgerMenu__bar--bottom"></span>
+            </a>
+        </nav>
+        <div class="drawer drawer--right" id="mobile-main-nav">
+            <a href="#close-drawer" class="drawer__backdrop" title="Close Menu"></a>
+            <div class="drawer__frame">
+                <div class="drawer__header drawer__header--bar">
+                    <div class="drawer__headerContent"></div>
+                    <a href="#close-drawer" class="drawer__close close" title="Close Menu"></a>
+                </div>
+                <div class="drawer__scroller">
+                    <div class="drawer__content">
+                        <!-- TODO : add dynamic links -->
+                        <ul class="drawer__list">
+                            <li class="drawer__item">
+                                <a class="drawer__link drawer__link--large" href="" title="Women">
+                                    <span class="drawer__linkLabel">Women</span>
+                                    <span class="fonticon fonticon--smallBox fonticon--carouselArrowRight"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="drawer__footer">
+                        <div class="drawer__branding">
+                            <a href="" title="Home">
+                                <div class="logo">
+                                    <span class="logo__icon">
+                                        <img src="" alt="Snooks Angel Logo">
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

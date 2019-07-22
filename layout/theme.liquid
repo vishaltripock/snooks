@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="{{ shop.locale }}">
+<head>
+    <title>{{ page_title }}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="{{ page_description | escape }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <meta name="device-size" content="set via css through font-family prop in order to be read by js">
+    
+    {% if template.name == "index" %}
+        {%- assign body_id = "home" -%}
+    {% elsif template.suffix == "about" %}
+        {%- assign body_id = "about" -%}
+    {% endif %}
+
+    {% include 'fonts' %}
+    {% include 'additional-styles' %}
+    {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+
+    {{ content_for_header }}
+</head>
+<body id="{{ body_id }}">
+    <div id="siteWrapper">
+        {% section 'header' %}
+
+        <main id="main">
+            {{ content_for_layout }}
+        </main>
+
+        {% section 'footer' %}
+    </div>
+
+    {{ 'theme.js' | asset_url | script_tag }}
+</body>
+</html>

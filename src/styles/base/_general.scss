@@ -1,0 +1,110 @@
+// development only
+iframe[src="//localhost:3000/preview_bar"] { display:none; }
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+	background-color: $theme-color-white;
+	box-sizing: border-box;
+    font-size: 100%;
+    line-height: 1.5;
+}
+
+@media all and (min-width: 400px) {
+    html {
+        font-size: 112.5%; 
+    } 
+}
+
+@media all and (min-width: 1000px) {
+    html {
+        font-size: 125%; 
+    } 
+}
+
+body {
+    font-family: $font-basis-grotesque-pro-regular;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%
+}
+
+body,
+html {
+    min-height: 100vh;
+}
+
+a {
+	display: inline-block;
+	color: #000000;
+    font-size:12px;
+	text-decoration: none;
+
+	&:focus {
+		color: inherit;
+	}
+}
+
+ol, ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    max-width: 100%
+}
+
+form {
+    margin: 0
+}
+
+button, input[type="submit"], label[for] {
+    cursor: pointer
+}
+
+optgroup {
+    font-weight: 700
+}
+
+option {
+    color: #000;
+    background-color: #fff
+}
+
+[tabindex='-1']:focus {
+    outline: none
+}
+
+a, button, [role="button"], input, label, select, textarea {
+    touch-action: manipulation
+}
+
+.visually-hidden {
+	@include visually-hidden;
+}
+
+
+.u-mobile-only {
+    @media #{$mq_m} {
+        display: none !important;
+    }
+}
+
+.u-desktop-only {
+    @media #{$mq_s_only} {
+        display: none !important;
+    }
+}
+
+.u-block {
+    display: block;
+}
+
+.u-underline {
+    text-decoration: underline;
+}

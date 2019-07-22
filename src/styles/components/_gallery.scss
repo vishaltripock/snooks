@@ -1,0 +1,91 @@
+.gallery {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	@include transition(background-color 500ms $transition-timing);
+
+	&__slide {
+		position: absolute;
+		display: flex;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		padding: calc(4rem + 5vh) calc(3vh + 4rem);
+
+		&.is-active .gallery__imagery--active {
+			opacity: 1;
+			@include transition(opacity 500ms 100ms $transition-timing);
+			
+		}
+
+		@media (#{$mq_m}) {
+			.gallery__slide {
+				padding: calc(4rem + 5vh) calc(3vh + 2rem);
+			}
+    	}
+	}
+
+
+	.gallery__imagery {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		opacity: 0;
+		@include transition(opacity 500ms $transition-timing);
+	}
+
+	&--slide-dots {
+		position: absolute;
+		bottom: 3em;
+		left:0;
+		right:0;
+	    list-style: none;
+	    display: block;
+	    padding: 0;
+	    margin: 0 auto;
+	    padding: 24px;
+	    text-align: center;
+
+	    li {
+    		display: inline-block;
+
+    		button {
+			    border: none;
+			    display: block;
+			    width: 18px;
+			    height: 18px;
+			    overflow: hidden;
+			    background-color: transparent;
+			    color: transparent;
+			    padding: 0;
+			    margin: 0;
+
+			    &:before {
+				    content: '';
+				    border-radius: 50%;
+				    display: inline-block;
+				    width: 7px;
+				    height: 7px;
+				    background-color: $theme-color-science-blue;
+				    vertical-align: middle;
+				    @include transition(all $transition-duration $transition-timing);
+				}
+			}
+
+			&.is-active button:before {
+			    border: 1px solid #495395;
+			    background-color: transparent;
+			    width: 7px;
+			    height: 7px;
+			    border-radius: 50%;
+			}
+		}
+	}
+
+}
+
+	

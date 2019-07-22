@@ -1,0 +1,70 @@
+#about {
+	#header {
+		nav.main-menu {
+			ul.navigation > li > a {
+				color: $theme-color-science-blue;
+			}
+		}
+
+		svg.logo {
+            path {
+                fill: $theme-color-science-blue;
+            }
+        }
+	}
+
+	@include media-query($screen-type-tablet) {
+		.row {
+			flex-direction: column-reverse;
+		}
+	}
+
+	.content p {
+		font: {
+			family: $font-berlingske-serif-regular;
+			weight: bold;
+		} 
+	}
+
+
+	.bg-left {
+		background-color: $theme-color-white;
+		
+		img {
+			position: absolute;
+    		width: 100%;
+    		height: 100%;
+    		object-fit: contain;
+		}
+	}
+
+	.about-section {
+		& .arrow {
+			display: block;
+    		position: relative;
+    		bottom: -30px;
+    		    text-align: center;
+
+    		svg {
+    			width: 100px;
+    			height: 100px;
+    			fill: $theme-color-science-blue;
+
+    		}
+		}
+	}
+
+	.about-section:nth-child(odd) {
+		& .bg-right {
+			color: $theme-color-science-blue;
+			background-color: $theme-color-peach;
+		}
+	}
+
+	.about-section:nth-child(even) {
+		& .bg-right {
+			color: $theme-color-purple-rain;
+			background-color: $theme-color-iceberg;
+		}
+	}
+}	
