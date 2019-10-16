@@ -1,0 +1,15 @@
+.faq, .terms, .privacy {
+    .grid {
+        .grid__main {
+            color: $theme-color-science-blue;
+        }
+        .grid__sidebar {
+            background: $theme-color-science-blue;
+        }
+    }
+    .anchors-nav {
+        .anchors-nav__link {
+            color: $theme-color-iceberg;
+        }
+    }
+}

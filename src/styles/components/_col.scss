@@ -58,6 +58,14 @@
     }
   }
 
+  &--100vh {
+     height: 100vh;
+
+     @media #{$mq_s_only} {
+       height: 100%;
+     }
+  }
+
   &--m-2  {
     @media #{$mq_s_only} {
       display: block;

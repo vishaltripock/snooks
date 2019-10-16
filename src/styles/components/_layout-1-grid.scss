@@ -4,6 +4,7 @@
   &--page  {
     // @media #{$mq_s_only} {
     //   padding: 22px 0 46px;
+    //   height: 100%;
     // }
 
     // @media #{$mq_m} {
@@ -28,7 +29,7 @@
     @media #{$mq_m} {
       display: flex;
       align-items: stretch;
-      flex-direction: column;
+      // flex-direction: column;
       justify-content: space-between;
     }
   }

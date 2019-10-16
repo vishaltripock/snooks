@@ -1,0 +1,22 @@
+.textual  {
+  margin-top: 42px;
+  margin-bottom: 96px;
+
+  .title  {
+    margin: 48px 0 30px;
+  }
+
+  .subtitle  {
+    margin: 20px 0;
+  }
+
+  p  {
+    margin: 20px 0;
+  }
+}
+
+.textual__section  {
+  & + .textual__section  {
+    margin-top: 72px;
+  }
+}

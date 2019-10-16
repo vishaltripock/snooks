@@ -1,4 +1,4 @@
-var galleryModule = (function() {
+const Gallery = function() {
     const $gallery = document.getElementById('gallery');
     const $slides  = Array.from($gallery.getElementsByClassName('gallery__slide'));
 
@@ -18,7 +18,6 @@ var galleryModule = (function() {
             setInterval(Next, 7000);
         }
     }
+};
 
-})();
-
-export default galleryModule;
+export default Gallery;

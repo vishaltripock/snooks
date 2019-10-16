@@ -8,20 +8,32 @@
     <link rel="canonical" href="{{ canonical_url }}">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta name="device-size" content="set via css through font-family prop in order to be read by js">
-    
+
+    {% assign developmentMode = true %}
+
     {% if template.name == "index" %}
-        {%- assign body_id = "home" -%}
+        {%- assign body_class = "home" -%}
     {% elsif template.suffix == "about" %}
-        {%- assign body_id = "about" -%}
+        {%- assign body_class = "about" -%}
+    {% elsif template.suffix == "faq" %}
+        {%- assign body_class = "faq" -%}
+    {% elsif template.suffix == "terms" %}
+        {%- assign body_class = "terms" -%}
+    {% elsif template.suffix == "privacy" %}
+        {%- assign body_class = "privacy" -%}
     {% endif %}
 
     {% include 'fonts' %}
     {% include 'additional-styles' %}
     {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
 
-    {{ content_for_header }}
+    {% if developmentMode == true %}
+        {{ content_for_header | replace: "<body onload='document._boomrl();'>", "<bodx onload='document._boomrl();'>" }}
+    {% else %}
+        {{ content_for_header }}
+    {% endif %}
 </head>
-<body id="{{ body_id }}">
+<body class="{{ body_class }}">
     <div id="siteWrapper">
         {% section 'header' %}
 

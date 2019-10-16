@@ -10,6 +10,7 @@
 // Base
 @import './base/_normalize.scss';
 @import './base/_general.scss';
+@import './base/_misc.scss';
 
 // Components
 @import './components/_btn.scss';
@@ -18,16 +19,20 @@
 @import './components/_container.scss';
 @import './components/_drawer.scss';
 @import './components/_gallery.scss';
+@import './components/_grid.scss';
 @import './components/_header.scss';
 @import './components/_link.scss';
 @import './components/_layout-1-grid.scss';
 @import './components/_logo.scss';
 @import './components/_nav.scss';
+@import './components/_subtitle.scss';
+@import './components/_select.scss';
 @import './components/_title.scss';
-
-// Layout
-@import './layout/_footer.scss';
-// @import './layout/_grid.scss';
+@import './components/_textual.scss';
+@import './components/_anchors-nav.scss';
+@import './components/_footer.scss';
+@import './components/_table-display.scss';
+@import './components/_desc.scss';
 
 // Pages
 // @import './pages/_home.scss';

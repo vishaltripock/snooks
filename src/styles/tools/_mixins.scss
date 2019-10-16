@@ -134,3 +134,26 @@
     border-radius: $size / 2;
 }
 
+@mixin gridItemStyles($numberOfItemsPerRow: 1) {
+  $maxItemsPerRow: 5;
+  $border_style: 1px solid $color_lightGrey;
+
+  border-bottom: $border_style;
+  width: calc(100% / #{$numberOfItemsPerRow});
+
+
+  @for $i from 2 through $maxItemsPerRow {
+    $selectors: '';
+    @for $j from 1 through $i {
+      &:nth-child(#{$i}n + #{$j})  {
+        border-right: 0;
+      }
+    }
+  }
+
+  @for $k from 1 through $numberOfItemsPerRow {
+    &:nth-child(#{$numberOfItemsPerRow}n + #{$k})  {
+      border-right: $border_style;
+    }
+  }
+}

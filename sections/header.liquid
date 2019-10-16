@@ -1,7 +1,3 @@
-{% comment %}
-    @TODO: 
-    - #main-menu dynamic from shopify admin
-{% endcomment %}
 <header class="header">
     <div class="header__bar cols cols--align-middle">
         <nav class="header__nav header__nav--primary nav--inline">
@@ -13,30 +9,29 @@
                 </div>
             </a>
             <ul class="header__navList nav__list u-desktop-only">
-                <li class="header__navListItem">
-                    <a class="link link--thick link--discrete" href="" title="">Create Storybook</a>
-                </li>
-                <li class="header__navListItem">
-                    <a class="link link--thick link--discrete" href="" title="">How It Works</a>
-                </li>
+                {% for link in linklists.main-menu.links %}
+                    <li class="header__navListItem">
+                        <a class="link link--thick link--discrete" href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+                    </li>
+                {% endfor %}
             </ul>
         </nav>
         <nav class="header__nav header__nav--secondary nav--inline">
             <ul class="header__navList nav__list">
-                <li class="header__navListItem header_submenuToggler">
-                    <a class="header__linkWithNotif header_linkWithSubmenu link link--thick link--discrete" href="" title="My Account">
+                <li class="header__navListItem">
+                    <!-- @TODO: add link to account section -->
+                    <a class="link link--thick link--discrete" href="#" title="My Account">
                         <span class="u-desktop-only">My Account</span>
                         <span class="fonticon fonticon--profile fonticon--box u-mobile-only"></span>
                     </a>
                 </li>
-                <li class="header__navListItem header_submenuToggler">
-                    <a class="header__linkWithNotif header_linkWithSubmenu link link--thick link--discrete" href="" title="Shopping Bag">
+                <li class="header__navListItem">
+                    <a class="header__linkWithNotiflink link link--thick link--discrete" href="#" title="Shopping Bag">
                         <span class="u-desktop-only">Shopping Bag (0)</span>
                         <span class="fonticon fonticon--shoppingBag fonticon--box u-mobile-only"></span>
-                        {% comment %}
-                            @TODO make notif for basket having items on mobile & desktop (above) -> Shopping Bag (0)
+                        <!-- @TODO make notif for shopping bag having items on mobile & desktop 
                             <span class="notif">{{ request.basket.num_lines }}</span>
-                        {% endcomment %}
+                        -->
                     </a>
                 </li>
             </ul>
@@ -55,22 +50,23 @@
                 </div>
                 <div class="drawer__scroller">
                     <div class="drawer__content">
-                        <!-- TODO : add dynamic links -->
                         <ul class="drawer__list">
-                            <li class="drawer__item">
-                                <a class="drawer__link drawer__link--large" href="" title="Women">
-                                    <span class="drawer__linkLabel">Women</span>
-                                    <span class="fonticon fonticon--smallBox fonticon--carouselArrowRight"></span>
-                                </a>
-                            </li>
+                            {% for link in linklists.main-menu.links %}
+                                <li class="drawer__item">
+                                    <a class="drawer__link drawer__link--large" href="{{ link.url }}" title="{{ link.title }}">
+                                        <span class="drawer__linkLabel">{{ link.title }}</span>
+                                        <span class="fonticon fonticon--smallBox fonticon--carouselArrowRight"></span>
+                                    </a>
+                                </li>
+                            {% endfor %}
                         </ul>
                     </div>
                     <div class="drawer__footer">
                         <div class="drawer__branding">
-                            <a href="" title="Home">
+                            <a href="/" title="Home">
                                 <div class="logo">
                                     <span class="logo__icon">
-                                        <img src="" alt="Snooks Angel Logo">
+                                        <img src="{{ 'Snooks-Angel-Books-logo.svg' | asset_url }}" alt="Snooks Angel Books Logo">
                                     </span>
                                 </div>
                             </a>

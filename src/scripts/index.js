@@ -1,7 +1,8 @@
-import domready from 'domready'
-import {TweenMax, Power3} from 'gsap'
-import Drawer from './components/drawer'
-import Gallery from './components/gallery'
+import domready from 'domready';
+import {TweenMax, Power3} from 'gsap';
+import Drawer from './components/drawer';
+import Gallery from './components/gallery';
+import Smoothscroll from './components/smoothscroll';
 
 class App {
 	constructor() {
@@ -18,8 +19,8 @@ class App {
 
   		const body = document.getElementsByTagName('body')[0];
 
-		if(body.id === 'home') {
-			Gallery.init();
+		if(body.className === 'home') {
+			Gallery().init();
 		}
 
 		// Drawers
@@ -32,6 +33,17 @@ class App {
 		    	}
 		  	});
 		});
+
+		// Smoothscroll
+	    const smoothscroll_arr = [].slice.call(document.querySelectorAll('.smoothscroll'));
+	    smoothscroll_arr.forEach((el) => {
+	    	new Smoothscroll({
+	        	el: el,
+	        		options: {
+	          			offsetTop: 32
+	        		}
+	      	});
+	  	});
 	}
 }
 
