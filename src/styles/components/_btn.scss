@@ -12,28 +12,25 @@
         white-space: nowrap;
     cursor: pointer;
     @include transition(background-color $transition-duration $transition-timing);
-}
 
-
-.btn {
-    &-bg-grey {
+    &--grey {
         border:1px $theme-color-science-blue solid;
         color: $theme-color-science-blue;
+
+        &:hover {
+            background-color: $theme-color-science-blue;
+            color: $theme-color-white;
+        }
     }
 
-    &-bg-grey:hover {
-        background-color: $theme-color-science-blue;
-        color: $theme-color-white;
-    }
-
-    &-bg-science-blue {
+    &--scienceBlue {
         color: $theme-color-white;
         border:1px $theme-color-white solid;
         margin-top: 1.2em;
-    }
 
-    &-bg-science-blue:hover {
-        color: $theme-color-science-blue;
-        background-color: $theme-color-white;
+        &:hover {
+            color: $theme-color-science-blue;
+            background-color: $theme-color-white;
+        }
     }
 }

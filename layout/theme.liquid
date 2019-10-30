@@ -1,3 +1,5 @@
+<!-- @TODO: fix footer issue and height of main content -->
+
 <!doctype html>
 <html lang="{{ shop.locale }}">
 <head>
@@ -12,15 +14,17 @@
     {% assign developmentMode = true %}
 
     {% if template.name == "index" %}
-        {%- assign body_class = "home" -%}
+        {% assign body_class = "home" %}
     {% elsif template.suffix == "about" %}
-        {%- assign body_class = "about" -%}
+        {% assign body_class = "about" %}
     {% elsif template.suffix == "faq" %}
-        {%- assign body_class = "faq" -%}
+        {% assign body_class = "faq" %}
     {% elsif template.suffix == "terms" %}
-        {%- assign body_class = "terms" -%}
+        {% assign body_class = "terms" %}
     {% elsif template.suffix == "privacy" %}
-        {%- assign body_class = "privacy" -%}
+        {% assign body_class = "privacy" %}
+     {% elsif template.suffix == "product" %}
+        {% assign body_class = "product" %}
     {% endif %}
 
     {% include 'fonts' %}

@@ -1,0 +1,46 @@
+.storybook {
+	position: relative;
+	height: 100%;
+	display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+.storybook__main {
+	display: flex;
+}
+
+.storybook__controls {
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    font-family: $font-basis-grotesque-pro-regular;
+    font-size: 12px;
+    text-transform: uppercase;
+
+    .storybook__nav {
+    	display: flex;
+    	margin: 24px;
+    	
+    	&--right  {
+    		svg {
+			    position: relative;
+			    margin-left: 12px;
+			    -webkit-transform: rotate(180deg);
+			    transform: rotate(180deg);
+			}
+    	}
+
+    	&--left {
+    		svg {
+			    position: relative;
+			    margin-right: 12px;
+    		}
+    	}
+    }
+
+}

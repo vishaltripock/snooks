@@ -1,4 +1,4 @@
-// @TODO Change parent class rule name to: .layout-1-grid
+// @TODO: Change .connect component css to: .layout-1-grid
 
 .connect  {
   &--page  {
@@ -24,8 +24,6 @@
 
 .connect__option  {
   &--register  {
-    background-color: #F5E5D9;
-
     @media #{$mq_m} {
       display: flex;
       align-items: stretch;

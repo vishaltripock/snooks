@@ -84,6 +84,10 @@ a, button, [role="button"], input, label, select, textarea {
     touch-action: manipulation
 }
 
+#main {
+    height: calc(100vh - (96px + 100px));
+}
+
 .visually-hidden {
 	@include visually-hidden;
 }

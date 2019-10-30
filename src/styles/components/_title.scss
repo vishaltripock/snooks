@@ -7,10 +7,6 @@
     font-size: 64px;
   }
 
-  &--oneWordPerLine  {
-    word-spacing: 9999rem;
-  }
-
   &--caps  {
     text-transform: uppercase;
   }
@@ -24,13 +20,6 @@
     }
   }
 
-  &--destructured  {
-    font-size: 64px;
-
-    @media #{$mq_m} {
-      font-size: 112px;
-    }
-  }
 
   &--internal  {
     font-size: 48px;
@@ -38,6 +27,10 @@
 
   &--small  {
     font-size: 20px;
+  }
+
+  &--alt-font {
+    font-family: $font-basis-grotesque-pro-regular;
   }
 
   &--medium  {

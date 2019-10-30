@@ -1,0 +1,16 @@
+.context {
+	&--lavenderFog {
+		background-color: $theme-color-lavender-fog;
+	}
+
+	&--iceberg {
+		background-color: $theme-color-iceberg;
+		color: $theme-color-science-blue;
+	}
+
+	&--scienceBlue {
+		background-color: $theme-color-science-blue; 
+		color: $theme-color-white;
+	}
+}
+

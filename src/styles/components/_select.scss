@@ -1,65 +1,32 @@
 .select  {
   position: relative;
 
-  &::before  {
-    position: absolute;
-    top: 50%;
-    right: 21px;
-    transform: translate(50%, -50%);
-    display: block;
-    content: '';
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 5px 5px 0 5px;
-    border-color: $color_darkGrey transparent transparent transparent;
-  }
-
-  select  {
-    position: relative;
-    display: inline-block;
-    font-size: 14px;
-    padding: 13px 42px 13px 16px;
-    line-height: 18px;
-    border: 1px solid $color_formInput;
-    color: $color_darkGrey;
-    font-family: $font-basis-grotesque-pro-regular;
-    background: transparent;
-    border-radius: 0;
-    appearance: none;
-    cursor: pointer;
-    width: 100%;
-  }
-
-  .add-to-basket &,
-  &--cta  {
-    select  {
-      border: 2px solid $color_darkGrey;
-      padding: 15px 42px 18px 16px;
-      font-family: $font-basis-grotesque-pro-regular;
-    }
-  }
-
-  &--borderLess  {
     &::before  {
-      right: 0;
-      transform: translate(0, -50%);
+        position: absolute;
+        top: 50%;
+        right: 21px;
+        transform: translate(50%, -50%);
+        display: block;
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px 5px 0 5px;
+        border-color: $theme-color-science-blue transparent transparent transparent;
     }
+
     select  {
-      border-color: transparent !important;
-      padding-left: 0;
-      padding-right: 12px;
+        position: relative;
+        font-size: 14px;
+        padding: 13px 42px 13px 16px;
+        border: 1px solid $theme-color-science-blue;
+        color: $theme-color-science-blue;
+        font-family: $font-basis-grotesque-pro-regular;
+        background: transparent;
+        border-radius: 0;
+        -webkit-appearance: button;
+        appearance: button;
+        cursor: pointer;
+        width: 100%;
     }
-  }
-
-  &--multiple  {
-
-  }
-
-
-  &.has-error  {
-    select  {
-      border-color: $color_danger;
-    }
-  }
 }
