@@ -56,6 +56,7 @@ ol, ul {
 }
 
 img {
+    display: block;
     max-width: 100%
 }
 
@@ -84,9 +85,9 @@ a, button, [role="button"], input, label, select, textarea {
     touch-action: manipulation
 }
 
-#main {
-    height: calc(100vh - (96px + 100px));
-}
+// #main {
+//     height: calc(100vh - (96px + 100px));
+// }
 
 .visually-hidden {
 	@include visually-hidden;
@@ -94,13 +95,19 @@ a, button, [role="button"], input, label, select, textarea {
 
 
 .u-mobile-only {
-    @media #{$mq_m} {
+    //1025px
+    @media #{$mq_lmin} {
         display: none !important;
     }
 }
 
 .u-desktop-only {
-    @media #{$mq_s_only} {
+    // @media #{$mq_s_only} {
+    //     display: none !important;
+    // }
+
+    //1024px max
+    @include media-query($screen-type-desktop){
         display: none !important;
     }
 }
@@ -112,3 +119,4 @@ a, button, [role="button"], input, label, select, textarea {
 .u-underline {
     text-decoration: underline;
 }
+

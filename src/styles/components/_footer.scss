@@ -1,36 +1,38 @@
-.footer  {
-    background-color: $theme-color-yellow;
-    color: $theme-color-science-blue;
-
+.footer {
+  // z-index: 10;
+  position: relative;
 }
 
-.footer__bar  {
+.footer__bar {
+  background-color: #ffff9d;
   @media #{$mq_m} {
-    padding: 0 32px;
+    position: relative;
+    height: 100px;
+    padding: 32px 32px;
   }
 
-  &--top  {
+  &--top {
     @media #{$mq_s_only} {
       padding: 20px 0;
     }
 
-    .footer__nav  {
+    .footer__nav {
       @media #{$mq_m} {
         position: relative;
-        height: 96px;
+        // height: 96px;
       }
     }
 
-    .footer__navList  {
+    .footer__navList {
       @media #{$mq_s_only} {
         display: block;
       }
     }
   }
 
-  &--bottom  {
+  &--bottom {
     font-size: 11px;
-    border-top: 1px solid #3D3D3D;
+    border-top: 1px solid #3d3d3d;
 
     @media #{$mq_s_only} {
       padding: 25px;
@@ -38,14 +40,13 @@
       text-align: center;
     }
 
-
     @media #{$mq_m} {
       height: 57px;
     }
   }
 }
 
-.footer__home  {
+.footer__home {
   @media #{$mq_m} {
     position: absolute;
     top: 50%;
@@ -54,64 +55,61 @@
   }
 }
 
-.footer__copyrightSymbol  {
+.footer__copyrightSymbol {
   font-family: $font-basis-grotesque-pro-regular, sans-serif;
 }
 
-.footer__nav  {
+.footer__nav {
   @media #{$mq_m} {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  &--primary  {
+  &--primary {
     font-family: $font-basis-grotesque-pro-regular;
+    color: #096DC3;
     text-align: center;
 
     @media #{$mq_s_only} {
       line-height: 32px;
     }
 
-
     @media #{$mq_m} {
-      li + li  {
+      li + li {
         margin-left: 32px;
       }
     }
 
-
-
     @media #{$mq_l} {
-      li + li  {
+      li + li {
         margin-left: 46px;
       }
     }
   }
 }
 
-.footer__navList  {
+.footer__navList {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  &--legal  {
+  &--legal {
     @media #{$mq_s_only} {
       margin-top: 8px;
     }
 
-    li + li  {
+    li + li {
       margin-left: 32px;
     }
   }
 
-  &--social  {
+  &--social {
     font-size: 16px;
 
     @media #{$mq_s_only} {
       margin-top: 15px;
     }
-
 
     @media #{$mq_m} {
       margin-left: 32px;

@@ -1,12 +1,18 @@
 <!-- @TODO: Change connect class to layout-1-grid -->
 <div class="connect connect--page">
 	<div class="cols cols--m-2">
+		<div class="logo">
+			<img src="{{- 'Snooks-Angel-Books-logo.svg' | asset_url -}}" alt="Snooks Angel Books Logo">
+		</div>
 		<div class="col connect__option connect__option--register context--scienceBlue">
 			<div class="container">
 				<div class="connect__optionHeader">
 					<h1 class="title title--small title--caps">Remembering A loved One</h1>
 				</div>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+					et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+					aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur.</p>
 				<div>
 					<!-- @TODO: add product link to custom storybook -->
 					<a href="" class="btn btn--scienceBlue"><span>Shop Now</span></a>
@@ -17,11 +23,13 @@
 			<!-- @TODO: Make images dyanmically added from shopify CMS or make just a static image and remove gallery-->
 			<div id="gallery" class="gallery">
 				<div class="gallery__slide">
-					<img class="gallery__imagery gallery__imagery--active" src="{{ 'home-test-img.jpg' | asset_img_url: 'master' }}" />
-  				</div>
-  				<div class="gallery__slide">
-					<img class="gallery__imagery gallery__imagery--active" src="{{ 'home-test-img-2.jpeg' | asset_img_url: 'master' }}" />
-  				</div>
+					<img class="gallery__imagery gallery__imagery--active"
+						src="{{ 'home-test-img.jpg' | asset_img_url: 'master' }}" />
+				</div>
+				<div class="gallery__slide">
+					<img class="gallery__imagery gallery__imagery--active"
+						src="{{ 'home-test-img-2.jpeg' | asset_img_url: 'master' }}" />
+				</div>
 			</div>
 		</div>
 	</div>

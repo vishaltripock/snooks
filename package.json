@@ -35,7 +35,7 @@
   },
   "scripts": {
     "dev": "concurrently \"npm run dev-watch-css\" \"npm run dev-watch-js\" \"npm run dev-watch-theme\" \"npm run dev-server\"",
-    "dev-server": "browser-sync https://snooks-angel-books.myshopify.com --open external /var/tmp/theme_ready -w",
+    "dev-server": "browser-sync https://vishal-avatar.myshopify.com --open external /var/tmp/theme_ready -w",
     "dev-watch-theme": "theme watch --notify=/var/tmp/theme_ready",
     "dev-watch-css": "node-sass -w ./src/styles/theme.scss ./assets/theme.scss.css",
     "dev-watch-js": "watchify ./src/scripts/index.js -t babelify -t aliasify --no-babelrc -o ./assets/theme.js",

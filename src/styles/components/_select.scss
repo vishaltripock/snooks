@@ -1,32 +1,44 @@
-.select  {
+.select {
   position: relative;
 
-    &::before  {
-        position: absolute;
-        top: 50%;
-        right: 21px;
-        transform: translate(50%, -50%);
-        display: block;
-        content: '';
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 5px 5px 0 5px;
-        border-color: $theme-color-science-blue transparent transparent transparent;
-    }
+  &::before {
+    position: absolute;
+    top: 50%;
+    right: 21px;
+    transform: translate(50%, -50%);
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: $theme-color-science-blue transparent transparent transparent;
+  }
 
-    select  {
-        position: relative;
-        font-size: 14px;
-        padding: 13px 42px 13px 16px;
-        border: 1px solid $theme-color-science-blue;
-        color: $theme-color-science-blue;
-        font-family: $font-basis-grotesque-pro-regular;
-        background: transparent;
-        border-radius: 0;
-        -webkit-appearance: button;
-        appearance: button;
-        cursor: pointer;
-        width: 100%;
+  select {
+    position: relative;
+    font-size: 14px;
+    padding: 13px 42px 13px 16px;
+    border: 1px solid $theme-color-science-blue;
+    color: $theme-color-science-blue;
+    font-family: $font-basis-grotesque-pro-regular;
+    background: transparent;
+    border-radius: 0;
+    -webkit-appearance: button;
+    appearance: button;
+    box-shadow: none;
+    cursor: pointer;
+    width: 100%;
+
+    option {
+      outline: none;
+      background-color: $theme-color-iceberg;
+      color: $theme-color-science-blue;
+      font-family: $font-basis-grotesque-pro-regular;
+      border: 1px solid $theme-color-science-blue;
+      box-shadow: none;
+      font-size: 14px;
+      padding: 13px 42px 13px 16px;
     }
+  }
 }

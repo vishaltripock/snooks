@@ -18,7 +18,7 @@ class Drawer extends Popin {
     this.scroller_el = this.el.querySelector('.drawer__scroller')
 
     this.anim_axis = this.el.classList.contains('drawer--top') ? 'y' : 'x'
-    this.anim_direction = this.el.classList.contains('drawer--top') ? -1 : 1
+    this.anim_direction = this.el.classList.contains('drawer--top') ? 1 : -1
   }
   addEvents() {
     super.addEvents(...arguments)

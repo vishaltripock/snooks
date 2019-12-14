@@ -22,6 +22,8 @@ $mq_s_only: '(max-width: ' + (nth($mq_breakpoints_sizes, 1) - 1) + ')';
 $mq_m: '(min-width: ' + nth($mq_breakpoints_sizes, 1) + ')';
 $mq_m_only: '(min-width: ' + nth($mq_breakpoints_sizes, 1) + ') and (max-width: ' + (nth($mq_breakpoints_sizes, 2) - 1) + ')';
 
+$mq_lmin : '(min-width: ' + (nth($mq_breakpoints_sizes, 2) + 1) + ')';
+
 $mq_l: '(min-width: ' + nth($mq_breakpoints_sizes, 2) + ')';
 $mq_l_only: '(min-width: ' + nth($mq_breakpoints_sizes, 2) + ') and (max-width: ' + (nth($mq_breakpoints_sizes, 3) - 1) + ')';
 

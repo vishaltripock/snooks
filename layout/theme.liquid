@@ -2,6 +2,7 @@
 
 <!doctype html>
 <html lang="{{ shop.locale }}">
+
 <head>
     <title>{{ page_title }}</title>
     <meta charset="utf-8">
@@ -14,30 +15,38 @@
     {% assign developmentMode = true %}
 
     {% if template.name == "index" %}
-        {% assign body_class = "home" %}
+    {% assign body_class = "home" %}
     {% elsif template.suffix == "about" %}
-        {% assign body_class = "about" %}
+    {% assign body_class = "about" %}
     {% elsif template.suffix == "faq" %}
-        {% assign body_class = "faq" %}
+    {% assign body_class = "faq" %}
     {% elsif template.suffix == "terms" %}
-        {% assign body_class = "terms" %}
+    {% assign body_class = "terms" %}
     {% elsif template.suffix == "privacy" %}
-        {% assign body_class = "privacy" %}
-     {% elsif template.suffix == "product" %}
-        {% assign body_class = "product" %}
+    {% assign body_class = "privacy" %}
+    {% elsif template.suffix == "contact" %}
+    {% assign body_class = "contact" %}
+    {% elsif template.suffix == "product" %}
+    {% assign body_class = "product" %}
     {% endif %}
 
     {% include 'fonts' %}
     {% include 'additional-styles' %}
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"> </script>
+
+
     {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
 
     {% if developmentMode == true %}
-        {{ content_for_header | replace: "<body onload='document._boomrl();'>", "<bodx onload='document._boomrl();'>" }}
+    {{ content_for_header | replace: "<body onload='document._boomrl();'>", "<bodx onload='document._boomrl();'>" }}
     {% else %}
-        {{ content_for_header }}
+    {{ content_for_header }}
     {% endif %}
 </head>
-<body class="{{ body_class }}">
+
+<body class="{{ body_class | replace: '.', ' ' | truncatewords: 1, '' }}">
     <div id="siteWrapper">
         {% section 'header' %}
 
@@ -50,4 +59,66 @@
 
     {{ 'theme.js' | asset_url | script_tag }}
 </body>
+
+
+<script>
+
+    $("#storybook__nav--left").click(function (e) {
+
+        // Previous
+        console.log("Hey");
+
+        $('#storybook__nav--left').show();
+        $('#storybook__nav--right').show();
+
+        const currentStep = $('.storybook__section.stepActive');  //removeClass("stepActive");
+        const currentStepIndex = Number($(currentStep).attr("data-storybook-index"));
+
+        $(currentStep).removeClass("stepActive");
+
+        console.log($("#step" + (currentStepIndex - 1)));
+
+        if (currentStepIndex == 2) {
+            $("#step" + (currentStepIndex - 1)).addClass("stepActive");
+            $('#storybook__nav--left').hide();
+        }
+        else {
+            $("#step" + (currentStepIndex - 1)).addClass("stepActive");
+        }
+
+    })
+
+    $("#storybook__nav--right").click(function (e) {
+
+        // Next
+        console.log("Hello");
+
+        $('#storybook__nav--left').show();
+        $('#storybook__nav--right').show();
+
+        const currentStep = $('.storybook__section.stepActive');
+        const currentStepIndex = Number($(currentStep).attr("data-storybook-index"));
+
+        // console.log($(currentStep));
+        // console.log(currentStepIndex);
+
+        console.log($("#step" + (currentStepIndex + 1)));
+
+        $(currentStep).removeClass("stepActive");
+
+        if (currentStepIndex == 2) {
+            $("#step" + (currentStepIndex + 1)).addClass("stepActive");
+            $('#storybook__nav--right').hide();
+        }
+        else {
+            $("#step" + (currentStepIndex + 1)).addClass("stepActive");
+        }
+    })
+
+
+    $(document).ready(function () {
+        $('#storybook__nav--left').hide();
+    })
+</script>
+
 </html>
