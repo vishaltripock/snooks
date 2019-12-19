@@ -1,0 +1,539 @@
+#wrapper {
+  height: calc(100% - 95px); // temp 95px perm 66px
+  .responsive {
+    display: none;
+  }
+
+  ul,
+  ol,
+  li {
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  #constructor{
+    height: 100%;
+  }
+
+  .width-setter {
+    height: 100%;
+  }
+
+  #constructor-panel {
+    display: none;
+    width: 100%;
+    height: 100%;
+    .viewport{
+      height: 100%;
+    }
+  }
+
+  #constructor-panel .viewport .avatar-layers {
+    display: flex;
+    height: calc(100% - 55px);
+    width: 100%;
+  }
+
+  .avatar-container,
+  .layers-container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #constructor-panel
+    .viewport
+    .carousel
+    .layer-item-background.layer-active
+    > img {
+    min-height: 540px;
+  }
+  #constructor-panel .viewport .viewport-col.modal-col {
+    width: 450px;
+  }
+  #constructor-panel .carousel {
+    display: inline-block;
+    width: 400px;
+    height: 100%;
+  }
+  #constructor-panel .layers {
+    height: 100%;
+    width: 100%;
+    background: #f5f5f5 0% 0% no-repeat padding-box;
+    opacity: 1;
+  }
+  #constructor-panel .layers .layer {
+    display: none;
+  }
+  #constructor-panel .layers .layer.active {
+    outline: none;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: flex-start;
+    overflow: auto;
+  }
+  #constructor-panel .layers .layer .item {
+    display: none;
+    position: relative;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    margin: 0 10px 9px 0;
+    background: #096dc3 0% 0% no-repeat padding-box;
+    border-radius: 50%;
+  }
+
+  /* Layer Ke Item ke liye */
+  #constructor-panel .layers .layer .item.showLayerItem {
+    display: inline-block;
+  }
+
+  #constructor-panel .layers .layer .item:hover {
+    background: #eee;
+    background: rgba(200, 200, 200, 0.3);
+    border-radius: 50%;
+  }
+  #constructor-panel .layers .layer .item > span {
+    display: none;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    width: 27px;
+    height: 27px;
+    background: url("../images/constructor/current_item.png") 50% 50% no-repeat;
+  }
+
+  #constructor-panel .layers .layer .item.active > span {
+    display: inline-block;
+  }
+
+  #constructor-panel .groups {
+    margin: 0 20px 0 0;
+    width: 540px;
+    text-align: center;
+  }
+  #constructor-panel .groups a {
+    opacity: 0.5;
+    display: inline-block;
+  }
+  #constructor-panel .groups a + a {
+    margin-left: 10px;
+  }
+  #constructor-panel .groups a:hover {
+    opacity: 0.8;
+  }
+  #constructor-panel .groups a.active {
+    opacity: 1;
+  }
+
+  #constructor-panel .hidden-group {
+    display: none !important;
+  }
+
+  #action-buttons {
+    display: block;
+  }
+
+  .group-control {
+    display: block;
+    border-width: 1px;
+    border-color: rgb(129, 129, 129);
+    border-style: solid;
+    background-color: rgba(255, 255, 255, 0.62);
+    width: 76px;
+    height: 59px;
+    float: left;
+  }
+
+  /* -------------------------------------- Tabs and Subtabs Slider --------------------------------- */
+
+  .tabs-subtabs {
+    width: 100%;
+    height: 55px;
+  }
+
+  .tabs-subtabs-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .tabs-container {
+    width: 50%;
+    height: 100%;
+    background-color: #ffff9d;
+    color: #096dc3;
+  }
+
+  .tabs-bar {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tabs-bar .prev-tab {
+    margin-left: 30px;
+  }
+
+  .tabs-bar .next-tab {
+    margin-right: 30px;
+  }
+
+  .tabs-bar .tabs .tab {
+    display: none;
+  }
+
+  .tabs-bar .tabs .tab.active {
+    display: list-item;
+  }
+
+  /* -------------------------------------- Sub Section CSS Start ----------------------------------- */
+
+  .subtab-container {
+    width: 50%;
+    height: 100%;
+    color: #096dc3;
+  }
+
+  .subtab-container-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .subtab-container-inner .prev-subtab {
+    margin-left: 30px;
+  }
+
+  .subtab-container-inner .next-subtab {
+    margin-right: 30px;
+  }
+
+  .subtab-bar {
+    width: 100%;
+    height: 100%;
+  }
+
+  .subtab-bar-container {
+    display: none;
+    width: 100%;
+  }
+
+  .subtabShow {
+    display: block;
+    font-size: 1.7rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .subtabNav {
+    display: flex;
+  }
+
+  #right-button {
+    visibility: hidden;
+    width: 15px;
+    height: 15px;
+    margin: 8px;
+    text-align: center;
+    a{
+      display: block;
+    }
+  }
+
+  .subtab-bar-container-inner {
+    margin-top: 0%;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  #left-button {
+    visibility: hidden;
+    width: 15px;
+    height: 15px;
+    margin: 8px;
+    text-align: center;
+    a{
+      display: block;
+    }
+  }
+
+  .subtab-bar-container .subtab-bar-container-inner .subtabNav .subtab-item {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.62);
+    list-style: none;
+    font-size: 20px;
+    height: 36px;
+    margin: 8px;
+    text-align: center;
+    padding: 7px 14px;
+    border-radius: 8px;
+    border: 2px solid rgba(129, 129, 129, 0.6);
+  }
+
+  .subtab-bar-container
+    .subtab-bar-container-inner
+    .subtabNav
+    .subtab-item:hover {
+    background-color: rgba(129, 129, 129, 0.6);
+    color: rgb(255, 255, 255);
+  }
+
+  .subtab-bar-container
+    .subtab-bar-container-inner
+    .subtabNav
+    .subtab-item:active,
+  .subtab-bar-container
+    .subtab-bar-container-inner
+    .subtabNav
+    .subtab-item:visited {
+    background-color: rgb(129, 129, 129);
+    color: rgb(255, 255, 255);
+  }
+
+  .subtab-bar-container .subtab-bar-container-inner .subtabNav .itemVisited {
+    background-color: rgb(129, 129, 129);
+    color: rgb(255, 255, 255);
+  }
+
+  /* -------------------------------------- Sub Section CSS End ----------------------------------- */
+
+  @media (max-width: 1024px) {
+    .responsive {
+      display: block;
+    }
+
+    .notresponsive {
+      display: none;
+    }
+
+    #constructor-panel .viewport .avatar-layers {
+      flex-direction: column;
+    }
+
+    .avatar-container,
+    .layers-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .layers-container {
+      margin-top: 100px;
+    }
+
+    #constructor-panel .layers {
+      padding: 0px 10px;
+      height: 100%;
+      width: 100%;
+    }
+
+    #constructor-panel .layers .layer.active {
+      justify-content: flex-start;
+      padding: 30px 0px 0px 0px;
+    }
+
+    .tabs-subtabs {
+      width: 100%;
+      flex-direction: column;
+      position: absolute;
+      bottom: 16px;
+      background: #f5f5f5;
+      height: 100px;
+    }
+
+    .tabs-subtabs-container {
+      flex-direction: column;
+    }
+
+    .tabs-container,
+    .subtab-container {
+      width: 100%;
+      height: 50%;
+      max-width: 100%;
+    }
+  }
+
+  .malefemale {
+    margin-left: 261px;
+    height: 60px;
+  }
+
+  .male {
+    font-family: "MullerW00-Regular";
+    color: rgb(90, 90, 90);
+    font-size: 19px;
+    line-height: 59px;
+    padding-left: 59px;
+    background: url("/static/images/Md.png") no-repeat 33px 20px;
+    border-right-width: 0;
+  }
+
+  .female {
+    font-family: "MullerW00-Regular";
+    color: rgb(90, 90, 90);
+    font-size: 19px;
+    line-height: 59px;
+    padding-left: 59px;
+    background: url("/static/images/Fd.png") no-repeat 33px 20px;
+  }
+
+  .focusedmale {
+    background-color: rgb(129, 129, 129);
+    color: white;
+    background-image: url("/static/images/M.png");
+  }
+
+  .focusedfemale {
+    background-color: rgb(129, 129, 129);
+    color: white;
+    background-image: url("/static/images/F.png");
+  }
+
+  .female:hover,
+  .male:hover {
+    color: rgb(90, 90, 90);
+  }
+
+  .focusedfemale:hover,
+  .focusedmale:hover {
+    color: white;
+  }
+
+  @media (max-width: 763px) {
+    .malefemale {
+      margin: auto;
+      margin-top: 20px;
+      width: 400px;
+    }
+
+    .group-control {
+      width: 143px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #constructor-panel .viewport {
+      display: block;
+    }
+  }
+
+  @media (max-width: 400px) {
+    #constructor-panel .carousel {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+    }
+
+    #constructor-panel .viewport .viewport-col.modal-col {
+      width: 100%;
+    }
+
+    .malefemale {
+      width: 100%;
+    }
+
+    .group-control {
+      width: 34%;
+    }
+
+    .male {
+      padding-left: 16%;
+    }
+
+    .female {
+      padding-left: 15%;
+      background-position: 85px 23px;
+    }
+  }
+
+  /* <----------------------------------- Carsousel Frame ------------------------------------>*/
+
+  .pixel {
+    position: relative;
+  }
+
+  .pixel .carousel {
+    /*width: 400px;*/
+    /* height: 540px; */
+    /*background: grey;*/
+  }
+
+  .pixel .carousel-inner {
+    height: 100%;
+  }
+
+  /***********************/
+
+  .pixel .tabs .tab.active {
+    /*background: red;*/
+  }
+
+  /***********************/
+
+  .pixel .layer {
+    width: 100%;
+  }
+
+  .pixel .layer.active .tab {
+    /*background: red;*/
+  }
+
+  .pixel .layer .item {
+    /*width: 100px;*/
+    /*height: 100px;*/
+
+    /*float: left;*/
+  }
+
+  .pixel .layer .item.active {
+    /*outline: 1px solid #000;*/
+  }
+
+  .pixel .layer .item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  /***********************/
+
+  .pixel .carousel .layer-item {
+    display: none;
+  }
+
+  .pixel .carousel .layer-active {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .pixel .carousel .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  /***********************/
+
+  .inframe-layer {
+    overflow-y: scroll;
+  }
+}

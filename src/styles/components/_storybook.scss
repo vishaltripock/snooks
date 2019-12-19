@@ -1,129 +1,65 @@
+.header {
+  nav.header__nav--primary {
+    ul.header__navList > li > a {
+      color: $theme-color-white;
+    }
+  }
+
+  nav.header__nav--secondary {
+    ul.header__navList > li > a {
+      color: $theme-color-science-blue;
+    }
+  }
+
+  svg.logo {
+    path {
+      fill: $theme-color-science-blue;
+    }
+  }
+}
+
+.storybook__upload_text,
+.header nav.header__nav--primary {
+  background-color: $theme-color-science-blue;
+}
+
+.storybook__upload_form,
+.header nav.header__nav--secondary {
+  background-color: $theme-color-lavender-fog;
+}
+
+@include media-query($screen-type-desktop) {
+  .header nav.header__nav--primary,
+  .header nav.header__nav--secondary {
+    background-color: $theme-color-white;
+  }
+}
+
 .storybook {
   position: relative;
   height: 100vh;
   display: flex;
-  flex-flow: column nowrap;
   justify-content: center;
 
-  .header {
-    nav.header__nav--primary {
-      background-color: $theme-color-science-blue;
-      ul.header__navList > li > a {
-        color: $theme-color-white;
-      }
-    }
-
-    nav.header__nav--secondary {
-      background-color: $theme-color-lavender-fog;
-      ul.header__navList > li > a {
-        color: $theme-color-science-blue;
-      }
-    }
-
-    svg.logo {
-      path {
-        fill: $theme-color-science-blue;
-      }
-    }
-
-    @include media-query($screen-type-desktop) {
-      nav.header__nav--primary,
-      nav.header__nav--secondary {
-        background-color: $theme-color-white;
-      }
-    }
-  }
-
   .container {
-	padding: 0;
-	height: 100%;
-  }
-}
-
-.storybook__section__upload {
-  display: flex;
-  text-align: left;
-  height: 100%;
-
-  .storybook_upload_text p {
-    font: {
-      family: $font-berlingske-serif-regular;
-      weight: bold;
-      font-size: 140%;
-    }
-  }
-
-  .storybook_upload_text,
-  .storybook__upload_form {
-    width: 50%;
-  }
-
-  .storybook_upload_text {
-    color: $theme-color-white;
-	background-color: $theme-color-science-blue;
-	padding: 270px 70px 190px 70px;
-  }
-
-  .storybook__upload_form {
-    color: $theme-color-science-blue;
-	background-color: $theme-color-lavender-fog;
-	
-	.storybook_upload_form-inner{
-		padding: 200px 70px 0px 60px;
-		height: 100%;
-	}
-
-    .form__group .form__field {
-      input[type="file"] {
-        height: 0;
-        overflow: hidden;
-        width: 0;
-      }
-
-      input[type="file"] + label {
-		background: $theme-color-white;
-		color: black;
-        border: none;
-		border-radius: 50%;
-		width: 31%;
-		height: 165%;
-        color: #fff;
-        cursor: pointer;
-        display: inline-block;
-        font-family: "Poppins", sans-serif;
-        font-size: inherit;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        outline: none;
-        padding: 1rem 50px;
-        position: relative;
-        transition: all 0.3s;
-        vertical-align: middle;
-
-        &:hover {
-          background-color: darken(#f15d22, 10%);
-        }
-      }
-    }
-  }
-
-  @include media-query($screen-type-desktop) {
-    .row {
-      flex-direction: column;
-    }
-    .storybook_upload_text,
-    .storybook__upload_form {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+    .form {
+      position: absolute;
       width: 100%;
-      padding: 15% 8% 15% 8%;
-    }
-    .storybook_upload_text {
-      padding-top: 275px;
+      height: 100%;
     }
   }
 }
 
 .storybook__section {
   display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .stepActive {
@@ -132,7 +68,14 @@
 
 .storybook__main {
   display: flex;
+  width: 100%;
   height: 100%;
+}
+
+.storybook__sections {
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
 
 .storybook__controls {
@@ -146,7 +89,7 @@
   font-family: $font-basis-grotesque-pro-regular;
   font-size: 12px;
   text-transform: uppercase;
-  color: $theme-color-white;
+  color: black;
 
   .storybook__nav {
     display: flex;
@@ -168,4 +111,212 @@
       }
     }
   }
+}
+
+//<--------------------------------- Step 1 ----------------------------------------->
+
+#shopify-section-storybook-step-1 {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  @include media-query($screen-type-desktop) {
+    flex-direction: column;
+    .form__group {
+      display: flex;
+      flex-direction: column;
+      justify-content: right;
+      align-items: center;
+      margin-top: 16%;
+    }
+  }
+}
+
+// <-------------------------------- Step 2 ----------------------------------------->
+
+.storybook__upload {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.storybook__upload_text,
+.storybook__upload_form {
+  width: 50%;
+  height: 100%;
+  color: $theme-color-white;
+}
+
+.storybook__upload_text {
+  display: flex;
+  align-items: center;
+  padding: 0 7%;
+  padding-top: 12%;
+}
+
+.storybook_upload_form-inner {
+  width: 100%;
+  height: 100%;
+  padding-top: 32%;
+  #shopify-section-storybook-step-2 {
+    width: 100%;
+    height: 100%;
+    .form__group {
+      width: 100%;
+      height: 70%;
+      .form__field {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.storybook_photoUpload_Input {
+  display: block;
+  margin: 60px 0;
+  input[type="file"] {
+    height: 0;
+    overflow: hidden;
+    width: 0;
+  }
+
+  input[type="file"] + label {
+    background: $theme-color-white;
+    color: black;
+    border: none;
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Poppins", sans-serif;
+    font-size: inherit;
+    font-weight: 600;
+    outline: none;
+    padding: 1rem 50px;
+    transition: all 0.3s;
+    vertical-align: middle;
+
+    &:hover {
+      background-color: darken(#f15d22, 10%);
+    }
+  }
+}
+
+.storybook__section__upload {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  @include media-query($screen-type-desktop) {
+    .row {
+      flex-direction: column;
+    }
+    .storybook__upload_text,
+    .storybook__upload_form {
+      width: 100%;
+    }
+
+    .storybook__upload_text {
+      padding-top: 26%;
+    }
+
+    .storybook_upload_form-inner {
+      padding-top: 0;
+      #shopify-section-storybook-step-2 {
+        .form__group {
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+// <---------------------------------------- STEP 3 --------------------------------------------------->
+
+#shopify-section-storybook-step-3 {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: $theme-color-peach;
+
+  @include media-query($screen-type-desktop) {
+    flex-direction: column;
+    .form__group {
+      display: flex;
+      flex-direction: column;
+      justify-content: right;
+      align-items: center;
+      margin-top: 16%;
+    }
+  }
+}
+
+// <---------------------------------------- STEP 4 --------------------------------------------------->
+#shopify-section-storybook-step-4 {
+  height: 100%;
+  width: 100%;
+  .form__group {
+    height: 100%;
+    width: 100%;
+    .form__field {
+      height: 100%;
+      width: 100%;
+      .storybook_gender-container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        .storybook_gender_text-container {
+          width: 50%;
+          padding: 0px 20px;
+        }
+        .storybook_gender_selection-container {
+          width: 50%;
+          padding: 0px 20px;
+          .storybook_gender_selection {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .storybook_gender_female-inner,
+            .storybook_gender_male-inner {
+              position: relative;
+              height: 130px;
+              width: 136px;
+              .storybook_gender-female-image,
+              .storybook_gender-male-image {
+                height: 130px;
+                width: 136px;
+                img {
+                  height: 130px;
+                  width: 136px;
+                  border-radius: 50%;
+                }
+              }
+
+              .storybook_gender-female-input,
+              .storybook_gender-male-input {
+                position: absolute;
+                left: 130px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// <---------------------------------------- STEP 5 --------------------------------------------------->
+
+#shopify-section-storybook-step-5 {
+  height: 100%;
 }

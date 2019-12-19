@@ -1,0 +1,304 @@
+{
+	"male": [
+		{
+			"name": "nose",
+			"title": "Nose",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "headwear",
+			"title": "HeadWear",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "eyebrow",
+			"title": "Eyebrows",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "eye",
+			"title": "Eyes",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "hair",
+			"title": "Hair",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "lip",
+			"title": "Lips",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "face",
+			"title": "Face",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "activity",
+			"title": "Activity",
+			"count": 1,
+			"groups": [
+				{
+					"name": "Basketball",
+					"title": "Basketball",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "shirt",
+			"title": "Shirts",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "T-Shirts 1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "pant",
+			"title": "Pants",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "Shorts 1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "boot",
+			"title": "Boots",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "Loafers",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "body",
+			"title": "Body",
+			"count": 1
+		}
+	],
+	"female": [
+		{
+			"name": "boot",
+			"title": "Boots",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "Loafers",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "nose",
+			"title": "Nose",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "headwear",
+			"title": "HeadWear",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "hair",
+			"title": "Hair",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "glass",
+			"title": "Glasses",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "eye",
+			"title": "Eyes",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "eyebrow",
+			"title": "Eyebrows",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "lip",
+			"title": "Lips",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "shirt",
+			"title": "Shirts",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "Hoodie",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "dress",
+			"title": "Dress",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "Dress 1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "skirt",
+			"title": "Skirts",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "Skirts",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "pant",
+			"title": "Pants",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "Shorts",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "face",
+			"title": "Face",
+			"count": 1,
+			"groups": [
+				{
+					"name": "1",
+					"title": "1",
+					"count": 1
+				}
+			]
+		},
+		{
+			"name": "body",
+			"title": "Body",
+			"count": 1
+		}
+	]
+}

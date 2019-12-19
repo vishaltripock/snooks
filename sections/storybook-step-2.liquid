@@ -4,8 +4,10 @@
     </div>
 
     <div class="form__field">
-        <input required id="storybook__photo" type="file" name="properties[photo]" class="customer-photo">
-        <label for="storybook__photo"><img alt="upload file" src="{{ 'upload-icon.jpg' | asset_img_url: 'master' }}"/></label>
+        <div class="storybook_photoUpload_Input">
+            <input required id="storybook__photo" type="file" name="properties[photo]" class="customer-photo">
+            <label for="storybook__photo"> {{ 'crossSign.png' | asset_url | img_tag }}</label>
+        </div>
     </div>
     <div class="form__field">
         Uploader

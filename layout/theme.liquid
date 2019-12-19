@@ -36,6 +36,14 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"> </script>
 
+    {{ 'jquery.cookie.js' | asset_url | script_tag }}
+    {{ 'waitForImages.js' | asset_url | script_tag }}
+    {{ '8biticon.js' | asset_url | script_tag }}
+    {{ 'bootstrap-modal.js' | asset_url | script_tag }}
+    {{ 'bootstrap-dropdown.js' | asset_url | script_tag }}
+    {{ 'bootstrap-transition.js' | asset_url | script_tag }}
+    {{ 'bootstrap-carousel.patched.js' | asset_url | script_tag }}
+
 
     {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
 
@@ -60,65 +68,8 @@
     {{ 'theme.js' | asset_url | script_tag }}
 </body>
 
-
-<script>
-
-    $("#storybook__nav--left").click(function (e) {
-
-        // Previous
-        console.log("Hey");
-
-        $('#storybook__nav--left').show();
-        $('#storybook__nav--right').show();
-
-        const currentStep = $('.storybook__section.stepActive');  //removeClass("stepActive");
-        const currentStepIndex = Number($(currentStep).attr("data-storybook-index"));
-
-        $(currentStep).removeClass("stepActive");
-
-        console.log($("#step" + (currentStepIndex - 1)));
-
-        if (currentStepIndex == 2) {
-            $("#step" + (currentStepIndex - 1)).addClass("stepActive");
-            $('#storybook__nav--left').hide();
-        }
-        else {
-            $("#step" + (currentStepIndex - 1)).addClass("stepActive");
-        }
-
-    })
-
-    $("#storybook__nav--right").click(function (e) {
-
-        // Next
-        console.log("Hello");
-
-        $('#storybook__nav--left').show();
-        $('#storybook__nav--right').show();
-
-        const currentStep = $('.storybook__section.stepActive');
-        const currentStepIndex = Number($(currentStep).attr("data-storybook-index"));
-
-        // console.log($(currentStep));
-        // console.log(currentStepIndex);
-
-        console.log($("#step" + (currentStepIndex + 1)));
-
-        $(currentStep).removeClass("stepActive");
-
-        if (currentStepIndex == 2) {
-            $("#step" + (currentStepIndex + 1)).addClass("stepActive");
-            $('#storybook__nav--right').hide();
-        }
-        else {
-            $("#step" + (currentStepIndex + 1)).addClass("stepActive");
-        }
-    })
-
-
-    $(document).ready(function () {
-        $('#storybook__nav--left').hide();
-    })
-</script>
+{{ 'avatarConstructor.js' | asset_url | script_tag }}
+{{ 'storybook__nav.js' | asset_url | script_tag }}
+{{ 'creator.js' | asset_url | script_tag }}
 
 </html>
