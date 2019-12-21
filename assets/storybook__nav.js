@@ -6,7 +6,7 @@ function previous(e) {
     const currentStep = $('.storybook__section.stepActive');  //removeClass("stepActive");
     const currentStepIndex = Number($(currentStep).attr("data-storybook-index"));
 
-    console.log("currentstep on previous",currentStep,currentStepIndex)
+    console.log("currentstep on previous", currentStep, currentStepIndex)
 
 
     $(currentStep).removeClass("stepActive");
@@ -34,11 +34,17 @@ function next(e) {
     $(currentStep).removeClass("stepActive");
     $("#step" + (currentStepIndex + 1)).addClass("stepActive");
 
-    if(currentStepIndex === 9){
+    if (currentStepIndex === 9) {
         Story_Generator();
     }
+    else if (currentStepIndex === 8) {
+        let StoryPages = document.getElementById("storybook-pages");
+        while (StoryPages.firstChild) {
+            StoryPages.removeChild(StoryPages.firstChild);
+        }
+    }
 
-    console.log("currentstep on next",currentStep,currentStepIndex)
+    console.log("currentstep on next", currentStep, currentStepIndex)
 
 
 

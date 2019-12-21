@@ -99,6 +99,10 @@ function Intro_Generator() {
 
 function Story_Generator() {
 
+    console.log(occupation);
+    console.log(hobbies);
+    console.log(characteristics);
+
     let occupationArrays = occupationStories[occupation].split(".");
     let hobbiesArrays = hobbiesStories[hobbies].split(".");
     let characteristicsArrays = characteristicsStories[characteristics].split(".");
