@@ -5,7 +5,7 @@ let hobbiesStories = "";
 let characteristicsStories = "";
 
 $.get(
-    "https://cdn.shopify.com/s/files/1/0278/4172/4556/files/occupationStories.json?3078",
+    "https://cdn.shopify.com/s/files/1/0278/4172/4556/files/occupationStories.json?3122",
     function (Stories) {
         occupationStories = Stories;
     },
@@ -13,7 +13,7 @@ $.get(
 );
 
 $.get(
-    "https://cdn.shopify.com/s/files/1/0278/4172/4556/files/hobbiesStories.json?3078",
+    "https://cdn.shopify.com/s/files/1/0278/4172/4556/files/hobbiesStories.json?3122",
     function (Stories) {
         hobbiesStories = Stories;
     },
@@ -21,7 +21,7 @@ $.get(
 );
 
 $.get(
-    "https://cdn.shopify.com/s/files/1/0278/4172/4556/files/characteristicsStories.json?3078",
+    "https://cdn.shopify.com/s/files/1/0278/4172/4556/files/characteristicsStories.json?3122",
     function (Stories) {
         characteristicsStories = Stories;
     },
