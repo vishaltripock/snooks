@@ -9,98 +9,510 @@
                             <img src="{{- 'Snooks-Angel-Books-logo.svg' | asset_url -}}" alt="Snooks Angel Books Logo">
                         </div>
                         {% section 'storybook-step-1' %}
+                        <nav class="storybook__controls" style="
+                        justify-content: flex-end;
+                    ">
+                            <!-- next -->
+                            <div class="storybook__nav_right-container">
+                                <div onclick="next()" class="storybook__nav cursor" id="storybook__nav--right">
+                                    <span>Next</span>
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(-90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </nav>
                     </div>
                     <div id="step2" class="storybook__section" data-storybook-index="2">
-                        <div class="storybook__section__upload">
-                            <div class="logo">
-                                <img src="{{- 'Snooks-Angel-Books-logo.svg' | asset_url -}}"
-                                    alt="Snooks Angel Books Logo">
-                            </div>
-                            <div class="row storybook__upload">
-                                <div class="storybook__upload_text">
-                                    <div class="upload-text-inner">
-                                        <p>
-                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis non
-                                            iusto
-                                            consequuntur beatae officia voluptas molestias ab ea? Blanditiis dicta amet
-                                            ea
-                                            qui cupiditate ipsa ad neque eius atque. Cum laudantium, provident quo id
-                                            ipsa
-                                            at aliquid, et aut voluptatem nobis tempora incidunt. Repellendus, aperiam?
-                                            Nobis fugit obcaecati praesentium voluptatibus.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="storybook__upload_form">
-                                    <div class="storybook_upload_form-inner">
-                                        {%- section 'storybook-step-2' -%}
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="logo">
+                            <img src="{{- 'Snooks-Angel-Books-logo.svg' | asset_url -}}" alt="Snooks Angel Books Logo">
                         </div>
+                        {% section 'storybook-step-2' %}
+                        <nav class="storybook__controls">
+                            <!-- prev -->
+                            <div class="storybook__nav_left-container">
+                                <div onclick="previous()" class="storybook__nav cursor" id="storybook__nav--left">
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span>Previous</span>
+                                </div>
+                            </div>
+                            <!-- next -->
+                            <div class="storybook__nav_right-container">
+                                <div onclick="next()" class="storybook__nav cursor" id="storybook__nav--right">
+                                    <span>Next</span>
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(-90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </nav>
                     </div>
                     <div id="step3" class="storybook__section" data-storybook-index="3">
                         <div class="logo">
                             <img src="{{- 'Snooks-Angel-Books-logo.svg' | asset_url -}}" alt="Snooks Angel Books Logo">
                         </div>
                         {% section 'storybook-step-3' %}
+                        <nav class="storybook__controls">
+                            <!-- prev -->
+                            <div class="storybook__nav_left-container">
+                                <div onclick="previous()" class="storybook__nav cursor" id="storybook__nav--left">
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span>Previous</span>
+                                </div>
+                            </div>
+                            <!-- next -->
+                            <div class="storybook__nav_right-container">
+                                <div onclick="next()" class="storybook__nav cursor" id="storybook__nav--right">
+                                    <span>Next</span>
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(-90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </nav>
                     </div>
                     <div id="step4" class="storybook__section" data-storybook-index="4">
                         <div class="logo">
                             <img src="{{- 'Snooks-Angel-Books-logo.svg' | asset_url -}}" alt="Snooks Angel Books Logo">
                         </div>
                         {% section 'storybook-step-4' %}
+                        <nav class="storybook__controls">
+                            <!-- prev -->
+                            <div class="storybook__nav_left-container">
+                                <div onclick="previous()" class="storybook__nav cursor" id="storybook__nav--left">
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span>Previous</span>
+                                </div>
+                            </div>
+                            <!-- next -->
+                            <div class="storybook__nav_right-container">
+                                <div onclick="next()" class="storybook__nav cursor" id="storybook__nav--right">
+                                    <span>Next</span>
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(-90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </nav>
                     </div>
                     <div id="step5" class="storybook__section" data-storybook-index="5">
+                        <div class="logo">
+                            <img src="{{- 'Snooks-Angel-Books-logo.svg' | asset_url -}}" alt="Snooks Angel Books Logo">
+                        </div>
                         {% section 'storybook-step-5' %}
+                        <nav class="storybook__controls">
+                            <!-- prev -->
+                            <div class="storybook__nav_left-container">
+                                <div onclick="previous()" class="storybook__nav cursor" id="storybook__nav--left">
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span>Previous</span>
+                                </div>
+                            </div>
+                            <!-- next -->
+                            <div class="storybook__nav_right-container">
+                                <div onclick="next()" class="storybook__nav cursor" id="storybook__nav--right">
+                                    <span>Next</span>
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(-90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div id="step6" class="storybook__section" data-storybook-index="6">
+                        {% section 'storybook-step-6' %}
+                        <nav class="storybook__controls">
+                            <!-- prev -->
+                            <div class="storybook__nav_left-container">
+                                <div onclick="previous()" class="storybook__nav cursor" id="storybook__nav--left">
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span>Previous</span>
+                                </div>
+                            </div>
+                            <!-- next -->
+                            <div class="storybook__nav_right-container">
+                                <div onclick="next()" class="storybook__nav cursor" id="storybook__nav--right">
+                                    <span>Next</span>
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(-90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div id="step7" class="storybook__section" data-storybook-index="7">
+                        {% section 'storybook-step-7' %}
+                        <nav class="storybook__controls">
+                            <!-- prev -->
+                            <div class="storybook__nav_left-container">
+                                <div onclick="previous()" class="storybook__nav cursor" id="storybook__nav--left">
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span>Previous</span>
+                                </div>
+                            </div>
+                            <!-- next -->
+                            <div class="storybook__nav_right-container">
+                                <div onclick="next()" class="storybook__nav cursor" id="storybook__nav--right">
+                                    <span>Next</span>
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(-90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div id="step8" class="storybook__section" data-storybook-index="8">
+                        {% section 'storybook-step-8' %}
+                        <nav class="storybook__controls">
+                            <!-- prev -->
+                            <div class="storybook__nav_left-container">
+                                <div onclick="previous()" class="storybook__nav cursor" id="storybook__nav--left">
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span>Previous</span>
+                                </div>
+                            </div>
+                            <!-- next -->
+                            <div class="storybook__nav_right-container">
+                                <div onclick="next()" class="storybook__nav cursor" id="storybook__nav--right">
+                                    <span>Next</span>
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(-90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div id="step9" class="storybook__section" data-storybook-index="9">
+                        {% section 'storybook-step-9' %}
+                        <nav class="storybook__controls">
+                            <!-- prev -->
+                            <div class="storybook__nav_left-container">
+                                <div onclick="previous()" class="storybook__nav cursor" id="storybook__nav--left">
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span>Previous</span>
+                                </div>
+                            </div>
+                            <!-- next -->
+                            <div class="storybook__nav_right-container">
+                                <div onclick="next()" class="storybook__nav cursor" id="storybook__nav--right">
+                                    <span>Next</span>
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(-90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div id="step10" class="storybook__section" data-storybook-index="10">
+                        <div class="logo">
+                            <img src="{{- 'Snooks-Angel-Books-logo.svg' | asset_url -}}" alt="Snooks Angel Books Logo">
+                        </div>
+                        {% section 'storybook-step-10' %}
+                        <nav class="storybook__controls">
+                            <!-- prev -->
+                            <div class="storybook__nav_left-container">
+                                <div onclick="previous()" class="storybook__nav cursor" id="storybook__nav--left">
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span>Previous</span>
+                                </div>
+                            </div>
+                            <!-- next -->
+                            <div class="storybook__nav_right-container">
+                                <div onclick="next()" class="storybook__nav cursor" id="storybook__nav--right">
+                                    <span>Next</span>
+                                    <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
+                                            <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
+                                                <g transform="translate(0.000000, 165.000000)">
+                                                    <g transform="translate(657.000000, 20.000000)">
+                                                        <g>
+                                                            <path
+                                                                d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
+                                                                transform="translate(49.744385, 136.372192) scale(1, -1) rotate(-90.000000) translate(-49.744385, -136.372192) ">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </nav>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-
-    <nav class="storybook__controls">
-        <!-- prev -->
-        <div class="storybook__nav" id="storybook__nav--left">
-            <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink">
-                <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
-                    <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
-                        <g transform="translate(0.000000, 165.000000)">
-                            <g transform="translate(657.000000, 20.000000)">
-                                <g>
-                                    <path
-                                        d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
-                                        transform="translate(49.744385, 136.372192) scale(1, -1) rotate(90.000000) translate(-49.744385, -136.372192) ">
-                                    </path>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </g>
-            </svg>
-            <span>Previous</span>
-        </div>
-        <!-- next -->
-        <div class="storybook__nav" id="storybook__nav--right">
-            <span>Next</span>
-            <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink">
-                <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
-                    <g transform="translate(-698.000000, -314.000000)" fill="#096DC3">
-                        <g transform="translate(0.000000, 165.000000)">
-                            <g transform="translate(657.000000, 20.000000)">
-                                <g>
-                                    <path
-                                        d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z"
-                                        transform="translate(49.744385, 136.372192) scale(1, -1) rotate(-90.000000) translate(-49.744385, -136.372192) ">
-                                    </path>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </g>
-            </svg>
-        </div>
-    </nav>
 </div>

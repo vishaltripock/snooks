@@ -1,20 +1,39 @@
 <div class="form__group">
     <div class="form__field">
-        <label class="form__label form__label--align-center">This Story is about</label>
+        <label class="form__label form__label--align-center">
+            <span id="person_relationship_span"></span>
+            <span id="person_name_span"></span>
+            was a
+        </label>
     </div>
     <div class="form__field">
         <div class="select">
             <select id="storybookOccupation" name="occupation">
-                <option selected disabled>Select Occupation and Hobbies</option>
+                <option selected disabled>Select Occupation</option>
+                <option value="SingleParent">Single Parent</option>
+                <option value="Housewife">Housewife</option>
+                <option value="Househusband">Househusband</option>
+                <option value="Police Officer">Police Officer</option>
+                <option value="Firefighter">Firefighter</option>
+                <option value="Soldier">Soldier</option>
+                <option value="Marines">Marines</option>
+                <option value="Airplane Captain">Airplane Captain</option>
+                <option value="Veterinarian">Veterinarian</option>
                 <option value="Doctor">Doctor</option>
-                <option value="Engineer">Engineer</option>
-                <option value="Nurse">Nurse</option>
+                <option value="Singer">Singer</option>
+                <option value="Musician">Musician</option>
+                <option value="Artist">Artist(Paintings, Sculptures, Graffiti)</option>
+                <option value="Construction Worker">Construction Worker</option>
+                <option value="Business Women">Business Women</option>
+                <option value="Business Man">Business Man</option>
+                <option value="Architect">Architect</option>
+                <option value="Comedian">Comedian</option>
+                <option value="Actor">Actor</option>
+                <option value="Writer">Writer</option>
+                <option value="Chef">Chef</option>
+                <option value="Teacher">Teacher</option>
+                <option value="Dentist">Dentist</option>
             </select>
         </div>
-    </div>
-
-    <div class="form__field">
-        <input class="form__input" autocapitalize="off" autocorrect="off" placeholder="Enter the Occupation"
-            aria-label="occupation of person" type="text" required />
     </div>
 </div>

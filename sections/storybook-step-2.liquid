@@ -1,15 +1,38 @@
-<div class="form__group">
-    <div class="form__field">
-        Upload A Photo
-    </div>
-
-    <div class="form__field">
-        <div class="storybook_photoUpload_Input">
-            <input required id="storybook__photo" type="file" name="properties[photo]" class="customer-photo">
-            <label for="storybook__photo"> {{ 'crossSign.png' | asset_url | img_tag }}</label>
+<div class="storybook__section__upload">
+    <div class="row storybook__upload">
+        <div class="storybook__upload_text">
+            <div class="upload-text-inner">
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis non
+                    iusto
+                    consequuntur beatae officia voluptas molestias ab ea? Blanditiis dicta amet
+                    ea
+                    qui cupiditate ipsa ad neque eius atque. Cum laudantium, provident quo id
+                    ipsa
+                    at aliquid, et aut voluptatem nobis tempora incidunt. Repellendus, aperiam?
+                    Nobis fugit obcaecati praesentium voluptatibus.
+                </p>
+            </div>
         </div>
-    </div>
-    <div class="form__field">
-        Uploader
+        <div class="storybook__upload_form">
+            <div class="storybook_upload_form-inner">
+                <div class="form__group">
+                    <div class="form__field">
+                        Upload A Photo
+                    </div>
+
+                    <div class="form__field">
+                        <div class="storybook_photoUpload_Input">
+                            <input required id="storybook__photo" type="file" name="properties[photo]"
+                                class="customer-photo">
+                            <label for="storybook__photo"> {{ 'crossSign.png' | asset_url | img_tag }}</label>
+                        </div>
+                    </div>
+                    <div class="form__field">
+                        Uploader
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

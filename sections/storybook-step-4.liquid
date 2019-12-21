@@ -1,46 +1,51 @@
 <div class="form__group">
-    <div class="form__field">
-        <div class="storybook_gender-container">
-            <div class="storybook_gender_text-container">
-                <div class="storybook_gender-text">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, unde! Voluptatem optio quia
-                        iste
-                        autem veniam, quaerat sit velit laborum commodi officiis quibusdam necessitatibus distinctio
-                        neque
-                        culpa reiciendis unde perferendis totam aspernatur aliquid ex eveniet accusantium, beatae ad
-                        repellendus? Excepturi assumenda vel eveniet minima blanditiis? Laboriosam deserunt qui
-                        cupiditate
-                        esse veniam dolorum laudantium, quod necessitatibus, similique perspiciatis incidunt omnis eius.
-                    </p>
-                </div>
-            </div>
-            <div class="storybook_gender_selection-container">
-                <div class="storybook_gender_selection">
-                    <div class="storybook_gender_female-inner">
-                        <div class="storybook_gender-female-image">
-                            <img src="{{- 'gender-female-image.png' | asset_url -}}" alt="Female Character Pic">
-                        </div>
-                        <div class="storybook_gender-female-input" id ="gender-female-input">
-                            <label class="storybook_gender_female">
-                                <input type="radio" checked="checked" name="gender" value="female">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="storybook_gender_male-inner">
-                        <div class="storybook_gender-male-image">
-                            <img src="{{- 'gender-male-image.png' | asset_url -}}" alt="Male Character Pic">
-                        </div>
-                        <div class="storybook_gender-male-input"  id ="gender-male-input">
-                            <label class="storybook_gender_male">
-                                <input type="radio" name="gender" value="male">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
+        <div class="form__field">
+            <label class="form__label form__label--align-center">
+                Hobbies of <span id="person_relationship_span"></span>
+                <span id="person_name_span"></span>
+                is
+            </label>
+        </div>
+        <div class="form__field">
+            <div class="select">
+                <select id="storybookHobbies" name="Hobbies">
+                    <option selected disabled>Select Hobbies</option>
+                    <option value="Fishing">Fishing</option>
+                    <option value="Dancing">Dancing</option>
+                    <option value="Cooking">Cooking</option>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Playing Video Games">Playing video games</option>
+                    <option value="Loves Animals">Loves Animals</option>
+                    <option value="Loves Dogs">Loves Dogs</option>
+                    <option value="Loves Cats">Loves Cats</option>
+                    <option value="Bike riding">Bike riding</option>
+                    <option value="Playing Sports">Playing Sports</option>
+                    <option value="Paint">Paint</option>
+                    <option value="Doing Makeup">Doing Makeup</option>
+                    <option value="Shaving">Shaving</option>
+                    <option value="Sewing">Sewing</option>
+                    <option value="Reading">Reading</option>
+                    <option value="Playing music">Playing music</option>
+                    <option value="Writing">Writing</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Art">Art</option>
+                    <option value="Activist">Activist</option>
+                    <option value="Magic">Magic</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Film Buff">Film Buff</option>
+                    <option value="Hiking">Hiking</option>
+                    <option value="Volunteering">Volunteering</option>
+                    <option value="Skiing">Skiing</option>
+                    <option value="Chess">Chess</option>
+                    <option value="Swimming">Swimming</option>
+                    <option value="Gardening">Gardening</option>
+                    <option value="Card Games">Card Games</option>
+                    <option value="Yoga">Yoga</option>
+                    <option value="Traveling">Traveling</option>
+                    <option value="Bowling">Bowling</option>
+                    <option value="Camping">Camping</option>
+                </select>
             </div>
         </div>
     </div>
-</div>

@@ -57,19 +57,17 @@
 <body class="{{ body_class | replace: '.', ' ' | truncatewords: 1, '' }}">
     <div id="siteWrapper">
         {% section 'header' %}
-
         <main id="main">
             {{ content_for_layout }}
         </main>
-
         {% section 'footer' %}
     </div>
-
     {{ 'theme.js' | asset_url | script_tag }}
 </body>
 
 {{ 'avatarConstructor.js' | asset_url | script_tag }}
 {{ 'storybook__nav.js' | asset_url | script_tag }}
+{{ 'storybook_steps.js' | asset_url | script_tag }}
 {{ 'creator.js' | asset_url | script_tag }}
 
 </html>

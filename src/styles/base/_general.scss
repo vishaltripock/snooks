@@ -35,7 +35,16 @@ body {
 
 body,
 html {
-    min-height: 100vh;
+    min-height: calc(100vh + 100px);
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#siteWrapper{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
 }
 
 a {

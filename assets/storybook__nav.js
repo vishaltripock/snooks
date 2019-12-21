@@ -1,44 +1,52 @@
-$("#storybook__nav--left").click(function (e) {
+function previous(e) {
 
-    $('#storybook__nav--left').show();
-    $('#storybook__nav--right').show();
+    // $('#storybook__nav--left').show();
+    // $('#storybook__nav--right').show();
 
     const currentStep = $('.storybook__section.stepActive');  //removeClass("stepActive");
     const currentStepIndex = Number($(currentStep).attr("data-storybook-index"));
 
+    console.log("currentstep on previous",currentStep,currentStepIndex)
+
+
     $(currentStep).removeClass("stepActive");
+    $("#step" + (currentStepIndex - 1)).addClass("stepActive");
 
-    if (currentStepIndex == 2) {
-        $("#step" + (currentStepIndex - 1)).addClass("stepActive");
-        $('#storybook__nav--left').hide();
-    }
-    else {
-        $("#step" + (currentStepIndex - 1)).addClass("stepActive");
-    }
 
-})
+    // if (currentStepIndex === 2) {
+    //     $("#step" + (currentStepIndex - 1)).addClass("stepActive");
+    //     // $('#storybook__nav--left').hide();
+    // }
+    // else {
+    //     $("#step" + (currentStepIndex - 1)).addClass("stepActive");
+    // }
 
-$("#storybook__nav--right").click(function (e) {
+}
 
-    // Next
-    console.log("Hello");
+function next(e) {
 
-    $('#storybook__nav--left').show();
-    $('#storybook__nav--right').show();
+    // $('#storybook__nav--left').show();
+    // $('#storybook__nav--right').show();
 
     const currentStep = $('.storybook__section.stepActive');
     const currentStepIndex = Number($(currentStep).attr("data-storybook-index"));
 
     $(currentStep).removeClass("stepActive");
+    $("#step" + (currentStepIndex + 1)).addClass("stepActive");
 
-    if (currentStepIndex == 4) {
-        $("#step" + (currentStepIndex + 1)).addClass("stepActive");
-        $('#storybook__nav--right').hide();
-    }
-    else {
-        $("#step" + (currentStepIndex + 1)).addClass("stepActive");
-    }
-})
-$(document).ready(function () {
-    $('#storybook__nav--left').hide();
-})
+    console.log("currentstep on next",currentStep,currentStepIndex)
+
+
+
+    // let stroybookStepsCount = $(".storybook__sections").children().length;
+    // console.log("currentstep on next",currentStep,currentStepIndex,stroybookStepsCount)
+
+
+    // if (currentStepIndex == stroybookStepsCount-1) {
+    //     $("#step" + (currentStepIndex + 1)).addClass("stepActive");
+    //     // $('#storybook__nav--right').hide();
+    // }
+    // else {
+    //     $("#step" + (currentStepIndex + 1)).addClass("stepActive");
+    // }
+}
