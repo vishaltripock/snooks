@@ -941,31 +941,63 @@ a, button, [role="button"], input, label, select, textarea {
   align-items: center;
   flex-grow: 1; }
 
-#shopify-section-storybook-step-10 {
-  height: 100%;
-  width: 100%; }
-  #shopify-section-storybook-step-10 .storybook-pages-container {
+#shopify-section-storybook-step-8,
+#shopify-section-storybook-step-9 {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-grow: 1; }
+
+#step10 #shopify-section-storybook-step-10 {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-grow: 1; }
+  #step10 #shopify-section-storybook-step-10 .storybook-pages-container {
     height: 100%;
     width: 100%; }
-    #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container {
-      height: 100%;
-      width: 100%;
+    #step10 #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container {
       display: flex; }
-      #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container .storybook-page-avatar-container,
-      #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container .storybook-page-text-container {
-        height: 100%;
-        width: 50%; }
-        #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container .storybook-page-avatar-container .storybook-page-avatar,
-        #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container .storybook-page-avatar-container .storybook-page-text,
-        #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container .storybook-page-text-container .storybook-page-avatar,
-        #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container .storybook-page-text-container .storybook-page-text {
-          height: 100%;
-          width: 100%;
+      #step10 #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container .storybook-page-avatar-container {
+        display: flex;
+        flex-grow: 1;
+        background: #FFFFFF; }
+        #step10 #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container .storybook-page-avatar-container .storybook-page-avatar {
           display: flex;
-          justify-content: center; }
-        #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container .storybook-page-avatar-container .storybook-page-avatar .story-avatar-image,
-        #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container .storybook-page-text-container .storybook-page-avatar .story-avatar-image {
+          align-items: center;
+          justify-content: center;
+          flex-grow: 1;
           height: 100%; }
+          #step10 #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container .storybook-page-avatar-container .storybook-page-avatar img {
+            height: 100%;
+            width: 100%;
+            flex-grow: 1; }
+      #step10 #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container .storybook-page-text-container {
+        flex-grow: 1; }
+        #step10 #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container .storybook-page-text-container .storybook-page-text {
+          flex-grow: 1;
+          display: flex;
+          height: 100%;
+          align-items: center;
+          justify-content: center; }
+          #step10 #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container .storybook-page-text-container .storybook-page-text textarea {
+            border: 1px solid #096DC3;
+            color: #096dc3;
+            background: transparent;
+            padding: 10px;
+            min-height: 40%;
+            width: 70%;
+            overflow: auto;
+            max-height: 100%;
+            margin: 0px; }
+
+#step10 .storybook__nav_left-container {
+  background-color: #FFFFFF; }
+
+#step10 .storybook__nav_right-container {
+  background-color: #D4F4F1; }
 
 .container {
   margin: 0 auto; }

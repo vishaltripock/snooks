@@ -34,6 +34,10 @@ function next(e) {
     $(currentStep).removeClass("stepActive");
     $("#step" + (currentStepIndex + 1)).addClass("stepActive");
 
+    if(currentStepIndex === 9){
+        Story_Generator();
+    }
+
     console.log("currentstep on next",currentStep,currentStepIndex)
 
 
