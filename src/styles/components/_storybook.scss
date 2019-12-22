@@ -408,3 +408,222 @@
     background-color: $theme-color-iceberg;
   }
 }
+
+// <---------------------------------------- STEP 11 --------------------------------------------------->
+
+#step11 {
+  #shopify-section-storybook-step-11 {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-grow: 1;
+    .storybook-cover-container {
+      flex-grow: 1;
+      height: 100%;
+      .storybook-cover {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        .storybook-cover-text-container {
+          height: 100%;
+          flex-grow: 1;
+          .storybook-cover-text {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0px 80px;
+          }
+        }
+        .storybook-cover-option-container {
+          flex-grow: 1;
+          background-color: $theme-color-grey;
+          display: flex;
+          align-items: center;
+          height: 100%;
+          .storybook-cover-option-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+            padding-top: 100px;
+            width: 100%;
+            height: 100%;
+            .storybook-cover-option-choice {
+              height: 100%;
+              width: 100%;
+              flex: 1;
+              display: flex;
+              align-items: center;
+              justify-content: space-evenly;
+              .storybook-cover-option-softcover-container {
+                .storybook-cover-option-softcover {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  .storybook-cover-option-softcover-image {
+                    height: 150px;
+                    width: 145px;
+                    display: flex;
+                    input[type="radio"] {
+                      margin: 0;
+                      padding: 0;
+                      -webkit-appearance: none;
+                      -moz-appearance: none;
+                      appearance: none;
+                    }
+                    input[type="radio"] + label:before,
+                    input[type="radio"] + label:after {
+                      display: none;
+                    }
+                    label {
+                      width: 100%;
+                      height: 100%;
+                      .softcover-image-container {
+                        background: url("gender-male-image.png");
+                        background-position: center bottom;
+                        background-size: cover;
+                        background-color: gray;
+                        opacity: 0.2;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        &:hover {
+                          opacity: 1;
+                        }
+                      }
+                    }
+                    input[type="radio"]:checked + label {
+                      .softcover-image-container {
+                        opacity: 1;
+                      }
+                    }
+                  }
+                }
+              }
+              .storybook-cover-option-hardover-container {
+                .storybook-cover-option-hardcover {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  .storybook-cover-option-hardcover-image {
+                    height: 150px;
+                    width: 145px;
+                    display: flex;
+                    input[type="radio"] {
+                      margin: 0;
+                      padding: 0;
+                      -webkit-appearance: none;
+                      -moz-appearance: none;
+                      appearance: none;
+                    }
+                    input[type="radio"] + label:before,
+                    input[type="radio"] + label:after {
+                      display: none;
+                    }
+                    label {
+                      width: 100%;
+                      height: 100%;
+                      .hardcover-image-container {
+                        background: url("gender-male-image.png");
+                        background-position: center bottom;
+                        background-size: cover;
+                        background-color: gray;
+                        opacity: 0.2;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        &:hover {
+                          opacity: 1;
+                        }
+                      }
+                    }
+                    input[type="radio"]:checked + label {
+                      .hardcover-image-container {
+                        opacity: 1;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .storybook__nav_left-container {
+    background-color: $theme-color-iceberg;
+  }
+  .storybook__nav_right-container {
+    background-color: $theme-color-grey;
+  }
+}
+
+// <---------------------------------------- STEP 11 --------------------------------------------------->
+
+#step12 {
+  #shopify-section-storybook-step-12 {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    color: $theme-color-science-blue;
+    align-items: center;
+    flex-grow: 1;
+    .preview-container {
+      flex-grow: 1;
+      height: 100%;
+      .preview-inner {
+        flex-grow: 1;
+        height: 100%;
+        display: flex;
+        .preview-image-container {
+          background: $theme-color-yellow;
+          display: flex;
+          background: #ffff9d;
+          .preview-image-inner {
+            display: flex;
+            flex-direction: column;
+            padding-top: 100px;
+            .preview-image-avatar {
+              padding: 60px 90px 100px 90px;
+              img {
+                background: $theme-color-white;
+              }
+            }
+          }
+        }
+        .preview-text-container {
+          display: flex;
+          background: $theme-color-white;
+          .preview-text-inner {
+            display: flex;
+            flex-direction: column;
+            padding: 100px 80px 60px 110px;
+            .preview-text-heading {
+              h2{
+                font-weight: 500;
+              }
+            }
+            .preview-text-intro {
+              font-weight: 500;
+            }
+            .preview-text-story {
+              .preview-text-story-inner {
+                p{
+                  font-weight: 400;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .storybook__nav_left-container {
+    background-color: $theme-color-yellow;
+  }
+  .storybook__nav_right-container {
+    background-color: $theme-color-white;
+  }
+}

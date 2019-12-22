@@ -99,10 +99,6 @@ function Intro_Generator() {
 
 function Story_Generator() {
 
-    console.log(occupation);
-    console.log(hobbies);
-    console.log(characteristics);
-
     let occupationArrays = occupationStories[occupation].split(".");
     let hobbiesArrays = hobbiesStories[hobbies].split(".");
     let characteristicsArrays = characteristicsStories[characteristics].split(".");
@@ -110,10 +106,6 @@ function Story_Generator() {
     OccupationStories(occupationArrays);
     HobbiesStories(hobbiesArrays);
     CharacteristicsStories(characteristicsArrays);
-
-    console.log(occupationArrays);
-    console.log(hobbiesArrays);
-    console.log(characteristicsArrays)
 
 }
 
@@ -196,9 +188,43 @@ function Storybook_Page_Maker(story_text) {
     StoryPages.appendChild(pageContainer);
 }
 
+function Storybook_Preview() {
 
+    let textareaArrays = document.querySelectorAll(".story-page-text");
+    let introTexts = document.querySelector(".preview-text-story-inner");
 
-{/* <div class="storybook-page-container">
+    let newParaCounter = 0;
+    let textString = "";
+
+    for (let i = 0; i < textareaArrays.length; ++i) {
+
+        ++newParaCounter;
+
+        textString = textString +  textareaArrays[i].value + ". ";
+
+        if (newParaCounter === 5) {
+
+            let pElement = document.createElement("p");
+            pElement.innerText = textString;
+
+            introTexts.appendChild(pElement);
+
+            textString = "";
+            newParaCounter = 0;
+        }
+
+    }
+
+    if (textString === "" || newParaCounter !== 0) {
+
+        let pElement = document.createElement("p");
+        pElement.innerText = textString + ". ";
+
+        introTexts.appendChild(pElement);
+    }
+}
+
+/* <div class="storybook-page-container">
     <div class="storybook-page-avatar-container half-width">
         <div class="storybook-page-avatar">
             <img src="{{- 'PersonAvatar.png' | asset_url -}}" alt="Person Avatar Image" class="story-avatar-image">
@@ -210,7 +236,10 @@ function Storybook_Page_Maker(story_text) {
                 </textarea>
             </div>
         </div>
-    </div> */}
+    </div> */
+
+
+
 
 
 

@@ -826,14 +826,10 @@
       $.get(
         options.json,
         function (groups) {
+
           options.json = groups;
-          console.log("GET REQUEST");
-          console.log(options.json);
 
           initConstructor();
-
-          //For SubTab Navigation
-          // updateUI();
 
           $this.waitForImages(function () {
             options.onLoaded.call(self, groups);

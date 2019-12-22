@@ -999,6 +999,167 @@ a, button, [role="button"], input, label, select, textarea {
 #step10 .storybook__nav_right-container {
   background-color: #D4F4F1; }
 
+#step11 #shopify-section-storybook-step-11 {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-grow: 1; }
+  #step11 #shopify-section-storybook-step-11 .storybook-cover-container {
+    flex-grow: 1;
+    height: 100%; }
+    #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover {
+      display: flex;
+      height: 100%;
+      align-items: center; }
+      #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-text-container {
+        height: 100%;
+        flex-grow: 1; }
+        #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-text-container .storybook-cover-text {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          padding: 0px 80px; }
+      #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container {
+        flex-grow: 1;
+        background-color: #F5F5F5;
+        display: flex;
+        align-items: center;
+        height: 100%; }
+        #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          flex-grow: 1;
+          padding-top: 100px;
+          width: 100%;
+          height: 100%; }
+          #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice {
+            height: 100%;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly; }
+            #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-softcover-container .storybook-cover-option-softcover {
+              display: flex;
+              flex-direction: column;
+              align-items: center; }
+              #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-softcover-container .storybook-cover-option-softcover .storybook-cover-option-softcover-image {
+                height: 150px;
+                width: 145px;
+                display: flex; }
+                #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-softcover-container .storybook-cover-option-softcover .storybook-cover-option-softcover-image input[type="radio"] {
+                  margin: 0;
+                  padding: 0;
+                  -webkit-appearance: none;
+                  -moz-appearance: none;
+                  appearance: none; }
+                #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-softcover-container .storybook-cover-option-softcover .storybook-cover-option-softcover-image input[type="radio"] + label:before,
+                #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-softcover-container .storybook-cover-option-softcover .storybook-cover-option-softcover-image input[type="radio"] + label:after {
+                  display: none; }
+                #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-softcover-container .storybook-cover-option-softcover .storybook-cover-option-softcover-image label {
+                  width: 100%;
+                  height: 100%; }
+                  #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-softcover-container .storybook-cover-option-softcover .storybook-cover-option-softcover-image label .softcover-image-container {
+                    background: url("gender-male-image.png");
+                    background-position: center bottom;
+                    background-size: cover;
+                    background-color: gray;
+                    opacity: 0.2;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%; }
+                    #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-softcover-container .storybook-cover-option-softcover .storybook-cover-option-softcover-image label .softcover-image-container:hover {
+                      opacity: 1; }
+                #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-softcover-container .storybook-cover-option-softcover .storybook-cover-option-softcover-image input[type="radio"]:checked + label .softcover-image-container {
+                  opacity: 1; }
+            #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-hardover-container .storybook-cover-option-hardcover {
+              display: flex;
+              flex-direction: column;
+              align-items: center; }
+              #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-hardover-container .storybook-cover-option-hardcover .storybook-cover-option-hardcover-image {
+                height: 150px;
+                width: 145px;
+                display: flex; }
+                #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-hardover-container .storybook-cover-option-hardcover .storybook-cover-option-hardcover-image input[type="radio"] {
+                  margin: 0;
+                  padding: 0;
+                  -webkit-appearance: none;
+                  -moz-appearance: none;
+                  appearance: none; }
+                #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-hardover-container .storybook-cover-option-hardcover .storybook-cover-option-hardcover-image input[type="radio"] + label:before,
+                #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-hardover-container .storybook-cover-option-hardcover .storybook-cover-option-hardcover-image input[type="radio"] + label:after {
+                  display: none; }
+                #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-hardover-container .storybook-cover-option-hardcover .storybook-cover-option-hardcover-image label {
+                  width: 100%;
+                  height: 100%; }
+                  #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-hardover-container .storybook-cover-option-hardcover .storybook-cover-option-hardcover-image label .hardcover-image-container {
+                    background: url("gender-male-image.png");
+                    background-position: center bottom;
+                    background-size: cover;
+                    background-color: gray;
+                    opacity: 0.2;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%; }
+                    #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-hardover-container .storybook-cover-option-hardcover .storybook-cover-option-hardcover-image label .hardcover-image-container:hover {
+                      opacity: 1; }
+                #step11 #shopify-section-storybook-step-11 .storybook-cover-container .storybook-cover .storybook-cover-option-container .storybook-cover-option-inner .storybook-cover-option-choice .storybook-cover-option-hardover-container .storybook-cover-option-hardcover .storybook-cover-option-hardcover-image input[type="radio"]:checked + label .hardcover-image-container {
+                  opacity: 1; }
+
+#step11 .storybook__nav_left-container {
+  background-color: #D4F4F1; }
+
+#step11 .storybook__nav_right-container {
+  background-color: #F5F5F5; }
+
+#step12 #shopify-section-storybook-step-12 {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  color: #096DC3;
+  align-items: center;
+  flex-grow: 1; }
+  #step12 #shopify-section-storybook-step-12 .preview-container {
+    flex-grow: 1;
+    height: 100%; }
+    #step12 #shopify-section-storybook-step-12 .preview-container .preview-inner {
+      flex-grow: 1;
+      height: 100%;
+      display: flex; }
+      #step12 #shopify-section-storybook-step-12 .preview-container .preview-inner .preview-image-container {
+        background: #FFFF9D;
+        display: flex;
+        background: #ffff9d; }
+        #step12 #shopify-section-storybook-step-12 .preview-container .preview-inner .preview-image-container .preview-image-inner {
+          display: flex;
+          flex-direction: column;
+          padding-top: 100px; }
+          #step12 #shopify-section-storybook-step-12 .preview-container .preview-inner .preview-image-container .preview-image-inner .preview-image-avatar {
+            padding: 60px 90px 100px 90px; }
+            #step12 #shopify-section-storybook-step-12 .preview-container .preview-inner .preview-image-container .preview-image-inner .preview-image-avatar img {
+              background: #FFFFFF; }
+      #step12 #shopify-section-storybook-step-12 .preview-container .preview-inner .preview-text-container {
+        display: flex;
+        background: #FFFFFF; }
+        #step12 #shopify-section-storybook-step-12 .preview-container .preview-inner .preview-text-container .preview-text-inner {
+          display: flex;
+          flex-direction: column;
+          padding: 100px 80px 60px 110px; }
+          #step12 #shopify-section-storybook-step-12 .preview-container .preview-inner .preview-text-container .preview-text-inner .preview-text-heading h2 {
+            font-weight: 500; }
+          #step12 #shopify-section-storybook-step-12 .preview-container .preview-inner .preview-text-container .preview-text-inner .preview-text-intro {
+            font-weight: 500; }
+          #step12 #shopify-section-storybook-step-12 .preview-container .preview-inner .preview-text-container .preview-text-inner .preview-text-story .preview-text-story-inner p {
+            font-weight: 400; }
+
+#step12 .storybook__nav_left-container {
+  background-color: #FFFF9D; }
+
+#step12 .storybook__nav_right-container {
+  background-color: #FFFFFF; }
+
 .container {
   margin: 0 auto; }
   @media (max-width: 767px) {

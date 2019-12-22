@@ -6,9 +6,6 @@ function previous(e) {
     const currentStep = $('.storybook__section.stepActive');  //removeClass("stepActive");
     const currentStepIndex = Number($(currentStep).attr("data-storybook-index"));
 
-    console.log("currentstep on previous", currentStep, currentStepIndex)
-
-
     $(currentStep).removeClass("stepActive");
     $("#step" + (currentStepIndex - 1)).addClass("stepActive");
 
@@ -34,18 +31,27 @@ function next(e) {
     $(currentStep).removeClass("stepActive");
     $("#step" + (currentStepIndex + 1)).addClass("stepActive");
 
-    if (currentStepIndex === 9) {
-        Story_Generator();
-    }
-    else if (currentStepIndex === 8) {
+    if (currentStepIndex === 8) {
         let StoryPages = document.getElementById("storybook-pages");
         while (StoryPages.firstChild) {
             StoryPages.removeChild(StoryPages.firstChild);
         }
     }
+    else if (currentStepIndex === 9) {
+        Story_Generator();
+    }
+    else if(currentStepIndex === 10){
+        
+        let introTextsArrays = document.querySelector(".preview-text-story-inner");
 
-    console.log("currentstep on next", currentStep, currentStepIndex)
-
+        while (introTextsArrays.firstChild) {
+            introTextsArrays.removeChild(introTextsArrays.firstChild);
+        }
+        
+    }
+    else if(currentStepIndex === 11){
+        Storybook_Preview();
+    }
 
 
     // let stroybookStepsCount = $(".storybook__sections").children().length;
