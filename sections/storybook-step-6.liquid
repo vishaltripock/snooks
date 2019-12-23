@@ -1,46 +1,45 @@
-<div class="form__group">
-    <div class="form__field">
-        <div class="storybook_gender-container">
-            <div class="storybook_gender_text-container">
-                <div class="storybook_gender-text">
+<div class="storybook-gender-container">
+        <div class="storybook-gender">
+            <div class="storybook-gender-text-container half-width">
+                <div class="storybook-gender-text">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, unde! Voluptatem optio quia
-                        iste
-                        autem veniam, quaerat sit velit laborum commodi officiis quibusdam necessitatibus distinctio
-                        neque
-                        culpa reiciendis unde perferendis totam aspernatur aliquid ex eveniet accusantium, beatae ad
-                        repellendus? Excepturi assumenda vel eveniet minima blanditiis? Laboriosam deserunt qui
-                        cupiditate
-                        esse veniam dolorum laudantium, quod necessitatibus, similique perspiciatis incidunt omnis eius.
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur asperiores repellat voluptatum
+                        voluptates quod ad consequuntur incidunt expedita commodi odit nulla cupiditate saepe doloribus id,
+                        consequatur suscipit, rerum dignissimos facilis fugit odio et, praesentium magnam nam? Quaerat sint
+                        nostrum facilis dolor nihil quae odit, voluptatibus rerum ipsa iure non eum.
                     </p>
                 </div>
             </div>
-            <div class="storybook_gender_selection-container">
-                <div class="storybook_gender_selection">
-                    <div class="storybook_gender_female-inner">
-                        <div class="storybook_gender-female-image">
-                            <img src="{{- 'gender-female-image.png' | asset_url -}}" alt="Female Character Pic">
-                        </div>
-                        <div class="storybook_gender-female-input" id ="gender-female-input">
-                            <label class="storybook_gender_female">
-                                <input type="radio" checked="checked" name="gender" value="female">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
+            <div class="storybook-gender-option-container half-width">
+                <div class="storybook-gender-option-inner">
+                    <div class="storybook-gender-option-text">
+                        <p>SELECT GENDER</p>
                     </div>
-                    <div class="storybook_gender_male-inner">
-                        <div class="storybook_gender-male-image">
-                            <img src="{{- 'gender-male-image.png' | asset_url -}}" alt="Male Character Pic">
+                    <div class="storybook-gender-option-choice">
+                        <div class="storybook-gender-option-female-container">
+                            <div class="storybook-gender-option-female">
+                                <div class="storybook-gender-option-female-image">
+                                    <input id="female-type" name="avatar-type" type="radio" value="female" checked/>
+                                    <label for="female-type">
+                                        <div class="female-image-container"></div>
+                                    </label>
+                                </div>
+                                Female
+                            </div>
                         </div>
-                        <div class="storybook_gender-male-input"  id ="gender-male-input">
-                            <label class="storybook_gender_male">
-                                <input type="radio" name="gender" value="male">
-                                <span class="checkmark"></span>
-                            </label>
+                        <div class="storybook-gender-option-male-container">
+                            <div class="storybook-gender-option-male">
+                                <div class="storybook-gender-option-male-image">
+                                    <input id="male-type" name="avatar-type" type="radio" value="male"/>
+                                    <label for="male-type">
+                                        <div class="male-image-container"></div>
+                                    </label>
+                                </div>
+                                Male
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>

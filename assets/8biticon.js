@@ -693,12 +693,12 @@
 
         carousel_in.append($('<div class="mask" />').css("zIndex", ++zIndex));
 
-        document.getElementById("gender-female-input").addEventListener("click", function (e) {
+        document.getElementById("female-type").addEventListener("click", function (e) {
           closeSubTabs();
           openGroup(e.target.value);
         })
 
-        document.getElementById("gender-male-input").addEventListener("click", function (e) {
+        document.getElementById("male-type").addEventListener("click", function (e) {
           closeSubTabs();
           openGroup(e.target.value);
         })

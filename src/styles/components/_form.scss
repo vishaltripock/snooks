@@ -1,58 +1,59 @@
-.form__group  {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
+.form__group {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
 
-    @media #{$mq_m} {
-        flex-flow: row wrap;
-        margin-top: 0px;
-    }
+  @media #{$mq_m} {
+    flex-flow: row wrap;
+    margin-top: 0px;
+  }
 }
 
-.form__field{
-    display: flex;
-    margin-bottom: 25px;
+.form__field {
+  display: flex;
+  margin-bottom: 25px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media #{$mq_m} {
+    margin-right: 15px;
+    margin-bottom: 0;
 
     &:last-child {
-        margin-bottom: 0;
+      margin-right: 0;
+      margin-bottom: 0;
     }
-
-    @media #{$mq_m} {
-        margin-right: 15px;
-        margin-bottom: 0;
-
-        &:last-child {
-            margin-right: 0;
-            margin-bottom: 0;
-        }   
-    }  
+  }
 }
 
-.form__label  {
-    font-family: $font-berlingske-serif-regular;
-    font-size:23px;
+.form__label {
+  font-family: $font-berlingske-serif-regular;
+  font-size: 23px;
 
-    &--align-center {
-        align-self: center;
-    }
+  &--align-center {
+    align-self: center;
+  }
 
-    @media #{$mq_m} {
-        font-size:30px;
-    }
+  @media #{$mq_m} {
+    font-size: 30px;
+  }
 }
 
 .form__input {
-    background-color: transparent;
-    outline: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    border: none;
-    border-radius: 0;
-    padding: 10px;
-    border-bottom: 1px solid $theme-color-science-blue;
+  background-color: transparent;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  padding: 10px;
+  border-bottom: 1px solid $theme-color-science-blue;
+  text-align: center;
 
-    &::placeholder {
-        color: $theme-color-science-blue;
-        font-size: 12px;
-    }
+  &::placeholder {
+    color: $theme-color-science-blue;
+    font-size: 12px;
+  }
 }
