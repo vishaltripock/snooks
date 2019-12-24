@@ -831,6 +831,8 @@
 
           initConstructor();
 
+          console.log(options.json)
+
           $this.waitForImages(function () {
             options.onLoaded.call(self, groups);
 

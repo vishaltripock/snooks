@@ -22,47 +22,27 @@ function previous(e) {
 
 function next(e) {
 
-    // $('#storybook__nav--left').show();
-    // $('#storybook__nav--right').show();
-
     const currentStep = $('.storybook__section.stepActive');
     const currentStepIndex = Number($(currentStep).attr("data-storybook-index"));
 
     $(currentStep).removeClass("stepActive");
     $("#step" + (currentStepIndex + 1)).addClass("stepActive");
 
-    if (currentStepIndex === 8) {
+    if (currentStepIndex === 9) {
         let StoryPages = document.getElementById("storybook-pages");
         while (StoryPages.firstChild) {
             StoryPages.removeChild(StoryPages.firstChild);
         }
-    }
-    else if (currentStepIndex === 9) {
         Story_Generator();
     }
-    else if(currentStepIndex === 10){
-        
-        let introTextsArrays = document.querySelector(".preview-text-story-inner");
 
-        while (introTextsArrays.firstChild) {
-            introTextsArrays.removeChild(introTextsArrays.firstChild);
-        }
-        
-    }
-    else if(currentStepIndex === 11){
-        Storybook_Preview();
-    }
-
-
-    // let stroybookStepsCount = $(".storybook__sections").children().length;
-    // console.log("currentstep on next",currentStep,currentStepIndex,stroybookStepsCount)
-
-
-    // if (currentStepIndex == stroybookStepsCount-1) {
-    //     $("#step" + (currentStepIndex + 1)).addClass("stepActive");
-    //     // $('#storybook__nav--right').hide();
-    // }
-    // else {
-    //     $("#step" + (currentStepIndex + 1)).addClass("stepActive");
-    // }
 }
+
+function nextForImageUrlGetter(){
+    ImageUrlGetter();
+}
+
+function nextForPreview(){
+    Storybook_Product_Maker();
+}
+

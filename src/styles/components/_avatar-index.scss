@@ -17,7 +17,7 @@
     text-decoration: none;
   }
 
-  #constructor{
+  #constructor {
     height: 100%;
   }
 
@@ -29,7 +29,7 @@
     display: none;
     width: 100%;
     height: 100%;
-    .viewport{
+    .viewport {
       height: 100%;
     }
   }
@@ -43,9 +43,10 @@
   .avatar-container,
   .layers-container {
     width: 50%;
-    height: 100%;
+    // height: 100%;
     display: flex;
     justify-content: center;
+    flex-grow: 1;
   }
 
   #constructor-panel
@@ -61,13 +62,17 @@
   #constructor-panel .carousel {
     display: inline-block;
     width: 400px;
-    height: 100%;
+    height: 540px;
+  }
+  #constructor-panel .avatar-container {
+    background: $theme-color-white;
   }
   #constructor-panel .layers {
     height: 100%;
     width: 100%;
     background: #f5f5f5 0% 0% no-repeat padding-box;
     opacity: 1;
+    padding: 30px;
   }
   #constructor-panel .layers .layer {
     display: none;
@@ -202,6 +207,7 @@
     width: 50%;
     height: 100%;
     color: #096dc3;
+    background: $theme-color-grey;
   }
 
   .subtab-container-inner {
@@ -250,7 +256,7 @@
     height: 15px;
     margin: 8px;
     text-align: center;
-    a{
+    a {
       display: block;
     }
   }
@@ -268,7 +274,7 @@
     height: 15px;
     margin: 8px;
     text-align: center;
-    a{
+    a {
       display: block;
     }
   }
@@ -333,25 +339,24 @@
     }
 
     .layers-container {
-      margin-top: 100px;
+      margin-top: 110px;
     }
 
     #constructor-panel .layers {
-      padding: 0px 10px;
+      padding: 20px 22px;
       height: 100%;
       width: 100%;
     }
 
     #constructor-panel .layers .layer.active {
       justify-content: flex-start;
-      padding: 30px 0px 0px 0px;
     }
 
     .tabs-subtabs {
       width: 100%;
       flex-direction: column;
       position: absolute;
-      bottom: 16px;
+      bottom: 64px;
       background: #f5f5f5;
       height: 100px;
     }
