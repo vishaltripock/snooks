@@ -11,7 +11,7 @@ let characteristicsStories = "";
 let Avatar_Image_URL = "";
 
 $.get(
-    "https://cdn.shopify.com/s/files/1/0278/4172/4556/files/occupationStories.json?3122",
+    "https://cdn.shopify.com/s/files/1/0275/0762/1932/files/occupationStories.json?63",
     function (Stories) {
         occupationStories = Stories;
     },
@@ -19,7 +19,7 @@ $.get(
 );
 
 $.get(
-    "https://cdn.shopify.com/s/files/1/0278/4172/4556/files/hobbiesStories.json?3122",
+    "https://cdn.shopify.com/s/files/1/0275/0762/1932/files/hobbiesStories.json?63",
     function (Stories) {
         hobbiesStories = Stories;
     },
@@ -27,7 +27,7 @@ $.get(
 );
 
 $.get(
-    "https://cdn.shopify.com/s/files/1/0278/4172/4556/files/characteristicsStories.json?3122",
+    "https://cdn.shopify.com/s/files/1/0275/0762/1932/files/characteristicsStories.json?63",
     function (Stories) {
         characteristicsStories = Stories;
     },
@@ -288,7 +288,7 @@ function Preview_Text_Generator(Preview_Text_String, index, length) {
         let productVariant = document.createElement("input");
         productVariant.setAttribute("name", "id");
         //Change Required
-        let productVariantValue = productInfo.variant.variant_id;
+        let productVariantValue = productInfo.product.variant_id;
         console.log(productInfo);
         console.log(productVariantValue);
         productVariant.setAttribute("value", productVariantValue);
@@ -355,6 +355,8 @@ function Storybook_Product_Maker() {
         productData[field.name] = field.value;
     });
 
+    productData['title'] = productData['PersonName'];
+
     let PreviewPagesContent = document.getElementById("preview-container-id");
     while (PreviewPagesContent.firstChild) {
         PreviewPagesContent.removeChild(PreviewPagesContent.firstChild);
@@ -371,9 +373,15 @@ function Storybook_Product_Maker() {
     }
 
     productData["page"] = productPagesData;
+    productData["images"] = [{
+        src:Avatar_Image_URL
+    }]
+    console.log("Product DATA")
+    console.log(productData);
+    // productData['images'] = base64
 
     $.ajax({
-        url: "https://0ac2645b.ngrok.io/products/",
+        url: "https://f6f8f798.ngrok.io/products/",
         data: JSON.stringify(productData),
         type: 'POST',
         dataType: 'json',
@@ -399,8 +407,8 @@ function ImageUrlGetter() {
     let AvatarConfig = JSON.stringify(constructorAvatar.pixel("selected"));
     let currentGender = constructorAvatar.pixel('group');
 
-    $.post("https://0ac2645b.ngrok.io/constructor/avatar/", { data: AvatarConfig, "gender": currentGender }, function (data, status) {
-        Avatar_Image_URL = "https://0ac2645b.ngrok.io" + data["avatar_image"];
+    $.post("https://f6f8f798.ngrok.io/constructor/avatar/", { data: AvatarConfig, "gender": currentGender }, function (data, status) {
+        Avatar_Image_URL = "https://f6f8f798.ngrok.io" + data["avatar_image"];
         console.log(Avatar_Image_URL);
         next();
     }

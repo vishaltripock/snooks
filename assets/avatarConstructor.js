@@ -6,10 +6,11 @@ jQuery(function ($) {
         loader = $(".pixel-loading");
 
     constructor.pixel({
-        images: 'https://cdn.shopify.com/s/files/1/0278/4172/4556/t/5/assets/',
+        images: 'https://cdn.shopify.com/s/files/1/0275/0762/1932/t/2/assets/',
+        //       https://cdn.shopify.com/s/files/1/0275/0762/1932/t/2/assets
         // images:'http://localhost/static/8bit/img/compress/',
         //https://cdn.shopify.com/s/files/1/0278/4172/4556/files/8settings.json?2872
-        json: 'https://cdn.shopify.com/s/files/1/0278/4172/4556/files/8settings.json?2877',
+        json: 'https://cdn.shopify.com/s/files/1/0275/0762/1932/files/8settings.json?63',
         selected: true,
         startup: {
             layer: 'body',
