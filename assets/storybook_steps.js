@@ -373,15 +373,13 @@ function Storybook_Product_Maker() {
     }
 
     productData["page"] = productPagesData;
-    productData["images"] = [{
-        src:Avatar_Image_URL
-    }]
+    productData["images"] = productPagesData;
     console.log("Product DATA")
     console.log(productData);
     // productData['images'] = base64
 
     $.ajax({
-        url: "https://f6f8f798.ngrok.io/products/",
+        url: "https://d1e28f8e.ngrok.io/products/",
         data: JSON.stringify(productData),
         type: 'POST',
         dataType: 'json',
@@ -392,6 +390,7 @@ function Storybook_Product_Maker() {
         success: function (data) {
             productInfo = data;
             console.log(productInfo)
+            console.log("https://d1e28f8e.ngrok.io/" + productInfo.outputPdf);
             Storybook_Preview();
             next();
         },
@@ -407,8 +406,8 @@ function ImageUrlGetter() {
     let AvatarConfig = JSON.stringify(constructorAvatar.pixel("selected"));
     let currentGender = constructorAvatar.pixel('group');
 
-    $.post("https://f6f8f798.ngrok.io/constructor/avatar/", { data: AvatarConfig, "gender": currentGender }, function (data, status) {
-        Avatar_Image_URL = "https://f6f8f798.ngrok.io" + data["avatar_image"];
+    $.post("https://d1e28f8e.ngrok.io/constructor/avatar/", { data: AvatarConfig, "gender": currentGender }, function (data, status) {
+        Avatar_Image_URL = "https://d1e28f8e.ngrok.io" + data["avatar_image"];
         console.log(Avatar_Image_URL);
         next();
     }

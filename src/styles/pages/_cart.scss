@@ -1,0 +1,95 @@
+#cart-container-id {
+  display: flex;
+  flex-grow: 1;
+  max-width: none;
+
+  .cart-main {
+    width: 100%;
+    height: 100%;
+    .shopping-bag-non-empty {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding-top: 240px;
+      .shopping-bag-container {
+        width: 100%;
+        flex-grow: 1;
+        form {
+          width: 100%;
+          flex-grow: 1;
+          .shopping-bag-container-inner {
+            width: 100%;
+            height: 100%;
+            flex-grow: 1;
+            .shopping-bag-info-container {
+              width: 100%;
+              flex-grow: 1;
+              display: flex;
+              .shopping-bag-info {
+                display: flex;
+                width: 100%;
+                flex-grow: 1;
+                justify-content: space-between;
+                border-bottom: 2px black solid;
+                padding-bottom: 10px;
+                .shopping-bag-product-info {
+                  margin-left: 50px;
+                }
+                .shopping-bag-Total-info {
+                  margin-right: 50px;
+                }
+              }
+            }
+            .shopping-bag-items-collection-container {
+              display: flex;
+              flex-grow: 1;
+              width: 100%;
+              .shopping-bag-items-collection {
+                margin-top: 14px;
+                display: flex;
+                width: 100%;
+                flex-grow: 1;
+                flex-direction: column;
+                .shopping-bag-item-container {
+                  flex-grow: 1;
+                  width: 100%;
+                  display: flex;
+                  .shopping-bag-item {
+                    width: 100%;
+                    justify-content: space-between;
+                    display: flex;
+                    .shopping-bag-product-image-name{
+                        display: flex;
+                        align-items: center;
+                        margin-left: 40px;
+                        .shopping-bag-product-image{
+                            height: 50px;
+                            width: 50px;
+                            img{
+                                height: 100%;
+                                width: 100%;
+                            }
+                        }
+                    }
+                    .shopping-bag-product-remove{
+                        margin-right: 50px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .shopping-bag-subtotal-checkout-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+  }
+}

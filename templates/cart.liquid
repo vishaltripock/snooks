@@ -1,67 +1,85 @@
-<div class="cart-container">
-  <div class="cart-container-inner">
-    <div class="cart-main">
-      <div class="logo">
-        <img src="{{- 'Snooks-Angel-Books-logo.svg' | asset_url -}}" alt="Snooks Angel Books Logo">
+<div class="cart-container" id="cart-container-id">
+  <div class="cart-main">
+    <div class="logo">
+      <img src="{{- 'Snooks-Angel-Books-logo.svg' | asset_url -}}" alt="Snooks Angel Books Logo">
+    </div>
+    {% if cart.item_count > 0 %}
+    <div class="shopping-bag-non-empty">
+      <div class="cart-heading">
+        <h1>My Shopping Bag</h1>
       </div>
-      {% if cart.item_count > 0 %}
-      <div class="shopping-bag-non-empty">
-        <div class="cart-heading">
-          <h1>My Shopping Bag</h1>
-          <div class="shopping-bag-container">
-            <form action="/cart" method="post" novalidate>
-              <table>
-                <thead>
-                  <th colspan="2">Prod</th>
-                  <th>Price</th>
-                  <th>Qty</th>
-                  <th>total</th>
-                </thead>
-                <tbody>
-                  {% for item in cart.items %}
-                  <tr>
-                    <td>
-                      <a href="{{ item.url | within: collections.all }}">
-                        <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
-                      </a>
-                    </td>
-                    <td>
-                      <a href="{{ item.url }}">{{ item.product.title }}</a>
-                      {{ item.variant.title }}
-                      <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
-                    </td>
-                    <td>{{ item.price | money }}</td>
-                    <td>
-                      <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}"
-                        min="0">
-                    </td>
-                    <td>
-                      {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
-                      {{ item.line_price | money }}
-                      {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
-                    </td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-              <div>
-                <div class="shopping-bag-subtotal-container">
-                  <p>Subtotal:</p>
-                  <p>{{ cart.total_price | money }}</p>
+      <div class="shopping-bag-container">
+        <form action="/cart" method="post" novalidate>
+          <div class="shopping-bag-container-inner">
+            <div class="shopping-bag-info-container">
+              <div class="shopping-bag-info">
+                <div class="shopping-bag-product-info">
+                  <span>Item</span>
                 </div>
-                <div class="shopping-bag-checkout-btn-container">
-                  <button type="submit" name="checkout" id="checkout-btn">Checkout</button>
+                <div class="shopping-bag-price-info">
+                  <span>Price</span>
+                </div>
+                <div class="shopping-bag-quantity-info">
+                  <span>Quantity</span>
+                </div>
+                <div class="shopping-bag-Total-info">
+                  <span>Total</span>
                 </div>
               </div>
-            </form>
+            </div>
+            <div class="shopping-bag-items-collection-container">
+              <div class="shopping-bag-items-collection">
+                <div class="shopping-bag-item-container">
+                  {% for item in cart.items %}
+                  <div class="shopping-bag-item">
+                    <div class="shopping-bag-product-image-name">
+                      <div class="shopping-bag-product-image">
+                        <a href="{{ item.url | within: collections.all }}">
+                          <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+                        </a>
+                      </div>
+                      <div class="shopping-bag-product-name">
+                        {{ item.product.title }}({{ item.variant.title }})
+                      </div>
+                    </div>
+                    <div class="shopping-bag-product-price">
+                      {{ item.price | money }}
+                    </div>
+                    <div class="shopping-bag-product-quantity">
+                      <div class="shopping-bag-product-quantity-input">
+                        <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}"
+                          min="0">
+                      </div>
+                    </div>
+                    <div class="shopping-bag-product-total-price">
+                      {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
+                      {{ item.line_price | money }}
+                      <!-- {% for discount in item.discounts %}{{ discount.title }}{% endfor %} -->
+                    </div>
+                    <div class="shopping-bag-product-remove">
+                      <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">Remove</a>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        {% else %}
-        <div class="shopping-bag-empty">
-          <h2>Cart is Empty</h2>
-        </div>
-        {% endif %}
+          <div class="shopping-bag-subtotal-checkout-container">
+            <div class="shopping-bag-subtotal-container">
+              <p>Subtotal:</p>
+              <p>{{ cart.total_price | money }}</p>
+            </div>
+            <div class="shopping-bag-checkout-btn-container">
+              <button type="submit" name="checkout" id="checkout-btn">Checkout</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
-
+    {% else %}
+    <div class="shopping-bag-empty">
+      <h2>Cart is Empty</h2>
+    </div>
+    {% endif %}
   </div>
