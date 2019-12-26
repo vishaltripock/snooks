@@ -83,9 +83,7 @@ function Intro_Generator() {
             characteristics = "Miss Fix It";
         }
 
-        let She_Story = `Your ${relationship} was so many things to our family and their friends. She was ${occupation}
-        and her favorite things to do included ${hobbies}. The funniest thing 
-        about them was they were ${characteristics}.`;
+        let She_Story = `Your ${relationship} was so many things to our family and their friends. She was ${occupation} and her favorite things to do included ${hobbies}. The funniest thing about them was they were ${characteristics}.`;
 
         $("p#person-intro-text").text(She_Story);
     } else {
@@ -93,24 +91,28 @@ function Intro_Generator() {
             characteristics = "Mr Fix It";
         }
 
-        let He_Story = `Your ${relationship} was so many things to our family and their friends. He was ${occupation}
-        and his favorite things to do included ${hobbies}. The funniest thing 
-        about them was they were ${characteristics}.`;
+        let He_Story = `Your ${relationship} was so many things to our family and their friends. He was ${occupation} and his favorite things to do included ${hobbies}. The funniest thing about them was they were ${characteristics}.`;
 
         $("p#person-intro-text").text(He_Story);
     }
 }
 
 function Story_Generator() {
+
+    let StoryPages = document.getElementById("storybook-pages");
+    while (StoryPages.firstChild) {
+        StoryPages.removeChild(StoryPages.firstChild);
+    }
+
     let occupationArrays = occupationStories[occupation].split(".");
     let hobbiesArrays = hobbiesStories[hobbies].split(".");
-    let characteristicsArrays = characteristicsStories[characteristics].split(
-        "."
-    );
+    let characteristicsArrays = characteristicsStories[characteristics].split(".");
 
     OccupationStories(occupationArrays);
     HobbiesStories(hobbiesArrays);
     CharacteristicsStories(characteristicsArrays);
+
+    next();
 }
 
 function OccupationStories(occupationArrays) {
@@ -344,18 +346,33 @@ function Preview_Text_Generator(Preview_Text_String, index, length) {
     PreviewPages.appendChild(preview_inner);
 }
 
-
-
 function Storybook_Product_Maker() {
+
     let productFormData = $("#storybook_form").serializeArray();
 
-    let productData = {};
+    const fileList = $("#storybook__photo").prop("files") || [];
+
+    let userDp;
+
+    if (fileList.length > 0) {
+        userDp = fileList[0];
+    }
+
+    const formData = new FormData();
 
     $.each(productFormData, function (i, field) {
-        productData[field.name] = field.value;
+        formData.append(field.name, field.value);
+        if (field.name === 'PersonName') {
+            formData.append('title', field.value);
+        }
     });
 
-    productData['title'] = productData['PersonName'];
+    let livingMemoryText = $("#first-page-id").text();
+    console.log("HEEEEELLL0     ", livingMemoryText);
+    let introTextValue =  $("p#person-intro-text").text();
+
+    formData.append("LivingMemory", livingMemoryText);
+    formData.append("IntroText", introTextValue);
 
     let PreviewPagesContent = document.getElementById("preview-container-id");
     while (PreviewPagesContent.firstChild) {
@@ -372,25 +389,31 @@ function Storybook_Product_Maker() {
         productPagesData.push({ img: Avatar_Image_URL, pagetext: textareaArrays[i].value });
     }
 
-    productData["page"] = productPagesData;
-    productData["images"] = productPagesData;
-    console.log("Product DATA")
-    console.log(productData);
+    formData.append('page', JSON.stringify(productPagesData));
+    if (userDp) {
+        formData.append('avatar_pic', userDp, "avatar.png");
+    }
+    // formData.append('images',p)
+    // productData["page"] = productPagesData;
+    // productData["images"] = productPagesData;
+    // console.log("Product DATA")
+    // console.log(productData);
     // productData['images'] = base64
 
     $.ajax({
-        url: "https://d1e28f8e.ngrok.io/products/",
-        data: JSON.stringify(productData),
+        url: "https://c676ad32.ngrok.io/products/",
+        data: formData,
         type: 'POST',
-        dataType: 'json',
-        contentType: 'application/json',
+        // dataType: 'json',
+        contentType: false,
+        processData: false,
         complete: function () {
 
         },
         success: function (data) {
             productInfo = data;
             console.log(productInfo)
-            console.log("https://d1e28f8e.ngrok.io/" + productInfo.outputPdf);
+            console.log("https://c676ad32.ngrok.io" + productInfo.outputPdf);
             Storybook_Preview();
             next();
         },
@@ -406,13 +429,14 @@ function ImageUrlGetter() {
     let AvatarConfig = JSON.stringify(constructorAvatar.pixel("selected"));
     let currentGender = constructorAvatar.pixel('group');
 
-    $.post("https://d1e28f8e.ngrok.io/constructor/avatar/", { data: AvatarConfig, "gender": currentGender }, function (data, status) {
-        Avatar_Image_URL = "https://d1e28f8e.ngrok.io" + data["avatar_image"];
+    $.post("https://c676ad32.ngrok.io/constructor/avatar/", { data: AvatarConfig, "gender": currentGender }, function (data, status) {
+        Avatar_Image_URL = "https://c676ad32.ngrok.io" + data["avatar_image"];
         console.log(Avatar_Image_URL);
         next();
     }
     );
 }
+
 
 /* <div class="preview-inner">
         <div class="preview-image-container half-width">
@@ -441,10 +465,6 @@ function ImageUrlGetter() {
             </div>
         </div>
     </div> */
-
-
-
-
 
 
 /* <div class="storybook-page-container">

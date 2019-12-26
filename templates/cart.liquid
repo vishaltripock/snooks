@@ -34,9 +34,7 @@
                   <div class="shopping-bag-item">
                     <div class="shopping-bag-product-image-name">
                       <div class="shopping-bag-product-image">
-                        <a href="{{ item.url | within: collections.all }}">
-                          <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
-                        </a>
+                        <p>{{ item.properties }}</p>            
                       </div>
                       <div class="shopping-bag-product-name">
                         {{ item.product.title }}({{ item.variant.title }})
