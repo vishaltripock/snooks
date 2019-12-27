@@ -10,7 +10,7 @@ jQuery(function ($) {
         //       https://cdn.shopify.com/s/files/1/0275/0762/1932/t/2/assets
         // images:'http://localhost/static/8bit/img/compress/',
         //https://cdn.shopify.com/s/files/1/0278/4172/4556/files/8settings.json?2872
-        json: 'https://cdn.shopify.com/s/files/1/0275/0762/1932/files/8settings.json?63',
+        json: 'https://cdn.shopify.com/s/files/1/0275/0762/1932/files/8settings.json?305',
         selected: true,
         startup: {
             layer: 'body',

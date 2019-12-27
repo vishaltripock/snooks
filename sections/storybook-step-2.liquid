@@ -24,7 +24,7 @@
                         <div class="storybook_photoUpload_Input">
                             <input id="storybook__photo" type="file" name="myImage" accept="image/*"
                                 class="customer-photo" />
-                            <label for="storybook__photo"> {{ 'upload_icon.png' | asset_url | img_tag }}</label>
+                            <label for="storybook__photo"><img src="{{- 'upload_icon.png' | asset_url -}}" alt="User Uploaded Pic" id = "userUploadPic"></label>
                         </div>
                     </div>
                     <div class="form__field">
