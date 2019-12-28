@@ -135,7 +135,7 @@
 		{
 			"name": "body",
 			"title": "Body",
-			"count": 1
+			"count": 2
 		}
 	],
 	"female": [
@@ -298,7 +298,7 @@
 		{
 			"name": "body",
 			"title": "Body",
-			"count": 1
+			"count": 2
 		}
 	]
 }

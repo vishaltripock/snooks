@@ -1,7 +1,12 @@
 
 let productInfo = {};
 
-let base_asset_url = "https://6a0db848.ngrok.io";
+const endText = "It is hard and sad to think of someone that has passed on. But try to take comfort in all they have left for you. Always know a part of them lives on in you. As long as you share their stories and memories, they can never really be gone."
+
+
+let base_asset_url = "https://66da97c9.ngrok.io";
+
+let She_Story = "", He_Story = "";
 
 let StoryPages = document.getElementById("storybook-pages");
 let PreviewPages = document.getElementById("preview-container-id");
@@ -87,7 +92,7 @@ function Intro_Generator() {
             characteristics = "Miss Fix It";
         }
 
-        let She_Story = `Your ${relationship} was so many things to our family and their friends. She was ${occupation} and her favorite things to do included ${hobbies}. The funniest thing about them was they were ${characteristics}.`;
+        She_Story = `Your ${relationship} was so many things to our family and their friends. She was ${occupation} and her favorite things to do included ${hobbies}. The funniest thing about them was there ${characteristics}.`;
 
         $("p#person-intro-text").text(She_Story);
     } else {
@@ -95,7 +100,7 @@ function Intro_Generator() {
             characteristics = "Mr Fix It";
         }
 
-        let He_Story = `Your ${relationship} was so many things to our family and their friends. He was ${occupation} and his favorite things to do included ${hobbies}. The funniest thing about them was they were ${characteristics}.`;
+        He_Story = `Your ${relationship} was so many things to our family and their friends. He was ${occupation} and his favorite things to do included ${hobbies}. The funniest thing about them was there ${characteristics}.`;
 
         $("p#person-intro-text").text(He_Story);
     }
@@ -108,23 +113,23 @@ function Story_Generator() {
         StoryPages.removeChild(StoryPages.firstChild);
     }
 
-    let occupationArrays = occupationStories[occupation].split(".");
-    let hobbiesArrays = hobbiesStories[hobbies].split(".");
-    let characteristicsArrays = characteristicsStories[characteristics].split(".");
+    let occupationArrays = occupationStories[occupation];
+    // let hobbiesArrays = hobbiesStories[hobbies].split(".");
+    // let characteristicsArrays = characteristicsStories[characteristics].split(".");
 
     OccupationStories(occupationArrays);
-    HobbiesStories(hobbiesArrays);
-    CharacteristicsStories(characteristicsArrays);
+    // HobbiesStories(hobbiesArrays);
+    // CharacteristicsStories(characteristicsArrays);
 
     next();
 }
 
 function OccupationStories(occupationArrays) {
-    for (let o = 0; o < occupationArrays.length - 1; ++o) {
-        let occupation_text = occupationArrays[o];
-
-        Storybook_Page_Maker(occupation_text);
-    }
+    Storybook_Page_Maker(occupationArrays);
+    // for (let o = 0; o < occupationArrays.length; ++o) {
+    //     let occupation_text = occupationArrays[o];
+    //     Storybook_Page_Maker(occupation_text);
+    // }
 }
 
 function HobbiesStories(hobbiesArrays) {
@@ -189,6 +194,7 @@ function Storybook_Page_Maker(story_text) {
 }
 
 function Storybook_Preview() {
+
     let textareaArrays = document.querySelectorAll(".story-page-text");
     let avatarImages = document.querySelectorAll(".story-avatar-image");
     let length = textareaArrays.length;
@@ -196,13 +202,13 @@ function Storybook_Preview() {
     for (let i = 0; i < length; ++i) {
         Preview_Text_Generator(textareaArrays[i].value, i, length);
     }
+
+    Preview_Text_Generator(endText, length, length);
 }
 
 function Preview_Text_Generator(Preview_Text_String, index, length) {
     let preview_inner = document.createElement("div");
     preview_inner.classList.add("preview-inner");
-
-    //Image
 
     let preview_image_container = document.createElement("div");
     preview_image_container.classList.add("preview-image-container");
@@ -225,14 +231,17 @@ function Preview_Text_Generator(Preview_Text_String, index, length) {
     preview_inner.appendChild(preview_image_container);
     preview_image_container.appendChild(preview_image_inner);
     preview_image_inner.appendChild(preview_image_avatar);
-    preview_image_avatar.appendChild(preview_image_tag);
+
+    //Image ---> Not Adding Image for End Text
+    if (index !== length) {
+        preview_image_avatar.appendChild(preview_image_tag);
+    }
 
     //TEXT
-
     let preview_text_container = document.createElement("div");
     preview_text_container.classList.add("preview-text-container");
-    preview_text_container.classList.add("half-width");
 
+    preview_text_container.classList.add("half-width");
     let preview_text_inner = document.createElement("div");
     preview_text_inner.classList.add("preview-text-inner");
 
@@ -271,7 +280,7 @@ function Preview_Text_Generator(Preview_Text_String, index, length) {
 
     preview_text_inner.appendChild(preview_text_story_inner);
 
-    if (index === length - 1) {
+    if (index === length) {
 
         // Making a Product FORM
 
@@ -382,7 +391,7 @@ function Storybook_Product_Maker() {
     livingMemoryText = livingMemoryText.replace(/^\n|\n$/g, '');
     introTextValue = introTextValue.replace(/^\n|\n$/g, '');
 
-    let textareaArrays = document.querySelectorAll(".story-page-text");
+    let textareaArrays = document.querySelectorAll(".story-page-text").split(".");
     let length = textareaArrays.length;
     let productPagesData = [];
 
@@ -399,6 +408,9 @@ function Storybook_Product_Maker() {
 
         productPagesData.push({ img: Activity_Image_URL, pagetext: textareaArrays[i].value });
     }
+
+    // Appending End Text Here
+    productPagesData.push({ img: "", pagetext: endText });
 
     formData.append('page', JSON.stringify(productPagesData));
 
@@ -420,7 +432,7 @@ function Storybook_Product_Maker() {
         success: function (data) {
             productInfo = data;
             console.log(productInfo)
-            console.log(base_asset_url + "/" + productInfo.outputPdf);
+            console.log(base_asset_url + productInfo.outputPdf);
             Storybook_Preview();
             next();
         },
@@ -440,7 +452,7 @@ function ImageUrlGetter() {
 
     console.log(AvatarConfig);
 
-    $.post(base_asset_url + "/constructor/avatar/", { data: AvatarConfig, "gender": currentGender, activity: JSON.stringify(activityInfo)}, function (data, status) {
+    $.post(base_asset_url + "/constructor/avatar/", { data: AvatarConfig, "gender": currentGender, activity: JSON.stringify(activityInfo) }, function (data, status) {
         Avatar_Image_URL = base_asset_url + data["avatar_image"];
         Face_Image_URL = base_asset_url + data["face_image"];
         Activity_Image_URL = base_asset_url + data["activity_image"];
