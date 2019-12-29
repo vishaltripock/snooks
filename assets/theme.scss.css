@@ -536,6 +536,24 @@ a, button, [role="button"], input, label, select, textarea {
 .faq .anchors-nav .anchors-nav__link, .terms .anchors-nav .anchors-nav__link, .privacy .anchors-nav .anchors-nav__link {
   color: #D4F4F1; }
 
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+  padding: 20px;
+  margin: 0 auto 10px;
+  cursor: pointer; }
+  .circle svg.download {
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    display: block;
+    fill: #096DC3; }
+  .circle--theme-white {
+    color: #096DC3;
+    background-color: #FFFFFF; }
+
 .btn {
   height: 48px;
   min-width: 148px;
@@ -644,7 +662,8 @@ a, button, [role="button"], input, label, select, textarea {
 .form__group {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between; }
+  justify-content: space-between;
+  padding: 0 20px; }
   @media (min-width: 768px) {
     .form__group {
       flex-flow: row wrap;
@@ -680,31 +699,29 @@ a, button, [role="button"], input, label, select, textarea {
   border: none;
   border-radius: 0;
   padding: 10px;
-  border-bottom: 1px solid #096DC3;
-  text-align: center; }
+  border-bottom: 1px solid #096DC3; }
   .form__input::placeholder {
     color: #096DC3;
     font-size: 12px; }
 
-.header nav.header__nav--primary ul.header__navList > li > a {
-  color: #FFFFFF; }
-
-.header nav.header__nav--secondary ul.header__navList > li > a {
-  color: #096DC3; }
-
-.header svg.logo path {
-  fill: #096DC3; }
-
-@media only screen and (max-width: 1024px) {
-  .header nav.header__nav--primary,
-  .header nav.header__nav--secondary {
-    background-color: #FFFFFF; } }
+.form__stacked {
+  flex-flow: column nowrap;
+  align-items: center; }
+  .form__stacked .form__field {
+    margin-top: 15px; }
 
 .storybook {
   display: flex;
   flex-grow: 1;
   justify-content: center;
   flex-direction: column; }
+  .storybook #step2 img.storybook__photo--upload {
+    width: 200px;
+    height: 200px;
+    display: block;
+    cursor: pointer; }
+  .storybook #step6 .storybook__gender--female {
+    margin-right: 20px; }
   .storybook .container {
     width: 100%;
     height: 100%;
@@ -2475,35 +2492,15 @@ a, button, [role="button"], input, label, select, textarea {
 .header__bar {
   position: relative;
   height: 100px;
-  background: #fff; }
-
-.header__nav--primary {
-  padding-left: 20px;
-  width: 50%;
-  height: 100%;
-  justify-content: flex-start; }
-  @media only screen and (max-width: 1024px) {
-    .header__nav--primary {
-      display: none;
-      width: 0;
-      height: 0;
-      padding: 0; } }
-
-.header__nav--secondary {
-  justify-content: flex-end;
-  padding-right: 20px;
-  width: 50%;
-  height: 100%; }
-  @media only screen and (max-width: 1024px) {
-    .header__nav--secondary {
-      width: 100%;
-      padding: 0 25px;
-      justify-content: space-between;
-      align-items: center; } }
+  padding: 0 20px;
+  background: #fff;
+  border-bottom: 1px solid #F0F0F0; }
 
 .header__navList {
   font-family: "basis-grotesque-regular";
   text-transform: uppercase; }
+  .header__nav--primary .header__navList {
+    margin-left: 30px; }
 
 .header__navListItem + .header__navListItem {
   margin-left: 15px; }
@@ -2611,12 +2608,14 @@ a, button, [role="button"], input, label, select, textarea {
       display: flex; } }
 
 .logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  width: 100%;
-  right: 0; }
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  vertical-align: middle;
+  text-indent: -9999px;
+  overflow: hidden;
+  transition: opacity 0.3s ease-in-out; }
   .logo:hover {
     opacity: 0.67; }
 
@@ -2631,9 +2630,6 @@ a, button, [role="button"], input, label, select, textarea {
     display: block;
     width: 100%;
     height: 100%; }
-
-.logo img {
-  height: 240px; }
 
 .nav--inline {
   display: flex;
@@ -2694,7 +2690,7 @@ a, button, [role="button"], input, label, select, textarea {
     right: 21px;
     transform: translate(50%, -50%);
     display: block;
-    content: "";
+    content: '';
     width: 0;
     height: 0;
     border-style: solid;
@@ -2709,20 +2705,10 @@ a, button, [role="button"], input, label, select, textarea {
     font-family: "basis-grotesque-regular";
     background: transparent;
     border-radius: 0;
-    -webkit-appearance: button;
-    appearance: button;
-    box-shadow: none;
+    -webkit-appearance: none;
+    appearance: none;
     cursor: pointer;
     width: 100%; }
-    .select select option {
-      outline: none;
-      background-color: #D4F4F1;
-      color: #096DC3;
-      font-family: "basis-grotesque-regular";
-      border: 1px solid #096DC3;
-      box-shadow: none;
-      font-size: 14px;
-      padding: 13px 42px 13px 16px; }
 
 .title {
   font-family: "basis-grotesque-regular";
@@ -2869,67 +2855,6 @@ a, button, [role="button"], input, label, select, textarea {
   .desc--small {
     font-size: 18px;
     line-height: 24px; } }
-
-.about .header nav.header__nav--primary ul.navigation > li > a {
-  color: #096DC3; }
-
-.about .header nav.header__nav--secondary {
-  background-color: #FFDED5; }
-  .about .header nav.header__nav--secondary ul.navigation > li > a {
-    color: #096DC3; }
-
-.about .header svg.logo path {
-  fill: #096DC3; }
-
-.about .container {
-  margin: 0;
-  padding: 0;
-  max-width: none;
-  position: relative; }
-
-.about .content p {
-  font-family: "berlingske-serif-regular";
-  font-weight: bold; }
-
-.about .bg-left {
-  background-color: #FFFFFF;
-  width: 50%; }
-
-.about .bg-right {
-  width: 50%;
-  padding: 10% 8%;
-  font-size: 140%; }
-
-.about .about-section {
-  display: flex;
-  text-align: center; }
-
-.about .about-section .arrow {
-  display: block;
-  position: relative;
-  bottom: -30px;
-  text-align: center; }
-  .about .about-section .arrow svg {
-    width: 100px;
-    height: 100px;
-    fill: #096DC3; }
-
-.about .about-section:nth-child(odd) .bg-right {
-  color: #096DC3;
-  background-color: #FFDED5; }
-
-.about .about-section:nth-child(even) .bg-right {
-  color: #5258FA;
-  background-color: #FFDED5; }
-
-@media only screen and (max-width: 1024px) {
-  .about .row {
-    flex-direction: column-reverse; }
-  .about .bg-left,
-  .about .bg-right {
-    width: 100%; }
-  .about .about-section:nth-child(even) .bg-right {
-    padding-top: 275px; } }
 
 .contact .header nav.header__nav--primary {
   background-color: #096DC3; }

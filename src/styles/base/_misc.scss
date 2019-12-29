@@ -13,3 +13,27 @@
         }
     }
 }
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    padding: 20px;
+    margin: 0 auto 10px;
+    cursor: pointer;
+
+    svg.download {
+        width: 80%;
+        height: 80%;
+        margin: 0 auto;
+        display: block;
+        fill:#096DC3;
+    }
+    
+    &--theme-white {
+        color: $theme-color-science-blue;
+        background-color: $theme-color-white;
+
+    }
+}

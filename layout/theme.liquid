@@ -15,23 +15,24 @@
     {% assign developmentMode = true %}
 
     {% if template.name == "index" %}
-    {% assign body_class = "home" %}
+        {% assign page_type = "home" %}
     {% elsif template.suffix == "about" %}
-    {% assign body_class = "about" %}
+        {% assign page_type = "about" %}
     {% elsif template.suffix == "faq" %}
-    {% assign body_class = "faq" %}
+        {% assign page_type = "faq" %}
     {% elsif template.suffix == "terms" %}
-    {% assign body_class = "terms" %}
+        {% assign page_type = "terms" %}
     {% elsif template.suffix == "privacy" %}
-    {% assign body_class = "privacy" %}
-    {% elsif template.suffix == "contact" %}
-    {% assign body_class = "contact" %}
-    {% elsif template.suffix == "product" %}
-    {% assign body_class = "product" %}
+        {% assign page_type = "privacy" %}
+     {% elsif template.suffix == "product" %}
+        {% assign page_type = "product" %}
+    {% elsif template.suffix == "storybook" %}
+        {% assign page_type = "storybook" %}
     {% endif %}
 
     {% include 'fonts' %}
     {% include 'additional-styles' %}
+    {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"> </script>
@@ -45,8 +46,6 @@
     {{ 'bootstrap-carousel.patched.js' | asset_url | script_tag }}
 
 
-    {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-
     {% if developmentMode == true %}
     {{ content_for_header | replace: "<body onload='document._boomrl();'>", "<bodx onload='document._boomrl();'>" }}
     {% else %}
@@ -54,20 +53,20 @@
     {% endif %}
 </head>
 
-<body class="{{ body_class | replace: '.', ' ' | truncatewords: 1, '' }}">
+<body id="{{ page_type }}" class="{{ page_type | replace: '.', ' ' | truncatewords: 1, '' }}">
     <div id="siteWrapper">
         {% section 'header' %}
         <main id="main">
             {{ content_for_layout }}
         </main>
-        {% section 'footer' %}
+        {% if template.suffix != "storybook" %}
+            {% section 'footer' %}
+        {% endif %}
     </div>
     {{ 'theme.js' | asset_url | script_tag }}
+    {{ 'avatarConstructor.js' | asset_url | script_tag }}
+    {{ 'storybook__nav.js' | asset_url | script_tag }}
+    {{ 'storybook_steps.js' | asset_url | script_tag }}
+    {{ 'creator.js' | asset_url | script_tag }}
 </body>
-
-{{ 'avatarConstructor.js' | asset_url | script_tag }}
-{{ 'storybook__nav.js' | asset_url | script_tag }}
-{{ 'storybook_steps.js' | asset_url | script_tag }}
-{{ 'creator.js' | asset_url | script_tag }}
-
 </html>

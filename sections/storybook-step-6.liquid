@@ -1,45 +1,22 @@
-<div class="storybook-gender-container">
-        <div class="storybook-gender">
-            <div class="storybook-gender-text-container half-width">
-                <div class="storybook-gender-text">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur asperiores repellat voluptatum
-                        voluptates quod ad consequuntur incidunt expedita commodi odit nulla cupiditate saepe doloribus id,
-                        consequatur suscipit, rerum dignissimos facilis fugit odio et, praesentium magnam nam? Quaerat sint
-                        nostrum facilis dolor nihil quae odit, voluptatibus rerum ipsa iure non eum.
-                    </p>
-                </div>
-            </div>
-            <div class="storybook-gender-option-container half-width">
-                <div class="storybook-gender-option-inner">
-                    <div class="storybook-gender-option-text">
-                        <p>SELECT GENDER</p>
-                    </div>
-                    <div class="storybook-gender-option-choice">
-                        <div class="storybook-gender-option-female-container">
-                            <div class="storybook-gender-option-female">
-                                <div class="storybook-gender-option-female-image">
-                                    <input id="female-type" name="Gender" type="radio" value="female" checked/>
-                                    <label for="female-type">
-                                        <div class="female-image-container"></div>
-                                    </label>
-                                </div>
-                                Female
-                            </div>
-                        </div>
-                        <div class="storybook-gender-option-male-container">
-                            <div class="storybook-gender-option-male">
-                                <div class="storybook-gender-option-male-image">
-                                    <input id="male-type" name="Gender" type="radio" value="male"/>
-                                    <label for="male-type">
-                                        <div class="male-image-container"></div>
-                                    </label>
-                                </div>
-                                Male
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="form__group form__stacked">
+    <div class="form__field">
+        <label class="form__label">
+            Select Gender
+        </label>
+    </div>
+    <div class="form__field">
+        <div class="storybook__gender storybook__gender--female">
+            <input id="female-type" name="Gender" type="radio" value="female" checked/>
+            <label for="female-type" class="form__label">
+                Female
+            </label>
+        </div>
+        
+        <div class="storybook__gender storybook__gender--male">
+            <input id="male-type" name="Gender" type="radio" value="male"/>
+            <label for="male-type" class="form__label">
+                Male
+            </label>
         </div>
     </div>
+</div>

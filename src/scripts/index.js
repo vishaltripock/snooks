@@ -43,7 +43,25 @@ class App {
 	          			offsetTop: 32
 	        		}
 	      	});
-	  	});
+		});
+		  
+		const storyBookSection = document.querySelectorAll('.storybook__section');
+		const storyBookCurrent = 7;
+	
+		storyBookSection.forEach((el) => {
+			const storyBookSectionIndex = Number(el.dataset.storybookIndex);
+
+			console.log('storybook index', typeof storyBookSectionIndex, storyBookSectionIndex);
+
+			if(storyBookSectionIndex === storyBookCurrent) {
+				el.classList.add('stepActive');
+			} else {
+				el.style.display = 'none';
+			}
+		});
+		
+	
+		
 	}
 }
 
