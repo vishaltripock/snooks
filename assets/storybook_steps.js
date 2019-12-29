@@ -3,7 +3,7 @@ const activityArray = ["Dancing", "Cooking", "Dentist", "Singer", "Basketball", 
 
 const endText =
     "It is hard and sad to think of someone that has passed on. But try to take comfort in all they have left for you. Always know a part of them lives on in you. As long as you share their stories and memories, they can never really be gone.";
-let base_asset_url = "https://ab611b83.ngrok.io";
+let base_asset_url = "https://c6913bf3.ngrok.io";
 
 let She_Story = "",
     He_Story = "";
@@ -74,9 +74,13 @@ $("select#storybookOccupation-Hobby").change(function () {
         .val();
     if (occupationStories.hasOwnProperty(occupationHobby)) {
         occupation = occupationHobby;
+        hobbies = "";
+        console.log(occupation + "    " + hobbies);
     }
     else if (hobbiesStories.hasOwnProperty(occupationHobby)) {
         hobbies = occupationHobby;
+        occupation = "";
+        console.log(occupation + "    " + hobbies);
     }
     if(activityArray.indexOf(occupationHobby) !== -1){
         activityValue = occupationHobby;
@@ -123,6 +127,7 @@ function Story_Generator() {
     }
     else if (hobbies !== "") {
         let hobbiesArrays = hobbiesStories[hobbies].split(".");
+        console.log(hobbiesArrays);
         HobbiesStories(hobbiesArrays);
     }
 

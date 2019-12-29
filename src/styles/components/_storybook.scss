@@ -330,11 +330,9 @@
 // <---------------------------------------- STEP 3, 4 and 5 --------------------------------------------------->
 
 #step3,
-#step4,
-#step5 {
+#step4 {
   #shopify-section-storybook-step-3,
-  #shopify-section-storybook-step-4,
-  #shopify-section-storybook-step-5 {
+  #shopify-section-storybook-step-4 {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -358,8 +356,7 @@
 
   @include media-query($screen-type-desktop) {
     #shopify-section-storybook-step-3,
-    #shopify-section-storybook-step-4,
-    #shopify-section-storybook-step-5 {
+    #shopify-section-storybook-step-4 {
       flex-direction: column;
       .form__group {
         display: flex;
@@ -384,9 +381,9 @@
   }
 }
 
-// <---------------------------------------- STEP 6 --------------------------------------------------->
-#step6 {
-  #shopify-section-storybook-step-6 {
+// <---------------------------------------- STEP 5 --------------------------------------------------->
+#step5 {
+  #shopify-section-storybook-step-5 {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -536,7 +533,7 @@
   }
 
   @include media-query($screen-type-desktop) {
-    #shopify-section-storybook-step-6 {
+    #shopify-section-storybook-step-5 {
       .storybook-gender-container {
         .storybook-gender {
           flex-direction: column;
@@ -573,10 +570,10 @@
   }
 }
 
-// <---------------------------------------- STEP 7 --------------------------------------------------->
+// <---------------------------------------- STEP 6 --------------------------------------------------->
 
-#step7 {
-  #shopify-section-storybook-step-7 {
+#step6 {
+  #shopify-section-storybook-step-6 {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -600,10 +597,10 @@
     }
   }
 }
-// <---------------------------------------- STEP 8 and 9 --------------------------------------------------->
+// <---------------------------------------- STEP 7 and 8 --------------------------------------------------->
 
-#step8 {
-  #shopify-section-storybook-step-8 {
+#step7 {
+  #shopify-section-storybook-step-7 {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -620,8 +617,8 @@
   }
 }
 
-#step9 {
-  #shopify-section-storybook-step-9 {
+#step8 {
+  #shopify-section-storybook-step-8 {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -648,10 +645,10 @@
   }
 }
 
-// <---------------------------------------- STEP 10 --------------------------------------------------->
+// <---------------------------------------- STEP 9 --------------------------------------------------->
 
-#step10 {
-  #shopify-section-storybook-step-10 {
+#step9 {
+  #shopify-section-storybook-step-9 {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -713,7 +710,7 @@
   }
 
   @include media-query($screen-type-desktop) {
-    #shopify-section-storybook-step-10 {
+    #shopify-section-storybook-step-9 {
       .storybook-pages-container {
         .storybook-page-container {
           flex-direction: column-reverse;
@@ -755,8 +752,8 @@
 
 // <---------------------------------------- STEP 11 --------------------------------------------------->
 
-#step11 {
-  #shopify-section-storybook-step-11 {
+#step10 {
+  #shopify-section-storybook-step-10 {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -904,7 +901,7 @@
   }
 
   @include media-query($screen-type-desktop) {
-    #shopify-section-storybook-step-11 {
+    #shopify-section-storybook-step-10 {
       .storybook-cover-container {
         .storybook-cover {
           flex-direction: column;
@@ -943,8 +940,8 @@
 
 // <---------------------------------------- STEP 11 --------------------------------------------------->
 
-#step12 {
-  #shopify-section-storybook-step-12 {
+#step11 {
+  #shopify-section-storybook-step-11 {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -1038,15 +1035,15 @@
       }
     }
   }
+  .storybook__controls {
+    background-color: $theme-color-white;
+  }
   .storybook__nav_left-container {
     background-color: $theme-color-yellow;
   }
-  .storybook__nav_right-container {
-    background-color: $theme-color-white;
-  }
 
   @include media-query($screen-type-desktop) {
-    #shopify-section-storybook-step-12 {
+    #shopify-section-storybook-step-11 {
       .preview-container {
         .preview-inner {
           flex-direction: column-reverse;
@@ -1068,10 +1065,10 @@
         }
       }
     }
-    .storybook__nav_left-container {
+    .storybook__controls {
       background-color: $theme-color-white;
     }
-    .storybook__nav_right-container {
+    .storybook__nav_left-container {
       background-color: $theme-color-white;
     }
   }

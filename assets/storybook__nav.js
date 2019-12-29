@@ -57,14 +57,6 @@ function InputChecker(index) {
       return false;
     }
   } else if (index === 4) {
-    let hobbiesValue = $("#storybookHobbies")
-      .children("option:selected")
-      .val();
-    console.log(index, hobbiesValue);
-    if (hobbiesValue === "") {
-      return false;
-    }
-  } else if (index === 5) {
     let characteristicsValue = $("#storybookCharacteristics")
       .children("option:selected")
       .val();

@@ -1,45 +1,86 @@
-<div class="storybook-gender-container">
-        <div class="storybook-gender">
-            <div class="storybook-gender-text-container half-width">
-                <div class="storybook-gender-text">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur asperiores repellat voluptatum
-                        voluptates quod ad consequuntur incidunt expedita commodi odit nulla cupiditate saepe doloribus id,
-                        consequatur suscipit, rerum dignissimos facilis fugit odio et, praesentium magnam nam? Quaerat sint
-                        nostrum facilis dolor nihil quae odit, voluptatibus rerum ipsa iure non eum.
-                    </p>
-                </div>
-            </div>
-            <div class="storybook-gender-option-container half-width">
-                <div class="storybook-gender-option-inner">
-                    <div class="storybook-gender-option-text">
-                        <p>SELECT GENDER</p>
-                    </div>
-                    <div class="storybook-gender-option-choice">
-                        <div class="storybook-gender-option-female-container">
-                            <div class="storybook-gender-option-female">
-                                <div class="storybook-gender-option-female-image">
-                                    <input id="female-type" name="Gender" type="radio" value="female" checked/>
-                                    <label for="female-type">
-                                        <div class="female-image-container"></div>
-                                    </label>
+<div id="wrapper" class="fw">
+    <!-- block content -->
+    <div id="constructor">
+        <div class="width-setter">
+
+            <div id="constructor-panel" class="pixel">
+                <div class="viewport">
+
+                    <!------- Avatars and Layers --------->
+
+                    <div class="avatar-layers">
+
+                        <!-- This Contains the Current Avatar -->
+                        <div class="avatar-container">
+                            <div class="carousel slide">
+                                <div class="carousel-inner">
+                                    <div class="item"></div>
                                 </div>
-                                Female
                             </div>
                         </div>
-                        <div class="storybook-gender-option-male-container">
-                            <div class="storybook-gender-option-male">
-                                <div class="storybook-gender-option-male-image">
-                                    <input id="male-type" name="Gender" type="radio" value="male"/>
-                                    <label for="male-type">
-                                        <div class="male-image-container"></div>
-                                    </label>
+
+                        <!------- Contains the Images -------->
+                        <div class="layers-container">
+                            <div class="layers">
+                                <div class="layer">
+                                    <div class="item"><span></span></div>
                                 </div>
-                                Male
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!------- Tabs and Subtabs ----------->
+
+                    <div class="tabs-subtabs">
+                        <!-- This Contains the Navigation Bar -->
+                        <div class="tabs-subtabs-container">
+                            <div class="tabs-container">
+                                <div class="tabs-bar">
+                                    <div class="prev-tab">
+                                        <span class="prev-tab-click clickable">Previous</span>
+                                    </div>
+                                    <ul class="tabs">
+                                        <li class="tab"><a href="javascript://" class="tab-text"></a></li>
+                                    </ul>
+                                    <div class="next-tab">
+                                        <span class="next-tab-click clickable">Next</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- This Contains the Sub Navbar for a Tab -->
+                            <div class="subtab-container">
+                                <div class="subtab-container-inner">
+                                    <div class="subtab-bar">
+                                        <div class="subtab-bar-container">
+                                            <div class="subtab-bar-container-inner">
+                                                <ul class="subtabNav" id="#subtabNavId">
+                                                    <li class="subtab-item"><a href="javascript://"
+                                                            class="subtab-tex"></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!------- Download Button ------------>
+
+                    <!-- <div id="action-buttons" class="responsive">
+                        <div class="btn-group">
+                            <button class="downbutton download" data-action="https://c6913bf3.ngrok.io/constructor/download/">Download</button>
+                        </div>
+                    </div> -->
+
                 </div>
+
             </div>
+
         </div>
+        <!-- csrf_token -->
     </div>
+
+</div>
