@@ -1,12 +1,12 @@
-
 let productInfo = {};
+const activityArray = ["Dancing", "Cooking", "Dentist", "Singer", "Basketball", "Office"];
 
-const endText = "It is hard and sad to think of someone that has passed on. But try to take comfort in all they have left for you. Always know a part of them lives on in you. As long as you share their stories and memories, they can never really be gone."
+const endText =
+    "It is hard and sad to think of someone that has passed on. But try to take comfort in all they have left for you. Always know a part of them lives on in you. As long as you share their stories and memories, they can never really be gone.";
+let base_asset_url = "https://ab611b83.ngrok.io";
 
-
-let base_asset_url = "https://66da97c9.ngrok.io";
-
-let She_Story = "", He_Story = "";
+let She_Story = "",
+    He_Story = "";
 let book_Title = "";
 
 let StoryPages = document.getElementById("storybook-pages");
@@ -49,6 +49,8 @@ let relationship = "";
 let name = "";
 let occupation = "";
 let hobbies = "";
+let occupationHobby = "";
+let activityValue = "";
 let characteristics = "";
 
 $("select#storybookRelationships").change(function () {
@@ -66,17 +68,19 @@ $(".person_name_input").keyup(function () {
     Intro_Generator();
 });
 
-$("select#storybookOccupation").change(function () {
-    occupation = $(this)
+$("select#storybookOccupation-Hobby").change(function () {
+    occupationHobby = $(this)
         .children("option:selected")
         .val();
-    Intro_Generator();
-});
-
-$("select#storybookHobbies").change(function () {
-    hobbies = $(this)
-        .children("option:selected")
-        .val();
+    if (occupationStories.hasOwnProperty(occupationHobby)) {
+        occupation = occupationHobby;
+    }
+    else if (hobbiesStories.hasOwnProperty(occupationHobby)) {
+        hobbies = occupationHobby;
+    }
+    if(activityArray.indexOf(occupationHobby) !== -1){
+        activityValue = occupationHobby;
+    }
     Intro_Generator();
 });
 
@@ -108,18 +112,21 @@ function Intro_Generator() {
 }
 
 function Story_Generator() {
-
     let StoryPages = document.getElementById("storybook-pages");
     while (StoryPages.firstChild) {
         StoryPages.removeChild(StoryPages.firstChild);
     }
 
-    let occupationArrays = occupationStories[occupation];
-    // let hobbiesArrays = hobbiesStories[hobbies].split(".");
-    // let characteristicsArrays = characteristicsStories[characteristics].split(".");
+    if (occupation !== "") {
+        let occupationArrays = occupationStories[occupation];
+        OccupationStories(occupationArrays);
+    }
+    else if (hobbies !== "") {
+        let hobbiesArrays = hobbiesStories[hobbies].split(".");
+        HobbiesStories(hobbiesArrays);
+    }
 
-    OccupationStories(occupationArrays);
-    // HobbiesStories(hobbiesArrays);
+    // let characteristicsArrays = characteristicsStories[characteristics].split(".");
     // CharacteristicsStories(characteristicsArrays);
 
     next();
@@ -127,18 +134,10 @@ function Story_Generator() {
 
 function OccupationStories(occupationArrays) {
     Storybook_Page_Maker(occupationArrays);
-    // for (let o = 0; o < occupationArrays.length; ++o) {
-    //     let occupation_text = occupationArrays[o];
-    //     Storybook_Page_Maker(occupation_text);
-    // }
 }
 
 function HobbiesStories(hobbiesArrays) {
-    for (let h = 0; h < hobbiesArrays.length - 1; ++h) {
-        let hobby_text = hobbiesArrays[h];
-
-        Storybook_Page_Maker(hobby_text);
-    }
+    Storybook_Page_Maker(hobbiesArrays);
 }
 
 function CharacteristicsStories(characteristicsArrays) {
@@ -165,10 +164,7 @@ function Storybook_Page_Maker(story_text) {
     pageAvatarContainer.appendChild(pageAvatar);
 
     let avatarImage = document.createElement("IMG");
-    avatarImage.setAttribute(
-        "src",
-        Activity_Image_URL
-    );
+    avatarImage.setAttribute("src", Activity_Image_URL);
     avatarImage.setAttribute("alt", "Person Avatar Image");
     avatarImage.classList.add("story-avatar-image");
 
@@ -186,21 +182,33 @@ function Storybook_Page_Maker(story_text) {
     pageTextContainer.appendChild(pageText);
 
     let textArea = document.createElement("textarea");
+    textArea.setAttribute("maxlength", "1000");
     textArea.classList.add("story-page-text");
 
     textArea.innerText = story_text;
-
     pageText.appendChild(textArea);
+
+    // Remaining Text
+    let RemainingCharLeftDiv = document.createElement("div");
+    RemainingCharLeftDiv.classList.add("char-left-message");
+    RemainingCharLeftDiv.innerText =
+        1000 - story_text.length + " Characters Remaining";
+
+    pageText.appendChild(RemainingCharLeftDiv);
+
     StoryPages.appendChild(pageContainer);
 }
 
 function Storybook_Preview() {
-
-    let textareaArrays = document.querySelectorAll(".story-page-text")[0].value.split(".");
+    let textareaArrays = document
+        .querySelectorAll(".story-page-text")[0]
+        .value.split(".");
     let length = textareaArrays.length;
 
     for (let i = 0; i < length; ++i) {
-        let storyPreviewText = textareaArrays[i].replace(/\r?\n|\r|^\s|\s+$/g, '').trim();
+        let storyPreviewText = textareaArrays[i]
+            .replace(/\r?\n|\r|^\s|\s+$/g, "")
+            .trim();
         if (storyPreviewText.length > 0 && storyPreviewText !== " ") {
             Preview_Text_Generator(storyPreviewText, i, length);
         }
@@ -225,10 +233,7 @@ function Preview_Text_Generator(Preview_Text_String, index, length) {
 
     let preview_image_tag = document.createElement("img");
 
-    preview_image_tag.setAttribute(
-        "src",
-        Activity_Image_URL
-    );
+    preview_image_tag.setAttribute("src", Activity_Image_URL);
     preview_image_tag.setAttribute("alt", "Person Avatar Image");
 
     preview_inner.appendChild(preview_image_container);
@@ -284,7 +289,6 @@ function Preview_Text_Generator(Preview_Text_String, index, length) {
     preview_text_inner.appendChild(preview_text_story_inner);
 
     if (index === length) {
-
         // Making a Product FORM
 
         //<form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
@@ -293,15 +297,6 @@ function Preview_Text_Generator(Preview_Text_String, index, length) {
         productFormElement.setAttribute("method", "post");
         productFormElement.setAttribute("enctype", "multipart/form-data");
         productFormElement.id = "AddToCartForm";
-
-        /*
-        
-          <label for="Quantity">quantity</label>
-          <input hidden name="id" id="productSelect"  value={variant_id}>
-          <input  hidden type="number" id="Quantity" name="quantity" value="1" min="1">
-          <button type="submit" name="add" id="AddToCart">Add to cart</button>     
-        
-        */
 
         let productVariant = document.createElement("input");
         productVariant.setAttribute("name", "id");
@@ -315,7 +310,6 @@ function Preview_Text_Generator(Preview_Text_String, index, length) {
         productVariant.hidden = true;
 
         productFormElement.appendChild(productVariant);
-
 
         let productQntyLabel = document.createElement("label");
         productQntyLabel.setAttribute("for", "Quantity");
@@ -361,7 +355,6 @@ function Preview_Text_Generator(Preview_Text_String, index, length) {
 }
 
 function Storybook_Product_Maker() {
-
     // Remove Everything from Preview Pages
     let PreviewPagesContent = document.getElementById("preview-container-id");
     while (PreviewPagesContent.firstChild) {
@@ -380,9 +373,16 @@ function Storybook_Product_Maker() {
     const formData = new FormData();
 
     $.each(productFormData, function (i, field) {
-        formData.append(field.name, field.value);
-        if (field.name === 'PersonName') {
-            formData.append('title', field.value);
+        if (field.name === "Occupation_Hobby") {
+            let fieldName = (occupation !== "" ? "Occupation" : "Hobby");
+            formData.append(fieldName, field.value);
+        }
+        else if (field.name === "PersonName") {
+            formData.append(field.name, field.value);
+            formData.append("title", field.value);
+        }
+        else {
+            formData.append(field.name, field.value);
         }
     });
 
@@ -392,12 +392,16 @@ function Storybook_Product_Maker() {
     let livingMemoryText = $("#first-page-id").text();
     let introTextValue = $("p#person-intro-text").text();
 
-    livingMemoryText = livingMemoryText.replace(/^\n|\n$/g, '').replace('[ \t]+$', '');
-    introTextValue = introTextValue.replace(/^\n|\n$/g, '');
+    livingMemoryText = livingMemoryText
+        .replace(/^\n|\n$/g, "")
+        .replace("[ \t]+$", "");
+    introTextValue = introTextValue.replace(/^\n|\n$/g, "");
 
     //replace(/^\r?\n|\r$/g,"")
 
-    let textareaArrays = document.querySelectorAll(".story-page-text")[0].value.split(".");
+    let textareaArrays = document
+        .querySelectorAll(".story-page-text")[0]
+        .value.split(".");
     let length = textareaArrays.length;
     let productPagesData = [];
 
@@ -413,63 +417,66 @@ function Storybook_Product_Maker() {
     for (let i = 0; i < length; ++i) {
         // Pages Text Generated through Occupation and Hobbies etc
         // Currently Image is Same as Avatar but, will change intro activity
-        let previewPageText = textareaArrays[i].replace(/\r?\n|\r|^\s|\s+$/g, '').trim();
+        let previewPageText = textareaArrays[i]
+            .replace(/\r?\n|\r|^\s|\s+$/g, "")
+            .trim();
         if (previewPageText.length > 0 && previewPageText.length != " ") {
-            productPagesData.push({ img: Activity_Image_URL, pagetext: previewPageText });
+            productPagesData.push({
+                img: Activity_Image_URL,
+                pagetext: previewPageText
+            });
         }
     }
 
     // Appending End Text Here
     productPagesData.push({ img: "", pagetext: endText });
 
-    formData.append('page', JSON.stringify(productPagesData));
+    formData.append("page", JSON.stringify(productPagesData));
 
     // Adding Images
     if (userDp) {
-        formData.append('avatar_pic', userDp, "avatar.png");
+        formData.append("avatar_pic", userDp, "avatar.png");
     }
 
     $.ajax({
         url: base_asset_url + "/products/",
         data: formData,
-        type: 'POST',
+        type: "POST",
         // dataType: 'json',
         contentType: false,
         processData: false,
-        complete: function () {
-
-        },
+        complete: function () { },
         success: function (data) {
             productInfo = data;
-            console.log(productInfo)
+            console.log(productInfo);
             console.log(base_asset_url + productInfo.outputPdf);
             Storybook_Preview();
             next();
         },
-        error: function (err) {
-
-        }
-    })
-
+        error: function (err) { }
+    });
 }
 
 function ImageUrlGetter() {
-
-    let activityInfo = [hobbies, occupation];
     let constructorAvatar = $("#constructor-panel");
     let AvatarConfig = JSON.stringify(constructorAvatar.pixel("selected"));
-    let currentGender = constructorAvatar.pixel('group');
+    let currentGender = constructorAvatar.pixel("group");
 
-    console.log(AvatarConfig);
-
-    $.post(base_asset_url + "/constructor/avatar/", { data: AvatarConfig, "gender": currentGender, activity: JSON.stringify(activityInfo) }, function (data, status) {
-        Avatar_Image_URL = base_asset_url + data["avatar_image"];
-        Face_Image_URL = base_asset_url + data["face_image"];
-        Activity_Image_URL = base_asset_url + data["activity_image"];
-        console.log(Avatar_Image_URL);
-        console.log(Face_Image_URL);
-        console.log(Activity_Image_URL);
-        next();
-    }
+    $.post(
+        base_asset_url + "/constructor/avatar/",
+        {
+            data: AvatarConfig,
+            gender: currentGender,
+            activity: activityValue
+        },
+        function (data, status) {
+            Avatar_Image_URL = base_asset_url + data["avatar_image"];
+            Face_Image_URL = base_asset_url + data["face_image"];
+            Activity_Image_URL = base_asset_url + data["activity_image"];
+            console.log(Avatar_Image_URL);
+            console.log(Face_Image_URL);
+            console.log(Activity_Image_URL);
+            next();
+        }
     );
 }

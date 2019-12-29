@@ -1210,7 +1210,8 @@ a, button, [role="button"], input, label, select, textarea {
           display: flex;
           height: 100%;
           align-items: center;
-          justify-content: center; }
+          justify-content: center;
+          flex-direction: column; }
           #step10 #shopify-section-storybook-step-10 .storybook-pages-container .storybook-page-container .storybook-page-text-container .storybook-page-text textarea {
             border: 1px solid #096dc3;
             color: #096dc3;

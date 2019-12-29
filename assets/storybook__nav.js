@@ -49,11 +49,11 @@ function InputChecker(index) {
       return false;
     }
   } else if (index === 3) {
-    let occupationValue = $("#storybookOccupation")
+    let occupationHobbyValue = $("#storybookOccupation-Hobby")
       .children("option:selected")
       .val();
-    console.log(index, occupationValue);
-    if (occupationValue === "") {
+    console.log(index, occupationHobbyValue);
+    if (occupationHobbyValue === "") {
       return false;
     }
   } else if (index === 4) {
@@ -94,3 +94,10 @@ const userUploadInput = document.getElementById("storybook__photo");
 userUploadInput.addEventListener("change", function(e) {
   readURL(this);
 });
+
+
+$("#storybook-pages").on('keyup','.story-page-text',function(){
+  const text_length = $('.story-page-text').val().length;
+  const text_remaining = 1000 - text_length;
+  $('.char-left-message').text(text_remaining + " Characters Remaining");
+})
