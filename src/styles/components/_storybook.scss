@@ -47,10 +47,18 @@
   width: 100%;
   flex-grow: 1;
   flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition:opacity 0.3s ease-in, visibility 0.3s ease-in;
 }
 
 .stepActive {
   display: flex;
+}
+
+.stepActiveTransition {
+  opacity: 1;
+  visibility: visible;
 }
 
 .storybook__main {
@@ -66,7 +74,7 @@
   flex-direction: column;
 }
 
-.storybook__controls {
+#storybook .storybook__controls {
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
@@ -75,9 +83,15 @@
   font-family: "basis-grotesque-regular";
   font-size: 12px;
   text-transform: uppercase;
+  background-color: $theme-color-peach !important;
   color: black;
 
   .storybook__nav {
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
     &--right {
       svg {
         position: relative;
@@ -251,10 +265,10 @@
   }
 
   .storybook__nav_left-container {
-    background-color: $theme-color-science-blue;
+    // background-color: $theme-color-science-blue;
   }
   .storybook__nav_right-container {
-    background-color: $theme-color-lavender-fog;
+    // background-color: $theme-color-lavender-fog;
   }
 
   @include media-query($screen-type-desktop) {
@@ -307,10 +321,10 @@
     }
 
     .storybook__nav_left-container {
-      background-color: $theme-color-white;
+      // background-color: $theme-color-white;
     }
     .storybook__nav_right-container {
-      background-color: $theme-color-white;
+      // background-color: $theme-color-white;
     }
   }
 }
@@ -338,10 +352,10 @@
   }
 
   .storybook__nav_left-container {
-    background-color: $theme-color-peach;
+    // background-color: $theme-color-peach;
   }
   .storybook__nav_right-container {
-    background-color: $theme-color-peach;
+    // background-color: $theme-color-peach;
   }
 
   @include media-query($screen-type-desktop) {
@@ -364,10 +378,10 @@
     }
 
     .storybook__nav_left-container {
-      background-color: $theme-color-white;
+      // background-color: $theme-color-white;
     }
     .storybook__nav_right-container {
-      background-color: $theme-color-white;
+      // background-color: $theme-color-white;
     }
   }
 }
@@ -517,10 +531,10 @@
   }
 
   .storybook__nav_left-container {
-    background-color: $theme-color-yellow;
+    // background-color: $theme-color-yellow;
   }
   .storybook__nav_right-container {
-    background-color: $theme-color-grey;
+    // background-color: $theme-color-grey;
   }
 
   @include media-query($screen-type-desktop) {

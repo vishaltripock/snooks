@@ -37,18 +37,12 @@
   } 
 }
 
-.header__linkWithNotif  {
-  position: relative;
-  display: inline-block;
-  .notif  {
-      @media #{$mq_s_only} {
-          position: absolute;
-          bottom: 0;
-          right: 0;
-      }
+a.header__linkWithNotif  {
+    vertical-align: super;
+    margin-right: 20px;
 
-      @media #{$mq_m} {
-          margin-left: 5px;
-      }
-  }
+    @media #{$mq_xl} {
+        vertical-align: middle;
+        margin-right: 0px; 
+    }
 }

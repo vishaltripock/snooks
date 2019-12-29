@@ -1,7 +1,7 @@
 import domready from 'domready';
 import {TweenMax, Power3} from 'gsap';
 import Drawer from './components/drawer';
-import Gallery from './components/gallery';
+// import Gallery from './components/gallery';
 import Smoothscroll from './components/smoothscroll';
 
 class App {
@@ -20,7 +20,7 @@ class App {
   		const body = document.getElementsByTagName('body')[0];
 
 		if(body.className === 'home') {
-			Gallery().init();
+			// Gallery().init();
 		}
 
 		// Drawers
@@ -45,23 +45,20 @@ class App {
 	      	});
 		});
 		  
-		const storyBookSection = document.querySelectorAll('.storybook__section');
-		const storyBookCurrent = 7;
+		// const storyBookSection = document.querySelectorAll('.storybook__section');
+		// const storyBookCurrent = 7;
 	
-		storyBookSection.forEach((el) => {
-			const storyBookSectionIndex = Number(el.dataset.storybookIndex);
+		// storyBookSection.forEach((el) => {
+		// 	const storyBookSectionIndex = Number(el.dataset.storybookIndex);
 
-			console.log('storybook index', typeof storyBookSectionIndex, storyBookSectionIndex);
+		// 	console.log('storybook index', typeof storyBookSectionIndex, storyBookSectionIndex);
 
-			if(storyBookSectionIndex === storyBookCurrent) {
-				el.classList.add('stepActive');
-			} else {
-				el.style.display = 'none';
-			}
-		});
-		
-	
-		
+		// 	if(storyBookSectionIndex === storyBookCurrent) {
+		// 		el.classList.add('stepActive');
+		// 	} else {
+		// 		el.style.display = 'none';
+		// 	}
+		// });	
 	}
 }
 

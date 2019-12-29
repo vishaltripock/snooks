@@ -4,7 +4,7 @@
             <!-- @TODO - (Ankit): Add action url to add book to cart -->
             <form class="form" method="post" action="" enctype="multipart/form-data" id="storybook_form">
                 <div class="storybook__sections">
-                    <div id="step1" class="storybook__section stepActive" data-storybook-index="1">
+                    <div id="step1" class="storybook__section stepActive stepActiveTransition" data-storybook-index="1">
                         {% section 'storybook-step-1' %}
                         <nav class="storybook__controls" style="justify-content: flex-end;">
                             {% include 'storybook-nav-next' %}
@@ -53,7 +53,7 @@
                             <div class="storybook__nav_right-container">
                                 <div onclick="nextForImageUrlGetter()" class="storybook__nav cursor"
                                     id="storybook__nav--right">
-                                    <span>Next</span>
+                                    <!-- <span>Next</span> -->
                                     <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
@@ -89,7 +89,7 @@
                             <!-- next -->
                             <div class="storybook__nav_right-container">
                                 <div onclick="nextForEditStory()" class="storybook__nav cursor" id="storybook__nav--right">
-                                    <span>Next</span>
+                                    <!-- <span>Next</span> -->
                                     <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">
@@ -126,7 +126,7 @@
                             <div class="storybook__nav_right-container">
                                 <div onclick="nextForPreview()" class="storybook__nav cursor"
                                     id="storybook__nav--right">
-                                    <span>Next</span>
+                                    <!-- <span>Next</span> -->
                                     <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1"
                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd">

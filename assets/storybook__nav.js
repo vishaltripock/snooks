@@ -2,8 +2,9 @@ function previous(e) {
   const currentStep = $(".storybook__section.stepActive"); //removeClass("stepActive");
   const currentStepIndex = Number($(currentStep).attr("data-storybook-index"));
 
-  $(currentStep).removeClass("stepActive");
-  $("#step" + (currentStepIndex - 1)).addClass("stepActive");
+  currentStep.removeClass("stepActive stepActiveTransition")
+  $("#step" + (currentStepIndex - 1)).addClass("stepActive").outerWidth();
+  $("#step" + (currentStepIndex - 1)).addClass('stepActiveTransition');
 }
 
 function next(e) {
@@ -11,8 +12,11 @@ function next(e) {
   const currentStepIndex = Number($(currentStep).attr("data-storybook-index"));
 
   if (InputChecker(currentStepIndex)) {
-    $(currentStep).removeClass("stepActive");
-    $("#step" + (currentStepIndex + 1)).addClass("stepActive");
+    currentStep.removeClass("stepActive");
+    currentStep.removeClass("stepActiveTransition");
+    
+    $("#step" + (currentStepIndex + 1)).addClass("stepActive").outerWidth();
+    $("#step" + (currentStepIndex + 1)).addClass('stepActiveTransition');
   }
 }
 

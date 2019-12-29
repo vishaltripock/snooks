@@ -503,6 +503,15 @@ option {
 a, button, [role="button"], input, label, select, textarea {
   touch-action: manipulation; }
 
+#main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block; }
+
+#storybook #main {
+  display: flex; }
+
 .visually-hidden {
   position: absolute !important;
   overflow: hidden;
@@ -524,6 +533,9 @@ a, button, [role="button"], input, label, select, textarea {
 .u-block {
   display: block; }
 
+.u-flex {
+  display: flex; }
+
 .u-underline {
   text-decoration: underline; }
 
@@ -535,6 +547,10 @@ a, button, [role="button"], input, label, select, textarea {
 
 .faq .anchors-nav .anchors-nav__link, .terms .anchors-nav .anchors-nav__link, .privacy .anchors-nav .anchors-nav__link {
   color: #D4F4F1; }
+
+.about .container,
+.how-it-works .container {
+  margin-top: 40px; }
 
 .circle {
   width: 100px;
@@ -553,6 +569,15 @@ a, button, [role="button"], input, label, select, textarea {
   .circle--theme-white {
     color: #096DC3;
     background-color: #FFFFFF; }
+
+.layout-1 {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  align-items: flex-start;
+  text-align: center; }
+  .layout-1 .layout-1__img {
+    padding: 0 10%; }
 
 .btn {
   height: 48px;
@@ -593,7 +618,7 @@ a, button, [role="button"], input, label, select, textarea {
   display: block;
   height: 2px;
   width: 32px;
-  background-color: #096DC3;
+  background-color: #000000;
   top: 50%;
   left: 50%; }
   .burgerMenu__bar--top {
@@ -736,10 +761,17 @@ a, button, [role="button"], input, label, select, textarea {
   display: none;
   width: 100%;
   flex-grow: 1;
-  flex-direction: column; }
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in, visibility 0.3s ease-in; }
 
 .stepActive {
   display: flex; }
+
+.stepActiveTransition {
+  opacity: 1;
+  visibility: visible; }
 
 .storybook__main {
   display: flex;
@@ -752,7 +784,7 @@ a, button, [role="button"], input, label, select, textarea {
   display: flex;
   flex-direction: column; }
 
-.storybook__controls {
+#storybook .storybook__controls {
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
@@ -761,28 +793,32 @@ a, button, [role="button"], input, label, select, textarea {
   font-family: "basis-grotesque-regular";
   font-size: 12px;
   text-transform: uppercase;
+  background-color: #FFDED5 !important;
   color: black; }
-  .storybook__controls .storybook__nav--right svg {
+  #storybook .storybook__controls .storybook__nav svg {
+    width: 30px;
+    height: 30px; }
+  #storybook .storybook__controls .storybook__nav--right svg {
     position: relative;
     margin-left: 12px;
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg); }
-  .storybook__controls .storybook__nav--left svg {
+  #storybook .storybook__controls .storybook__nav--left svg {
     position: relative;
     margin-right: 12px; }
-  .storybook__controls .storybook__nav_left-container {
+  #storybook .storybook__controls .storybook__nav_left-container {
     width: 50%;
     display: flex;
     padding: 10px 15px;
     justify-content: flex-start; }
-    .storybook__controls .storybook__nav_left-container #storybook__nav--left {
+    #storybook .storybook__controls .storybook__nav_left-container #storybook__nav--left {
       display: flex; }
-  .storybook__controls .storybook__nav_right-container {
+  #storybook .storybook__controls .storybook__nav_right-container {
     width: 50%;
     display: flex;
     padding: 10px 15px;
     justify-content: flex-end; }
-    .storybook__controls .storybook__nav_right-container #storybook__nav--right {
+    #storybook .storybook__controls .storybook__nav_right-container #storybook__nav--right {
       display: flex; }
 
 #step1 #shopify-section-storybook-step-1 {
@@ -878,12 +914,6 @@ a, button, [role="button"], input, label, select, textarea {
                 color: #096DC3;
                 background: #DCD3FF; }
 
-#step2 .storybook__nav_left-container {
-  background-color: #096DC3; }
-
-#step2 .storybook__nav_right-container {
-  background-color: #DCD3FF; }
-
 @media only screen and (max-width: 1024px) {
   #step2 #shopify-section-storybook-step-2 {
     width: 100%;
@@ -915,11 +945,7 @@ a, button, [role="button"], input, label, select, textarea {
           #step2 #shopify-section-storybook-step-2 .storybook__section__upload .storybook__upload .storybook__upload_form .storybook_upload_form-inner .form__group .form__field .btn-upload-button {
             border-color: #FFFFFF;
             color: #FFFFFF;
-            background: none; }
-  #step2 .storybook__nav_left-container {
-    background-color: #FFFFFF; }
-  #step2 .storybook__nav_right-container {
-    background-color: #FFFFFF; } }
+            background: none; } }
 
 #step3 #shopify-section-storybook-step-3,
 #step3 #shopify-section-storybook-step-4,
@@ -947,16 +973,6 @@ a, button, [role="button"], input, label, select, textarea {
   #step5 #shopify-section-storybook-step-5 .form__group .form__field {
     margin: 100px 15px;
     margin-bottom: 0; }
-
-#step3 .storybook__nav_left-container,
-#step4 .storybook__nav_left-container,
-#step5 .storybook__nav_left-container {
-  background-color: #FFDED5; }
-
-#step3 .storybook__nav_right-container,
-#step4 .storybook__nav_right-container,
-#step5 .storybook__nav_right-container {
-  background-color: #FFDED5; }
 
 @media only screen and (max-width: 1024px) {
   #step3 #shopify-section-storybook-step-3,
@@ -993,15 +1009,7 @@ a, button, [role="button"], input, label, select, textarea {
       #step5 #shopify-section-storybook-step-4 .form__group .form__field,
       #step5 #shopify-section-storybook-step-5 .form__group .form__field {
         margin: 30px 0px;
-        margin-bottom: 0; }
-  #step3 .storybook__nav_left-container,
-  #step4 .storybook__nav_left-container,
-  #step5 .storybook__nav_left-container {
-    background-color: #FFFFFF; }
-  #step3 .storybook__nav_right-container,
-  #step4 .storybook__nav_right-container,
-  #step5 .storybook__nav_right-container {
-    background-color: #FFFFFF; } }
+        margin-bottom: 0; } }
 
 #step6 #shopify-section-storybook-step-6 {
   width: 100%;
@@ -1112,12 +1120,6 @@ a, button, [role="button"], input, label, select, textarea {
                       opacity: 1; }
                 #step6 #shopify-section-storybook-step-6 .storybook-gender-container .storybook-gender .storybook-gender-option-container .storybook-gender-option-inner .storybook-gender-option-choice .storybook-gender-option-male-container .storybook-gender-option-male .storybook-gender-option-male-image input[type="radio"]:checked + label .male-image-container {
                   opacity: 1; }
-
-#step6 .storybook__nav_left-container {
-  background-color: #FFFF9D; }
-
-#step6 .storybook__nav_right-container {
-  background-color: #F5F5F5; }
 
 @media only screen and (max-width: 1024px) {
   #step6 #shopify-section-storybook-step-6 .storybook-gender-container .storybook-gender {
@@ -1811,7 +1813,7 @@ a, button, [role="button"], input, label, select, textarea {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 500ms ease-in-out; }
   .gallery--slide-dots {
     position: absolute;
@@ -2514,17 +2516,13 @@ a, button, [role="button"], input, label, select, textarea {
     .header__navListItem + .header__navListItem {
       margin-left: 48px; } }
 
-.header__linkWithNotif {
-  position: relative;
-  display: inline-block; }
-  @media (max-width: 767px) {
-    .header__linkWithNotif .notif {
-      position: absolute;
-      bottom: 0;
-      right: 0; } }
-  @media (min-width: 768px) {
-    .header__linkWithNotif .notif {
-      margin-left: 5px; } }
+a.header__linkWithNotif {
+  vertical-align: super;
+  margin-right: 20px; }
+  @media (min-width: 1280px) {
+    a.header__linkWithNotif {
+      vertical-align: middle;
+      margin-right: 0px; } }
 
 .link {
   text-decoration: none !important;
@@ -2759,7 +2757,8 @@ a, button, [role="button"], input, label, select, textarea {
   font-family: "basis-grotesque-regular"; }
 
 .footer {
-  position: relative; }
+  position: relative;
+  text-transform: uppercase; }
 
 .footer__bar {
   background-color: #ffff9d; }
