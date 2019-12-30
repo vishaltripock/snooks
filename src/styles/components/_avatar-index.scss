@@ -187,10 +187,16 @@
 
   .tabs-bar .prev-tab {
     margin-left: 30px;
+    span {
+      cursor: pointer;
+    }
   }
 
   .tabs-bar .next-tab {
     margin-right: 30px;
+    span {
+      cursor: pointer;
+    }
   }
 
   .tabs-bar .tabs .tab {
@@ -257,7 +263,9 @@
     margin: 8px;
     text-align: center;
     a {
+      text-decoration: none;
       display: block;
+      cursor: pointer;
     }
   }
 
@@ -275,7 +283,9 @@
     margin: 8px;
     text-align: center;
     a {
+      text-decoration: none;
       display: block;
+      cursor: pointer;
     }
   }
 

@@ -88,6 +88,7 @@ userUploadInput.addEventListener("change", function(e) {
 });
 
 
+// For the TextArea in Storybook Pages Steps
 $("#storybook-pages").on('keyup','.story-page-text',function(){
   const text_length = $('.story-page-text').val().length;
   const text_remaining = 1000 - text_length;

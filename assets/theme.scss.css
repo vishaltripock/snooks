@@ -7360,8 +7360,12 @@ a, button, [role="button"], input, label, select, textarea {
     align-items: center; }
   #wrapper .tabs-bar .prev-tab {
     margin-left: 30px; }
+    #wrapper .tabs-bar .prev-tab span {
+      cursor: pointer; }
   #wrapper .tabs-bar .next-tab {
     margin-right: 30px; }
+    #wrapper .tabs-bar .next-tab span {
+      cursor: pointer; }
   #wrapper .tabs-bar .tabs .tab {
     display: none; }
   #wrapper .tabs-bar .tabs .tab.active {
@@ -7404,7 +7408,9 @@ a, button, [role="button"], input, label, select, textarea {
     margin: 8px;
     text-align: center; }
     #wrapper #right-button a {
-      display: block; }
+      text-decoration: none;
+      display: block;
+      cursor: pointer; }
   #wrapper .subtab-bar-container-inner {
     margin-top: 0%;
     overflow: hidden;
@@ -7417,7 +7423,9 @@ a, button, [role="button"], input, label, select, textarea {
     margin: 8px;
     text-align: center; }
     #wrapper #left-button a {
-      display: block; }
+      text-decoration: none;
+      display: block;
+      cursor: pointer; }
   #wrapper .subtab-bar-container .subtab-bar-container-inner .subtabNav .subtab-item {
     cursor: pointer;
     color: rgba(0, 0, 0, 0.62);
