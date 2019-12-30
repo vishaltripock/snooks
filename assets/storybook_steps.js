@@ -1,12 +1,11 @@
 let productInfo = {};
 const activityArray = ["Dancing", "Cooking", "Dentist", "Singer", "Basketball", "Office"];
 
-const endText =
-    "It is hard and sad to think of someone that has passed on. But try to take comfort in all they have left for you. Always know a part of them lives on in you. As long as you share their stories and memories, they can never really be gone.";
-let base_asset_url = "https://c6913bf3.ngrok.io";
+const endText = "It is hard and sad to think of someone that has passed on. But try to take comfort in all they have left for you. Always know a part of them lives on in you. As long as you share their stories and memories, they can never really be gone.";
+let base_asset_url = "https://d547b945.ngrok.io";
 
-let She_Story = "",
-    He_Story = "";
+let She_Story = "";
+let He_Story = "";
 let book_Title = "";
 
 let StoryPages = document.getElementById("storybook-pages");
@@ -44,7 +43,7 @@ $.get(
     "json"
 );
 
-let rela_array = ["Grandma", "Aunt", "Mother"];
+
 let relationship = "";
 let name = "";
 let occupation = "";
@@ -65,7 +64,6 @@ $(".person_name_input").keyup(function () {
     name = $(".person_name_input").val();
     $("span#person_name_span").text(name);
     $("span#first-page-name").text(name);
-    Intro_Generator();
 });
 
 $("select#storybookOccupation-Hobby").change(function () {
@@ -75,28 +73,24 @@ $("select#storybookOccupation-Hobby").change(function () {
     if (occupationStories.hasOwnProperty(occupationHobby)) {
         occupation = occupationHobby;
         hobbies = "";
-        console.log(occupation + "    " + hobbies);
     }
     else if (hobbiesStories.hasOwnProperty(occupationHobby)) {
         hobbies = occupationHobby;
         occupation = "";
-        console.log(occupation + "    " + hobbies);
     }
     if(activityArray.indexOf(occupationHobby) !== -1){
         activityValue = occupationHobby;
     }
-    Intro_Generator();
 });
 
 $("select#storybookCharacteristics").change(function () {
     characteristics = $(this)
         .children("option:selected")
         .val();
-    Intro_Generator();
 });
 
-function Intro_Generator() {
-    if (rela_array.indexOf(relationship) != -1) {
+function Intro_Generator(currentGender) {
+    if (currentGender === "female") {
         if (characteristics === "Mr./Miss Fix It") {
             characteristics = "Miss Fix It";
         }
@@ -104,36 +98,39 @@ function Intro_Generator() {
         She_Story = `Your ${relationship} was so many things to our family and their friends. She was ${occupation} and her favorite things to do included ${hobbies}. The funniest thing about them was there ${characteristics}.`;
 
         $("p#person-intro-text").text(She_Story);
-    } else {
+    } 
+    else {
         if (characteristics === "Mr./Miss Fix It") {
             characteristics = "Mr Fix It";
         }
-
         He_Story = `Your ${relationship} was so many things to our family and their friends. He was ${occupation} and his favorite things to do included ${hobbies}. The funniest thing about them was there ${characteristics}.`;
-
         $("p#person-intro-text").text(He_Story);
     }
 }
 
 function Story_Generator() {
+
+    // Clearing all things on storybook pages before inserting new pages
+    // show that it will not contains the old pages
     let StoryPages = document.getElementById("storybook-pages");
     while (StoryPages.firstChild) {
         StoryPages.removeChild(StoryPages.firstChild);
     }
 
+    // Generating Story based on the user selection on the Step 3(Occupation or Hobby)
     if (occupation !== "") {
         let occupationArrays = occupationStories[occupation];
         OccupationStories(occupationArrays);
     }
     else if (hobbies !== "") {
         let hobbiesArrays = hobbiesStories[hobbies].split(".");
-        console.log(hobbiesArrays);
         HobbiesStories(hobbiesArrays);
     }
 
     // let characteristicsArrays = characteristicsStories[characteristics].split(".");
     // CharacteristicsStories(characteristicsArrays);
 
+    //Calling for next Step
     next();
 }
 
@@ -402,8 +399,6 @@ function Storybook_Product_Maker() {
         .replace("[ \t]+$", "");
     introTextValue = introTextValue.replace(/^\n|\n$/g, "");
 
-    //replace(/^\r?\n|\r$/g,"")
-
     let textareaArrays = document
         .querySelectorAll(".story-page-text")[0]
         .value.split(".");
@@ -447,7 +442,6 @@ function Storybook_Product_Maker() {
         url: base_asset_url + "/products/",
         data: formData,
         type: "POST",
-        // dataType: 'json',
         contentType: false,
         processData: false,
         complete: function () { },
@@ -466,6 +460,9 @@ function ImageUrlGetter() {
     let constructorAvatar = $("#constructor-panel");
     let AvatarConfig = JSON.stringify(constructorAvatar.pixel("selected"));
     let currentGender = constructorAvatar.pixel("group");
+
+    //Generating Intro Part Based on the Gender of the person
+    Intro_Generator(currentGender);
 
     $.post(
         base_asset_url + "/constructor/avatar/",
