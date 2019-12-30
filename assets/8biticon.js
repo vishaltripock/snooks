@@ -212,6 +212,277 @@
       }
 
       function markLayerActive(name) {
+        let p = null;
+        let zIndex = options.zIndex;
+
+        // filling up all the things
+        for (let group in options.json) {
+          // don't iterate over inherited or smth
+          if (!options.json.hasOwnProperty(group)) {
+            continue;
+          }
+
+          const layers_list = options.json[group];
+
+          // do not interlink groups
+          // p ---> previous Layer
+          p = null;
+
+          for (let v = layers_list.length; v--;) {
+            let ld = layers_list[v];
+            let itemSelected = false; // Flag for telling that a image item is selected for intial display
+            let intialSelectionCategory =
+              ld.name === "background" ||
+              ld.name === "body" ||
+              ld.name === "face" ||
+              ld.name === "eyebrow" ||
+              ld.name === "eye" ||
+              ld.name === "nose" ||
+              ld.name === "lip" ||
+              ld.name === "hair" ||
+              ld.name === "shirt" ||
+              ld.name === "pant" ||
+              ld.name === "boot";
+            zIndex++;
+
+            // let subTabContainerClone = subTabContainer.clone().addClass("subtab-bar-container-" + ld.name + " group-" + group);
+            // subTabContainerClone.append('<div id="right-button" style="visibility: hidden;"><a href="#"><</a></div>');
+            // let subTabContainerInnerClone = subTabContainerInner.clone().addClass("subtab-bar-container-inner-" + ld.name + " group-" + group);
+            if (ld.name === name && layers.find(".layer-" + ld.name).length < 2) { // 2 - cause one will be for male and the other for female
+              // filling hash withh all layers
+              hash_layers[ld.name] = ld;
+
+              // all the linking things
+              if (p) {
+                ld.prev = layers_list[v++];
+                p.next = ld;
+              }
+
+              p = ld;
+
+              // sets selected item
+              // sel ---> selected index
+              let sel = options.selected[group][ld.name];
+
+              // cloning layer element
+              // cl ---> tab clone
+              let tempVal = layer.clone().data({
+                name: ld.name
+              });
+
+              console.log('tempValue', tempVal);
+
+              let cl = tempVal.addClass("layer layer-" + ld.name + " group-" + group);
+
+              // cloning layers' tab element
+              if (layer_tab.length) {
+                cl.append(layer_tab.clone().text(ld.title));
+              }
+
+              if (ld.groups) {
+                let categoryCount = ld.count;
+                let catIdx = 0; // Category Index
+                cl.addClass("category");
+                let subtabNavClone = subtabNav.clone().addClass("subtabNav-" + ld.name);
+
+                for (let catIdx = 0; catIdx < categoryCount; ++catIdx) {
+                  let variationCount = ld.groups[catIdx].count;
+                  let varIdx = 0;
+                  let CategoryTitle = ld.groups[catIdx].title;
+                  let CategoryName = ld.groups[catIdx].name;
+
+                  let subtabItemClone = subtabItem
+                    .clone()
+                    .addClass("item-" + (catIdx + 1))
+                    .text(CategoryTitle);
+
+                  // SubTabItem ko hum kuch values de rhe hai, Click event ke during hum usse
+                  // usse ker ke srif ho Images visible ker saake jo iske under ayegi
+                  subtabItemClone.data({
+                    subTabItemName: ld.name,
+                    subTabItemIndex: catIdx + 1
+                  });
+                  // subtabNavClone.append(subtabItemClone);
+
+                  /*
+                    ye hum deselector bna rha hai ... for deselecting hai item already selected
+                    so that.. hume koi item ya dress deselect kerni ho
+
+                  */
+                  let DeselectorItemLayer = layer_item
+                    .clone()
+                    .addClass(ld.name + (catIdx + 1) + " unselector-" + ld.name + "-item")
+                    .data({
+                      UnselectorName: ld.name,
+                      index: 0,
+                      itemCat: -1,
+                      itemValInCat: -1
+                    });
+
+                  let deselectImg = options.images + "crossSign" + options.ext + "?2728";
+                  console.log(deselectImg)
+                  // let deselectImgPath = `{{ ${deselectImg} | ${asset_url} }}`
+
+                  let deselectImgTag = $("<img />").attr("src", deselectImg);
+
+                  cl.append(DeselectorItemLayer.append(deselectImgTag));
+
+                  for (let varIdx = 1; varIdx <= variationCount; ++varIdx) {
+                    // Ye Hum Ker Rhe Taaki Hum Usse Choosen SubTabItem ke Number se Visible ker saake
+                    let LayerItemName = ld.name + (catIdx + 1);
+                    let il = layer_item.clone().data({
+                      index: varIdx,
+                      itemCat: catIdx + 1,
+                      itemValInCat: varIdx
+                    });
+
+                    il.addClass(LayerItemName);
+                    // carousel item clone
+
+                    // Hum yha per carousel_item bna rhe hai her ek image ke liye
+                    let iclTempVal_1 = carousel_item
+                      .clone()
+                      .addClass("layer-item layer-item-" + ld.name + " group-" + group);
+
+                    let iclTempVal_2 = iclTempVal_1.data({
+                      layer: ld.name
+                    });
+
+                    let icl = iclTempVal_2.css("zIndex", ld.zIndex || zIndex);
+
+                    if (!itemSelected && intialSelectionCategory) {
+                      // ye bta rha hai ki ye category ka ek item select ho chuka hai.. taaki hum dubra se isse category
+                      // ek item aur select na ker le category section ke ander
+                      itemSelected = true;
+                      // ye bta rha hai tick konsi image per tick mark rhega category images ke ander
+                      il.addClass("active");
+                      //ye bta rha hai ki .. kisi perticular category ka ye wala item active rhega jab hum avatar
+                      // load karenge first time
+                      icl.addClass("layer-active");
+                      options.selected[group][ld.name] = {
+                        index: sel,
+                        itemCat: catIdx + 1,
+                        itemValInCat: varIdx
+                      };
+                    }
+                    else if (!itemSelected && !intialSelectionCategory) {
+                      options.selected[group][ld.name] = {
+                        index: 0,
+                        itemCat: catIdx + 1,
+                        itemValInCat: varIdx
+                      };
+                    }
+
+                    // image
+
+                    let ImageImg = options.images + group + "_" + ld.name + "_" + CategoryName + "_" + varIdx + options.ext + "?2728";
+                    // let ImageTag = "{{ "+ ImageImg +" | asset_url }}";
+                    let im = $("<img />").attr("src", ImageImg);
+
+                    // append to layer
+                    cl.append(il.append(im));
+
+                    // append to carousel
+                    // carousel_in.append(icl.html(im.clone()));
+                  }
+
+                  // append layer to layers' element
+                  layers.append(cl);
+                }
+                //
+                // subTabContainerInnerClone.append(subtabNavClone);
+                // subTabContainerClone.append(subTabContainerInnerClone);
+                // subTabContainerClone.append('<div id="left-button"><a href="#">></a></div>');
+                // subtabBar.append(subTabContainerClone);
+              } else {
+                /*
+                    ye hum deselector bna rha hai ... for deselecting hai item already selected
+                    so that.. hume koi item ya dress deselect kerni ho
+
+                  */
+                let DeselectorItemLayer = layer_item
+                  .clone()
+                  .addClass(" unselector-" + ld.name + "-item")
+                  .data({
+                    UnselectorName: ld.name,
+                    index: 0,
+                    itemCat: -1,
+                    itemValInCat: -1
+                  });
+
+                let deselectImg = options.images + "crossSign" + options.ext + "?2728";
+                // let deselectImgPath = "{{ " + deselectImg + " | asset_url }}"
+                let deselectImgTag = $("<img />").attr("src", deselectImg);
+
+                cl.append(DeselectorItemLayer.append(deselectImgTag));
+
+                let DeselectorItem = carousel_item
+                  .clone()
+                  .addClass("layer-item layer-item-" + ld.name + " group-" + group + " unselector-" + ld.name + "-item")
+                  .data("layer", ld.name)
+                  .css("zIndex", ld.zIndex || zIndex);
+
+                // carousel_in.append(DeselectorItem);
+
+                for (let i = 1; i <= ld.count; i++) {
+                  // item clone
+                  let il = layer_item.clone().data({
+                    index: i,
+                    itemCat: 0,
+                    itemValInCat: i
+                  });
+
+                  // carousel item clone
+                  let icl = carousel_item
+                    .clone()
+                    .addClass("layer-item layer-item-" + ld.name + " group-" + group)
+                    .data({
+                      layer: ld.name
+                    })
+                    .css("zIndex", ld.zIndex || zIndex);
+
+                  if (!itemSelected && intialSelectionCategory) {
+                    itemSelected = true;
+                    il.addClass("active");
+                    icl.addClass("layer-active");
+                    options.selected[group][ld.name] = {
+                      index: sel,
+                      itemCat: 0,
+                      itemValInCat: i
+                    };
+                  }
+                  else if (!itemSelected && !intialSelectionCategory) {
+                    itemSelected = true;
+                    options.selected[group][ld.name] = {
+                      index: 0,
+                      itemCat: 0,
+                      itemValInCat: i
+                    };
+                  }
+
+                  // image
+                  let ImageImg = options.images + group + "_" + ld.name + "_" + i + options.ext + "?2728";
+                  // let ImagePath = "{{ "+ ImageImg +" | asset_url }}"
+                  let im = $("<img />").attr("src", ImageImg);
+
+                  // append to layer
+                  cl.append(il.append(im));
+
+                  // append to carousel
+                  // carousel_in.append(icl.html(im.clone()));
+                }
+                //Loop End HERE
+                // append layer to layers' element
+                layers.append(cl);
+              }
+            } else if (ld.name !== name) {
+              layers.find(".layer-" + ld.name).remove();
+            }
+          }
+        }
+
+
+
         let CurrentGrpLayer = layers.find(".layer.group-" + selected_group);
 
         let CurrentLayer = CurrentGrpLayer.removeClass("active").filter(".layer-" + name);
@@ -245,16 +516,33 @@
           first_tab_Open = false;
         }
 
-        var layer = hash_layers[name],
+        var layer1 = hash_layers[name],
           layer_name = $this.find(".layer-name"),
           layer_next = $this.find(".layer-name-next"),
           layer_prev = $this.find(".layer-name-prev");
 
-        layer_name.text(layer.title);
-        layer_next.text(layer.next && layer.next.title);
-        layer_prev.text(layer.prev && layer.prev.title);
+        layer_name.text(layer1.title);
+        layer_next.text(layer1.next && layer1.next.title);
+        layer_prev.text(layer1.prev && layer1.prev.title);
 
-        $this.toggleClass("has-next", !!layer.next).toggleClass("has-prev", !!layer.prev);
+        $this.toggleClass("has-next", !!layer1.next).toggleClass("has-prev", !!layer1.prev);
+        console.log('load toh hua tha', name);
+        // $this
+        //   .on("click.pixel", ".layers .item", function (e) {
+        //     console.log('yaha aaya be');
+        //     var target = $(e.currentTarget),
+        //       layer = target.closest(".layer"),
+        //       name = layer.data("name"),
+        //       index = layer.find(".item").index(target);
+        //     openLayer(name);
+        //     carousel.carousel(index);
+        //   })
+        //   .on("click.pixel", ".subtab-bar-container .subtab-bar-container-inner .subtabNav .subtab-item", function (e) {
+        //     var target = $(e.currentTarget);
+        //     var name = target.data("subTabItemName");
+        //     var index = target.data("subTabItemIndex");
+        //     OpenSubTab_Section(name, index);
+        //   })
       }
 
       function markItemActive(name, index) {
@@ -599,7 +887,7 @@
                   }
 
                   // append layer to layers' element
-                  layers.append(cl);
+                  // layers.append(cl);
                 }
 
                 subTabContainerInnerClone.append(subtabNavClone);
@@ -685,7 +973,7 @@
                 }
                 //Loop End HERE
                 // append layer to layers' element
-                layers.append(cl);
+                // layers.append(cl);
               }
             }
           }
