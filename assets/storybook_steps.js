@@ -1,8 +1,7 @@
 let productInfo = {};
-const activityArray = ["Dancing", "Cooking", "Dentist", "Singer", "Basketball", "Office"];
 
 const endText = "It is hard and sad to think of someone that has passed on. But try to take comfort in all they have left for you. Always know a part of them lives on in you. As long as you share their stories and memories, they can never really be gone.";
-let base_asset_url = "https://d547b945.ngrok.io";
+let base_asset_url = "https://81c2a7e0.ngrok.io";
 
 let She_Story = "";
 let He_Story = "";
@@ -14,10 +13,19 @@ let PreviewPages = document.getElementById("preview-container-id");
 let occupationStories = "";
 let hobbiesStories = "";
 let characteristicsStories = "";
+let activityArray = "";
 
 let Avatar_Image_URL = "";
 let Face_Image_URL = "";
 let Activity_Image_URL = "";
+
+$.get(
+    "https://cdn.shopify.com/s/files/1/0275/0762/1932/files/activityInfo.json?806",
+    function (activityInfo) {
+        activityArray = activityInfo;
+    },
+    "json"
+);
 
 $.get(
     "https://cdn.shopify.com/s/files/1/0275/0762/1932/files/occupationStories.json?63",
@@ -77,9 +85,6 @@ $("select#storybookOccupation-Hobby").change(function () {
     else if (hobbiesStories.hasOwnProperty(occupationHobby)) {
         hobbies = occupationHobby;
         occupation = "";
-    }
-    if(activityArray.indexOf(occupationHobby) !== -1){
-        activityValue = occupationHobby;
     }
 });
 
@@ -461,9 +466,16 @@ function ImageUrlGetter() {
     let AvatarConfig = JSON.stringify(constructorAvatar.pixel("selected"));
     let currentGender = constructorAvatar.pixel("group");
 
+    if(activityArray[currentGender].hasOwnProperty(occupationHobby)){
+        activityValue = activityArray[currentGender][occupationHobby];
+        console.log(activityValue);
+    }
     //Generating Intro Part Based on the Gender of the person
     Intro_Generator(currentGender);
 
+    console.log("############# Sending Avatar Data ##############");
+    console.log(AvatarConfig);
+    console.log("############# Sending Avatar Data ##############");
     $.post(
         base_asset_url + "/constructor/avatar/",
         {
