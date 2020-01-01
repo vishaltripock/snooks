@@ -1,17 +1,17 @@
 <header class="header">
     <div class="header__bar cols cols--align-middle">
         <nav class="header__nav header__nav--primary nav--inline">
-          <!--  <a href="\" title="Home">
+            <a href="\" title="Home">
                 <div class="logo">
                     <span class="logo__icon">
                         <img src="{{ 'Snooks-Angel-Books-logo.svg' | asset_url }}" alt="Snooks Angel Books Logo">
                     </span>
                 </div>
-            </a> ---->
+            </a>
             <ul class="header__navList nav__list u-desktop-only">
                 {% for link in linklists.main-menu.links %}
                     <li class="header__navListItem">
-                        <a class="link link--thick link--discrete" href="{{- link.url -}}" title="{{- link.title -}}">{{- link.title -}}</a>
+                        <a class="link link--thick link--discrete" href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
                     </li>
                 {% endfor %}
             </ul>
@@ -19,27 +19,16 @@
         <nav class="header__nav header__nav--secondary nav--inline">
             <ul class="header__navList nav__list">
                 <li class="header__navListItem">
-                    <!-- @TODO: add link to account section -->
-                    <a class="link link--thick link--discrete" href="#" title="My Account">
-                        <span class="u-desktop-only">My Account</span>
-                        <span class="fonticon fonticon--profile fonticon--box u-mobile-only"></span>
+                    <a class="header__linkWithNotif link link--thick link--discrete" href="#" title="Shopping Bag">
+                        Bag (<span class="notif">0</span>)
                     </a>
-                </li>
-                <li class="header__navListItem">
-                    <a class="header__linkWithNotiflink link link--thick link--discrete" href="#" title="Shopping Bag">
-                        <span class="u-desktop-only">Bag</span>
-                        <span class="fonticon fonticon--shoppingBag fonticon--box u-mobile-only"></span>
-                        <!-- @TODO make notif for shopping bag having items on mobile & desktop 
-                            <span class="notif">{{ request.basket.num_lines }}</span>
-                        -->
+                    <a class="burgerMenu u-mobile-only" href="#mobile-main-nav" title="Toggle Menu">
+                        <span class="burgerMenu__bar burgerMenu__bar--top"></span>
+                        <span class="burgerMenu__bar burgerMenu__bar--middle"></span>
+                        <span class="burgerMenu__bar burgerMenu__bar--bottom"></span>
                     </a>
                 </li>
             </ul>
-            <a class="burgerMenu u-mobile-only" href="#mobile-main-nav" title="Toggle Menu">
-                <span class="burgerMenu__bar burgerMenu__bar--top"></span>
-                <span class="burgerMenu__bar burgerMenu__bar--middle"></span>
-                <span class="burgerMenu__bar burgerMenu__bar--bottom"></span>
-            </a>
         </nav>
         <div class="drawer drawer--right" id="mobile-main-nav">
             <a href="#close-drawer" class="drawer__backdrop" title="Close Menu"></a>
@@ -53,8 +42,8 @@
                         <ul class="drawer__list">
                             {% for link in linklists.main-menu.links %}
                                 <li class="drawer__item">
-                                    <a class="drawer__link drawer__link--large" href="{{- link.url -}}" title="{{- link.title -}}">
-                                        <span class="drawer__linkLabel">{{- link.title -}}</span>
+                                    <a class="drawer__link drawer__link--large" href="{{ link.url }}" title="{{ link.title }}">
+                                        <span class="drawer__linkLabel">{{ link.title }}</span>
                                         <span class="fonticon fonticon--smallBox fonticon--carouselArrowRight"></span>
                                     </a>
                                 </li>
