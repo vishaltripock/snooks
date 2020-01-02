@@ -1,0 +1,17 @@
+<div class="layout-1__img">
+    <img src="{{ section.settings.layout_image | img_url: 'master' }}" alt="About Image" >
+</div>
+
+
+{% schema %}
+{	
+	"name": "Image Block",
+    "settings": [
+        {
+            "id": "layout_image",
+            "type": "image_picker",
+            "label": "Layout Image"
+        }
+    ]
+}
+{% endschema %}

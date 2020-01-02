@@ -1,23 +1,3 @@
-.header {
-  nav.header__nav--primary {
-    ul.header__navList > li > a {
-      color: $theme-color-white;
-    }
-  }
-
-  nav.header__nav--secondary {
-    ul.header__navList > li > a {
-      color: $theme-color-science-blue;
-    }
-  }
-
-  svg.logo {
-    path {
-      fill: $theme-color-science-blue;
-    }
-  }
-}
-
 // .storybook__upload_text,
 // .header nav.header__nav--primary {
 //   background-color: $theme-color-science-blue;
@@ -28,18 +8,50 @@
 //   background-color: $theme-color-lavender-fog;
 // }
 
-@include media-query($screen-type-desktop) {
-  .header nav.header__nav--primary,
-  .header nav.header__nav--secondary {
-    background-color: $theme-color-white;
-  }
-}
-
 .storybook {
   display: flex;
   flex-grow: 1;
   justify-content: center;
   flex-direction: column;
+
+  #step2 {
+    img.storybook__photo--upload {
+      width: 300px;
+      height: auto;
+      display: block;
+      cursor: pointer;
+      object-fit: contain;
+    }
+  }
+
+
+  #step7 .container, #step8 .container   {
+    $s_horizontal_padding: 24px;
+    $s_vertical_padding: 48px;
+    $s_narrow_maxWidth: 256px + $s_horizontal_padding * 2;
+
+    $m_horizontal_padding: 32px;
+    $m_vertical_padding: 96px;
+    $m_narrow_maxWidth: 544px + $m_horizontal_padding * 2;
+    $m_medium_maxWidth: 736px + $m_horizontal_padding * 2;
+    $m_large_maxWidth: 1120px + $m_horizontal_padding * 2;
+
+    margin: 0 auto;
+
+    @media #{$mq_s_only} {
+      padding: 0 $s_horizontal_padding;
+    }
+
+    @media #{$mq_m} {
+      padding: 0 $m_horizontal_padding;
+      max-width: $m_large_maxWidth;
+    }
+  }
+
+  &__gender--female,
+  &__cover-material--softcover {
+    margin-right: 20px;
+  }
 
   .container {
     width: 100%;
@@ -47,10 +59,10 @@
     max-width: none;
     padding: 0;
     margin: 0;
-    .form {
-      width: 100%;
-      height: 100%;
-    }
+    // .form {
+    //   width: 100%;
+    //   height: 100%;
+    // }
   }
 }
 
@@ -59,15 +71,24 @@
   width: 100%;
   flex-grow: 1;
   flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition:opacity 0.3s ease-in, visibility 0.3s ease-in;
 }
 
 .stepActive {
   display: flex;
 }
 
+.stepActiveTransition {
+  opacity: 1;
+  visibility: visible;
+}
+
 .storybook__main {
   display: flex;
   width: 100%;
+  height: 100vh;
   flex-grow: 1;
 }
 
@@ -87,9 +108,15 @@
   font-family: "basis-grotesque-regular";
   font-size: 12px;
   text-transform: uppercase;
+  background-color: $theme-color-peach !important;
   color: black;
 
   .storybook__nav {
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
     &--right {
       svg {
         position: relative;
@@ -263,10 +290,10 @@
   }
 
   .storybook__nav_left-container {
-    background-color: $theme-color-science-blue;
+    // background-color: $theme-color-science-blue;
   }
   .storybook__nav_right-container {
-    background-color: $theme-color-lavender-fog;
+    // background-color: $theme-color-lavender-fog;
   }
 
   @include media-query($screen-type-desktop) {
@@ -319,10 +346,10 @@
     }
 
     .storybook__nav_left-container {
-      background-color: $theme-color-white;
+      // background-color: $theme-color-white;
     }
     .storybook__nav_right-container {
-      background-color: $theme-color-white;
+      // background-color: $theme-color-white;
     }
   }
 }
@@ -330,33 +357,36 @@
 // <---------------------------------------- STEP 3, 4 and 5 --------------------------------------------------->
 
 #step3,
-#step4 {
+#step4,
+#step5 {
   #shopify-section-storybook-step-3,
-  #shopify-section-storybook-step-4 {
+  #shopify-section-storybook-step-4,
+  #shopify-section-storybook-step-5 {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-grow: 1;
-    background: $theme-color-peach;
+    // background: $theme-color-peach;
     .form__group {
       .form__field {
-        margin: 100px 15px;
+        // margin: 100px 15px;
         margin-bottom: 0;
       }
     }
   }
 
   .storybook__nav_left-container {
-    background-color: $theme-color-peach;
+    // background-color: $theme-color-peach;
   }
   .storybook__nav_right-container {
-    background-color: $theme-color-peach;
+    // background-color: $theme-color-peach;
   }
 
   @include media-query($screen-type-desktop) {
     #shopify-section-storybook-step-3,
-    #shopify-section-storybook-step-4 {
+    #shopify-section-storybook-step-4,
+    #shopify-section-storybook-step-5 {
       flex-direction: column;
       .form__group {
         display: flex;
@@ -373,17 +403,17 @@
     }
 
     .storybook__nav_left-container {
-      background-color: $theme-color-white;
+      // background-color: $theme-color-white;
     }
     .storybook__nav_right-container {
-      background-color: $theme-color-white;
+      // background-color: $theme-color-white;
     }
   }
 }
 
-// <---------------------------------------- STEP 5 --------------------------------------------------->
-#step5 {
-  #shopify-section-storybook-step-5 {
+// <---------------------------------------- STEP 6 --------------------------------------------------->
+#step6 {
+  #shopify-section-storybook-step-6 {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -525,15 +555,15 @@
     }
   }
 
-  .storybook__nav_left-container {
-    background-color: $theme-color-yellow;
-  }
-  .storybook__nav_right-container {
-    background-color: $theme-color-grey;
-  }
+  // .storybook__nav_left-container {
+  //   background-color: $theme-color-yellow;
+  // }
+  // .storybook__nav_right-container {
+  //   background-color: $theme-color-grey;
+  // }
 
   @include media-query($screen-type-desktop) {
-    #shopify-section-storybook-step-5 {
+    #shopify-section-storybook-step-6 {
       .storybook-gender-container {
         .storybook-gender {
           flex-direction: column;
@@ -561,43 +591,16 @@
       }
     }
 
-    .storybook__nav_left-container {
-      background-color: $theme-color-white;
-    }
-    .storybook__nav_right-container {
-      background-color: $theme-color-white;
-    }
+    // .storybook__nav_left-container {
+    //   background-color: $theme-color-white;
+    // }
+    // .storybook__nav_right-container {
+    //   background-color: $theme-color-white;
+    // }
   }
 }
 
-// <---------------------------------------- STEP 6 --------------------------------------------------->
-
-#step6 {
-  #shopify-section-storybook-step-6 {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-grow: 1;
-  }
-
-  .storybook__nav_left-container {
-    background-color: $theme-color-white;
-  }
-  .storybook__nav_right-container {
-    background-color: $theme-color-grey;
-  }
-
-  @include media-query($screen-type-desktop) {
-    .storybook__nav_left-container {
-      background-color: $theme-color-white;
-    }
-    .storybook__nav_right-container {
-      background-color: $theme-color-white;
-    }
-  }
-}
-// <---------------------------------------- STEP 7 and 8 --------------------------------------------------->
+// <---------------------------------------- STEP 7 --------------------------------------------------->
 
 #step7 {
   #shopify-section-storybook-step-7 {
@@ -607,6 +610,33 @@
     align-items: center;
     flex-grow: 1;
   }
+
+  // .storybook__nav_left-container {
+  //   background-color: $theme-color-white;
+  // }
+  // .storybook__nav_right-container {
+  //   background-color: $theme-color-grey;
+  // }
+
+  @include media-query($screen-type-desktop) {
+    .storybook__nav_left-container {
+      background-color: $theme-color-white;
+    }
+    .storybook__nav_right-container {
+      background-color: $theme-color-white;
+    }
+  }
+}
+// <---------------------------------------- STEP 8 and 9 --------------------------------------------------->
+
+#step8 {
+  #shopify-section-storybook-step-8 {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-grow: 1;
+  }
   @include media-query($screen-type-desktop) {
     .storybook__nav_left-container {
       background-color: $theme-color-white;
@@ -617,8 +647,8 @@
   }
 }
 
-#step8 {
-  #shopify-section-storybook-step-8 {
+#step9 {
+  #shopify-section-storybook-step-9 {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -648,7 +678,7 @@
 // <---------------------------------------- STEP 9 --------------------------------------------------->
 
 #step9 {
-  #shopify-section-storybook-step-9 {
+  #shopify-section-storybook-step-10 {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -684,7 +714,6 @@
             height: 100%;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
             textarea {
               border: 1px solid #096dc3;
               color: #096dc3;
@@ -710,7 +739,7 @@
   }
 
   @include media-query($screen-type-desktop) {
-    #shopify-section-storybook-step-9 {
+    #shopify-section-storybook-step-10 {
       .storybook-pages-container {
         .storybook-page-container {
           flex-direction: column-reverse;
@@ -741,19 +770,19 @@
         }
       }
     }
-    .storybook__nav_left-container {
-      background-color: $theme-color-white;
-    }
-    .storybook__nav_right-container {
-      background-color: $theme-color-white;
-    }
+    // .storybook__nav_left-container {
+    //   background-color: $theme-color-white;
+    // }
+    // .storybook__nav_right-container {
+    //   background-color: $theme-color-white;
+    // }
   }
 }
 
 // <---------------------------------------- STEP 11 --------------------------------------------------->
 
-#step10 {
-  #shopify-section-storybook-step-10 {
+#step11 {
+  #shopify-section-storybook-step-11 {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -901,7 +930,7 @@
   }
 
   @include media-query($screen-type-desktop) {
-    #shopify-section-storybook-step-10 {
+    #shopify-section-storybook-step-11 {
       .storybook-cover-container {
         .storybook-cover {
           flex-direction: column;
@@ -940,8 +969,8 @@
 
 // <---------------------------------------- STEP 11 --------------------------------------------------->
 
-#step11 {
-  #shopify-section-storybook-step-11 {
+#step12 {
+  #shopify-section-storybook-step-12 {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -1035,15 +1064,15 @@
       }
     }
   }
-  .storybook__controls {
-    background-color: $theme-color-white;
-  }
   .storybook__nav_left-container {
     background-color: $theme-color-yellow;
   }
+  .storybook__nav_right-container {
+    background-color: $theme-color-white;
+  }
 
   @include media-query($screen-type-desktop) {
-    #shopify-section-storybook-step-11 {
+    #shopify-section-storybook-step-12 {
       .preview-container {
         .preview-inner {
           flex-direction: column-reverse;
@@ -1065,10 +1094,10 @@
         }
       }
     }
-    .storybook__controls {
+    .storybook__nav_left-container {
       background-color: $theme-color-white;
     }
-    .storybook__nav_left-container {
+    .storybook__nav_right-container {
       background-color: $theme-color-white;
     }
   }

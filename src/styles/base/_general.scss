@@ -98,6 +98,17 @@ a, button, [role="button"], input, label, select, textarea {
 //     height: calc(100vh - (96px + 100px));
 // }
 
+#main{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#storybook #main {
+    display: flex;
+}
+
 .visually-hidden {
 	@include visually-hidden;
 }
@@ -123,6 +134,10 @@ a, button, [role="button"], input, label, select, textarea {
 
 .u-block {
     display: block;
+}
+
+.u-flex {
+    display: flex;
 }
 
 .u-underline {

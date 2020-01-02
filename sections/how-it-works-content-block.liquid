@@ -1,0 +1,34 @@
+{% for block in section.blocks %}
+	<div class="layout-1__content">
+		<h1 class="title title--medium">{{ block.settings.title }}</h1>
+		<p class="desc">{{ block.settings.text }}</p>
+	</div>
+{% endfor %}
+
+
+{% schema %}
+{	
+	"name": "Content Blocks",
+	"max_blocks": 12,
+	"blocks": [
+		{
+			"type": "content_block",
+       		"name": "Content Block",
+			"settings": [
+				{
+					"id": "title",
+					"type": "text",
+					"label": "Title",
+					"default": "Enter Title..."
+				},
+				{
+					"id": "text",
+					"type": "textarea",
+					"label": "Text Content",
+					"default": "Enter Content..."
+				}
+			]
+		}
+	]
+}
+{% endschema %}

@@ -1,7 +1,10 @@
 let productInfo = {};
 
 const endText = "It is hard and sad to think of someone that has passed on. But try to take comfort in all they have left for you. Always know a part of them lives on in you. As long as you share their stories and memories, they can never really be gone.";
+
 let base_asset_url = "https://09a6e81a.ngrok.io";
+// let base_asset_url = "https://avatar.tripock.com"; 
+
 
 let She_Story = "";
 let He_Story = "";
