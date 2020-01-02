@@ -548,8 +548,7 @@ a, button, [role="button"], input, label, select, textarea {
 .faq .anchors-nav .anchors-nav__link, .terms .anchors-nav .anchors-nav__link, .privacy .anchors-nav .anchors-nav__link {
   color: #D4F4F1; }
 
-.about .container,
-.how-it-works .container {
+.about .container {
   margin-top: 40px; }
 
 .circle {
@@ -574,9 +573,13 @@ a, button, [role="button"], input, label, select, textarea {
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
-  align-items: flex-start;
-  text-align: center; }
-  .layout-1 .layout-1__img {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 40px; }
+  .layout-1__content {
+    margin-bottom: 20px; }
+  .layout-1__img {
     padding: 0 10%; }
 
 .btn {
@@ -763,15 +766,15 @@ a, button, [role="button"], input, label, select, textarea {
     max-width: none;
     padding: 0;
     margin: 0; }
-    .storybook .container .form {
-      width: 100%;
-      height: 100%; }
 
 .storybook__section {
   display: none;
   width: 100%;
   flex-grow: 1;
-  flex-direction: column; }
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in, visibility 0.3s ease-in; }
 
 .stepActive {
   display: flex; }

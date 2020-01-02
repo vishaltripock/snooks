@@ -1,27 +1,6 @@
 <div class="container">
 	<section class="layout-1">
-		<div class="layout-1__img">
-			<img src="{{- 'about-img-1.jpg' | asset_img_url: 'master' -}}" />
-		</div>
-	
-		<div class="layout-1__content">
-			<h1 class="title title--medium">About Snooks Angel Books</h1>
-			<p class="desc">My mother passed away December 2014. It was the most devastating day of my life. While I was mourning, (and continue to mourn to this day), 
-				I wanted to find a way to honor my mother and also have something for my future kids, 
-				who will unfortunately not be able to meet her, to know the phenomenal woman she was. With my mother’s love of books, I came up with Snooks Angel Books, a customizable 
-				family keepsake made with children in mind. Snooks is also my mother’s nickname her mother gave her when she was younger. This unique family biography will help preserve the 
-				legacies of our lost loved ones and celebrate our past while shaping our future. Children will be able to learn about family who 
-				have passed before they were born or help them deal with a current family tragedy while navigating grief.</p>
-		</div>
-
-		<div class="layout-1__content">
-			<h1 class="title title--medium">The Product</h1>
-			<p class="desc">Snooks Angel Books is a custom children’s book product that will allow families to create a uniquely touching and customized loved one’s story who has passed on. 
-				We use prefix narratives based on chosen themes and characteristics that help us immortalize them. Additionally, the character generator provides realistic, 
-				but illustrative art used to build the best version of them. This process is meant to be user-friendly, fast, and easy. Every step of the way is just a click of a button. 
-				Once families have purchased the completed product on our site, Snooks Angel Books will print and bind it into a hard and soft cover book. 
-				This unique book of memories will then ship to your loved ones to gift as a keepsake for 
-				cherished family generations to come.</p> 
-		</div>
+		{% section 'about-image-block' %}
+		{% section 'about-content-block' %}
 	</section> 
 </div>

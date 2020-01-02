@@ -59,14 +59,103 @@
     </head>
     <body id="{{ page_type }}" class="{{ page_type | replace: '.', ' ' | truncatewords: 1, '' }}">
         <div id="siteWrapper">
-            {% section 'header' %}
+            <!-- Header -->
+            <header class="header">
+                <div class="header__bar cols cols--align-middle">
+                    <nav class="header__nav header__nav--primary nav--inline">
+                        <a href="\" title="Home">
+                            <div class="logo">
+                                <span class="logo__icon">
+                                    <img src="{{ 'Snooks-Angel-Books-logo.svg' | asset_url }}" alt="Snooks Angel Books Logo">
+                                </span>
+                            </div>
+                        </a>
+                        <ul class="header__navList nav__list u-desktop-only">
+                            {% for link in linklists.main-menu.links %}
+                                <li class="header__navListItem">
+                                    <a class="link link--thick link--discrete" href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                    <nav class="header__nav header__nav--secondary nav--inline">
+                        <ul class="header__navList nav__list">
+                            <li class="header__navListItem">
+                                <a class="header__linkWithNotif link link--thick link--discrete" href="#" title="Shopping Bag">
+                                    Bag (<span class="notif">0</span>)
+                                </a>
+                                <a class="burgerMenu u-mobile-only" href="#mobile-main-nav" title="Toggle Menu">
+                                    <span class="burgerMenu__bar burgerMenu__bar--top"></span>
+                                    <span class="burgerMenu__bar burgerMenu__bar--middle"></span>
+                                    <span class="burgerMenu__bar burgerMenu__bar--bottom"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="drawer drawer--right" id="mobile-main-nav">
+                        <a href="#close-drawer" class="drawer__backdrop" title="Close Menu"></a>
+                        <div class="drawer__frame">
+                            <div class="drawer__header drawer__header--bar">
+                                <div class="drawer__headerContent"></div>
+                                <a href="#close-drawer" class="drawer__close close" title="Close Menu"></a>
+                            </div>
+                            <div class="drawer__scroller">
+                                <div class="drawer__content">
+                                    <ul class="drawer__list">
+                                        {% for link in linklists.main-menu.links %}
+                                            <li class="drawer__item">
+                                                <a class="drawer__link drawer__link--large" href="{{ link.url }}" title="{{ link.title }}">
+                                                    <span class="drawer__linkLabel">{{ link.title }}</span>
+                                                    <span class="fonticon fonticon--smallBox fonticon--carouselArrowRight"></span>
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="drawer__footer">
+                                    <div class="drawer__branding">
+                                        <a href="/" title="Home">
+                                            <div class="logo">
+                                                <span class="logo__icon">
+                                                    <img src="{{ 'Snooks-Angel-Books-logo.svg' | asset_url }}" alt="Snooks Angel Books Logo">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+             <!-- Main Content -->
             <main id="main">
                 {{ content_for_layout }}
             </main>
+
             {% if template.suffix != "custom-story" %}
-                {% section 'footer' %}
+                <!-- Footer -->
+                <footer class="footer">
+                    <div class="footer__bar footer__bar--top">
+                        <nav class="footer__nav footer__nav--primary">
+                            <ul class="footer__navList">
+                                {%- for link in linklists.footer.links -%}
+                                    <li>
+                                        <a class="link link--thick link--discrete" href="{{- link.url -}}" title="{{- link.title -}}">{{- link.title -}}</a>
+                                    </li>
+                                {%- endfor -%}
+                                <li>
+                                    <a target="_blank" rel="nofollow" href="https://www.instagram.com/snooksangelbooks/" title="Instagram"><span class="fonticon fonticon--instagram fonticon--smallBox"></span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </footer>
             {% endif %}
-        </div>
+        </div> 
+
+        <!-- Scripts-->
         {{ 'theme.js' | asset_url | script_tag }}
         
         {% if template.suffix == "custom-story" %}

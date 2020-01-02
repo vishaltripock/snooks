@@ -15,8 +15,7 @@
     }
 }
 
-.about .container,
-.how-it-works .container {
+.about .container {
     margin-top: 40px;
 }
 
@@ -50,10 +49,16 @@
     display: flex;
     flex-flow: column nowrap;
     width: 100%;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    margin-top: 40px;
 
-    .layout-1__img {
+    &__content {
+        margin-bottom: 20px;
+    }
+
+    &__img {
         padding: 0 10%;
     }
 }
