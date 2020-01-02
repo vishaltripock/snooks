@@ -1,7 +1,7 @@
 let productInfo = {};
 
 const endText = "It is hard and sad to think of someone that has passed on. But try to take comfort in all they have left for you. Always know a part of them lives on in you. As long as you share their stories and memories, they can never really be gone.";
-let base_asset_url = "https://81c2a7e0.ngrok.io";
+let base_asset_url = "https://09a6e81a.ngrok.io";
 
 let She_Story = "";
 let He_Story = "";
@@ -339,7 +339,6 @@ function Preview_Text_Generator(Preview_Text_String, index, length) {
         preview_add_to_bag_button.classList.add("preview-add-to-bag-button");
 
         let previewButton = document.createElement("button");
-        previewButton.setAttribute("type", "submit");
         previewButton.setAttribute("name", "add");
         previewButton.id = "AddToCart";
         previewButton.classList.add("btn-preview-bag");
@@ -433,7 +432,7 @@ function Storybook_Product_Maker() {
         }
     }
 
-    // Appending End Text Here
+    // Appending End Text Heres
     productPagesData.push({ img: "", pagetext: endText });
 
     formData.append("page", JSON.stringify(productPagesData));
@@ -442,6 +441,7 @@ function Storybook_Product_Maker() {
     if (userDp) {
         formData.append("avatar_pic", userDp, "avatar.png");
     }
+
 
     $.ajax({
         url: base_asset_url + "/products/",
@@ -476,6 +476,7 @@ function ImageUrlGetter() {
     console.log("############# Sending Avatar Data ##############");
     console.log(AvatarConfig);
     console.log("############# Sending Avatar Data ##############");
+    console.log(base_asset_url + "/constructor/avatar/")
     $.post(
         base_asset_url + "/constructor/avatar/",
         {
@@ -494,3 +495,16 @@ function ImageUrlGetter() {
         }
     );
 }
+
+// function addProductToCart(variant_id){
+//     console.log("addPRoductToCart FUnctio -------> ",variant_id)
+//     $.post(
+//         "/cart/add/",
+//         {
+//             id: variant_id
+//         },
+//         function (data, status) {
+//             console.log("Product Data Return ------> ", data);
+//         }
+//     )
+// }

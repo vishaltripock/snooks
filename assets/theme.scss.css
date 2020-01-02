@@ -2979,17 +2979,21 @@ a, button, [role="button"], input, label, select, textarea {
 #cart-container-id {
   display: flex;
   flex-grow: 1;
-  max-width: none; }
+  max-width: none;
+  background-color: #F5F5F5;
+  color: #096DC3; }
   #cart-container-id .cart-main {
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    display: flex;
+    align-items: center; }
     #cart-container-id .cart-main .shopping-bag-non-empty {
       display: flex;
       flex-grow: 1;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      padding-top: 240px; }
+      margin: 12px; }
       #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container {
         width: 100%;
         flex-grow: 1; }
@@ -2999,7 +3003,8 @@ a, button, [role="button"], input, label, select, textarea {
           #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner {
             width: 100%;
             height: 100%;
-            flex-grow: 1; }
+            flex-grow: 1;
+            padding: 0px 16px; }
             #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-info-container {
               width: 100%;
               flex-grow: 1;
@@ -3008,19 +3013,24 @@ a, button, [role="button"], input, label, select, textarea {
                 display: flex;
                 width: 100%;
                 flex-grow: 1;
-                justify-content: space-between;
-                border-bottom: 2px black solid;
                 padding-bottom: 10px; }
                 #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-info-container .shopping-bag-info .shopping-bag-product-info {
-                  margin-left: 50px; }
+                  margin-left: 20px;
+                  min-width: 20%; }
                 #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-info-container .shopping-bag-info .shopping-bag-Total-info {
-                  margin-right: 50px; }
+                  min-width: 20%; }
+                #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-info-container .shopping-bag-info .shopping-bag-quantity-info {
+                  min-width: 20%; }
+                #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-info-container .shopping-bag-info .shopping-bag-price-info {
+                  min-width: 20%; }
             #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-items-collection-container {
               display: flex;
               flex-grow: 1;
-              width: 100%; }
+              width: 100%;
+              border: 2px solid #096DC3;
+              border-right: none;
+              border-left: none; }
               #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-items-collection-container .shopping-bag-items-collection {
-                margin-top: 14px;
                 display: flex;
                 width: 100%;
                 flex-grow: 1;
@@ -3028,29 +3038,55 @@ a, button, [role="button"], input, label, select, textarea {
                 #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-items-collection-container .shopping-bag-items-collection .shopping-bag-item-container {
                   flex-grow: 1;
                   width: 100%;
-                  display: flex; }
+                  display: flex;
+                  flex-direction: column; }
                   #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-items-collection-container .shopping-bag-items-collection .shopping-bag-item-container .shopping-bag-item {
                     width: 100%;
-                    justify-content: space-between;
-                    display: flex; }
+                    display: flex;
+                    margin: 12px 0px; }
                     #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-items-collection-container .shopping-bag-items-collection .shopping-bag-item-container .shopping-bag-item .shopping-bag-product-image-name {
                       display: flex;
                       align-items: center;
-                      margin-left: 40px; }
+                      min-width: 20%;
+                      margin-left: 20px; }
                       #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-items-collection-container .shopping-bag-items-collection .shopping-bag-item-container .shopping-bag-item .shopping-bag-product-image-name .shopping-bag-product-image {
                         height: 50px;
-                        width: 50px; }
+                        width: 50px;
+                        margin-right: 8px; }
                         #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-items-collection-container .shopping-bag-items-collection .shopping-bag-item-container .shopping-bag-item .shopping-bag-product-image-name .shopping-bag-product-image img {
                           height: 100%;
                           width: 100%; }
-                    #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-items-collection-container .shopping-bag-items-collection .shopping-bag-item-container .shopping-bag-item .shopping-bag-product-remove {
-                      margin-right: 50px; }
+                    #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-items-collection-container .shopping-bag-items-collection .shopping-bag-item-container .shopping-bag-item .shopping-bag-product-price {
+                      min-width: 20%; }
+                    #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-items-collection-container .shopping-bag-items-collection .shopping-bag-item-container .shopping-bag-item .shopping-bag-product-quantity {
+                      min-width: 20%; }
+                    #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-items-collection-container .shopping-bag-items-collection .shopping-bag-item-container .shopping-bag-item .shopping-bag-product-total-price {
+                      min-width: 20%; }
+                    #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-container-inner .shopping-bag-items-collection-container .shopping-bag-items-collection .shopping-bag-item-container .shopping-bag-item .shopping-bag-product-remove a {
+                      color: #096DC3; }
           #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-subtotal-checkout-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
             flex-grow: 1; }
+            #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-subtotal-checkout-container .shopping-bag-subtotal-container .shopping-bag-subtotal-title {
+              margin-bottom: 0px; }
+            #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-subtotal-checkout-container .shopping-bag-subtotal-container .shopping-bag-subtotal-price {
+              margin-top: 0px; }
+            #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-subtotal-checkout-container .shopping-bag-checkout-btn-container {
+              display: inline-block;
+              outline: none;
+              padding: 2px;
+              border: 2px #096DC3 solid;
+              color: #096DC3;
+              background: none;
+              text-align: center;
+              text-decoration: none; }
+              #cart-container-id .cart-main .shopping-bag-non-empty .shopping-bag-container form .shopping-bag-subtotal-checkout-container .shopping-bag-checkout-btn-container button {
+                background: none;
+                border: none;
+                color: #096DC3; }
 
 /*
  * Bootstrap v2.2.2
@@ -7220,7 +7256,7 @@ a, button, [role="button"], input, label, select, textarea {
     transition: width 0.2s ease; }
 
 #wrapper {
-  height: calc(100% - 95px);
+  height: 100%;
   /* Layer Ke Item ke liye */
   /* -------------------------------------- Tabs and Subtabs Slider --------------------------------- */
   /* -------------------------------------- Sub Section CSS Start ----------------------------------- */
@@ -7474,7 +7510,7 @@ a, button, [role="button"], input, label, select, textarea {
       height: 100%;
       width: 100%; }
     #wrapper #constructor-panel .layers .layer.active {
-      justify-content: flex-start; }
+      justify-content: space-between; }
     #wrapper .tabs-subtabs {
       width: 100%;
       flex-direction: column;

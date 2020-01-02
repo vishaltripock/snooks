@@ -2,17 +2,20 @@
   display: flex;
   flex-grow: 1;
   max-width: none;
-
+  background-color: $theme-color-grey;
+  color: $theme-color-science-blue;
   .cart-main {
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
     .shopping-bag-non-empty {
       display: flex;
       flex-grow: 1;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      padding-top: 240px;
+      margin: 12px;
       .shopping-bag-container {
         width: 100%;
         flex-grow: 1;
@@ -23,6 +26,7 @@
             width: 100%;
             height: 100%;
             flex-grow: 1;
+            padding: 0px 16px;
             .shopping-bag-info-container {
               width: 100%;
               flex-grow: 1;
@@ -31,14 +35,19 @@
                 display: flex;
                 width: 100%;
                 flex-grow: 1;
-                justify-content: space-between;
-                border-bottom: 2px black solid;
                 padding-bottom: 10px;
                 .shopping-bag-product-info {
-                  margin-left: 50px;
+                  margin-left: 20px;
+                  min-width: 20%;
                 }
                 .shopping-bag-Total-info {
-                  margin-right: 50px;
+                  min-width: 20%;
+                }
+                .shopping-bag-quantity-info {
+                  min-width: 20%;
+                }
+                .shopping-bag-price-info {
+                  min-width: 20%;
                 }
               }
             }
@@ -46,8 +55,10 @@
               display: flex;
               flex-grow: 1;
               width: 100%;
+              border: 2px solid $theme-color-science-blue;
+              border-right: none;
+              border-left: none;
               .shopping-bag-items-collection {
-                margin-top: 14px;
                 display: flex;
                 width: 100%;
                 flex-grow: 1;
@@ -56,37 +67,74 @@
                   flex-grow: 1;
                   width: 100%;
                   display: flex;
+                  flex-direction: column;
                   .shopping-bag-item {
                     width: 100%;
-                    justify-content: space-between;
                     display: flex;
-                    .shopping-bag-product-image-name{
-                        display: flex;
-                        align-items: center;
-                        margin-left: 40px;
-                        .shopping-bag-product-image{
-                            height: 50px;
-                            width: 50px;
-                            img{
-                                height: 100%;
-                                width: 100%;
-                            }
+                    margin: 12px 0px;
+                    .shopping-bag-product-image-name {
+                      display: flex;
+                      align-items: center;
+                      min-width: 20%;
+                      margin-left: 20px;
+                      .shopping-bag-product-image {
+                        height: 50px;
+                        width: 50px;
+                        margin-right: 8px;
+                        img {
+                          height: 100%;
+                          width: 100%;
                         }
+                      }
                     }
-                    .shopping-bag-product-remove{
-                        margin-right: 50px;
+                    .shopping-bag-product-price {
+                      min-width: 20%;
+                    }
+                    .shopping-bag-product-quantity {
+                      min-width: 20%;
+                    }
+                    .shopping-bag-product-total-price {
+                      min-width: 20%;
+                    }
+                    .shopping-bag-product-remove {
+                      a {
+                        color: $theme-color-science-blue;
+                      }
                     }
                   }
                 }
               }
             }
           }
-          .shopping-bag-subtotal-checkout-container{
+          .shopping-bag-subtotal-checkout-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
             flex-grow: 1;
+            .shopping-bag-subtotal-container{
+              .shopping-bag-subtotal-title{
+                margin-bottom: 0px;
+              }
+              .shopping-bag-subtotal-price{
+                margin-top: 0px;
+              }
+            }
+            .shopping-bag-checkout-btn-container {
+              display: inline-block;
+              outline: none;
+              padding: 2px;
+              border: 2px $theme-color-science-blue solid;
+              color: $theme-color-science-blue;
+              background: none;
+              text-align: center;
+              text-decoration: none;
+              button {
+                background: none;
+                border: none;
+                color: $theme-color-science-blue;
+              }
+            }
           }
         }
       }

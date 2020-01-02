@@ -1,8 +1,5 @@
 <div class="cart-container" id="cart-container-id">
   <div class="cart-main">
-    <div class="logo">
-      <img src="{{- 'Snooks-Angel-Books-logo.svg' | asset_url -}}" alt="Snooks Angel Books Logo">
-    </div>
     {% if cart.item_count > 0 %}
     <div class="shopping-bag-non-empty">
       <div class="cart-heading">
@@ -34,10 +31,10 @@
                   <div class="shopping-bag-item">
                     <div class="shopping-bag-product-image-name">
                       <div class="shopping-bag-product-image">
-                        <p>{{ item.properties }}</p>            
+                        {{ item | img_tag: item.image.alt, 'master'}}        
                       </div>
                       <div class="shopping-bag-product-name">
-                        {{ item.product.title }}({{ item.variant.title }})
+                        {{ item.product.title }}
                       </div>
                     </div>
                     <div class="shopping-bag-product-price">
@@ -45,8 +42,9 @@
                     </div>
                     <div class="shopping-bag-product-quantity">
                       <div class="shopping-bag-product-quantity-input">
+                          {{ item.quantity }}
                         <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}"
-                          min="0">
+                          min="0" hidden>
                       </div>
                     </div>
                     <div class="shopping-bag-product-total-price">
@@ -65,8 +63,8 @@
           </div>
           <div class="shopping-bag-subtotal-checkout-container">
             <div class="shopping-bag-subtotal-container">
-              <p>Subtotal:</p>
-              <p>{{ cart.total_price | money }}</p>
+              <p class="shopping-bag-subtotal-title">Subtotal:</p>
+              <p class="shopping-bag-subtotal-price">{{ cart.total_price | money }}</p>
             </div>
             <div class="shopping-bag-checkout-btn-container">
               <button type="submit" name="checkout" id="checkout-btn">Checkout</button>
