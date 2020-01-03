@@ -6,8 +6,9 @@ jQuery(function ($) {
         loader = $(".pixel-loading");
 
     constructor.pixel({
-        images: 'https://snook-avatar.s3-us-west-2.amazonaws.com/',
-        json: 'https://cdn.shopify.com/s/files/1/0275/0762/1932/files/8settings.json?806',
+        //images: 'https://c8110851.ngrok.io/static/8bit/img/avatarImages/'
+        images: 'https://snook-avatar.s3-us-west-2.amazonaws.com/compress/',
+        json: 'https://cdn.shopify.com/s/files/1/0291/1689/1269/files/8settings.json?637',
         selected: true,
         startup: {
             layer: 'body',

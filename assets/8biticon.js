@@ -141,7 +141,10 @@
           .addClass("active");
 
         // open first layer from this group
-        openLayer(layers_list[layers_list.length - 1].name);
+        // openLayer(layers_list[layers_list.length - 1].name);
+
+        // Now Body is at length-2 due to backhairs
+        openLayer(layers_list[layers_list.length - 2].name);
 
         // callback
         options.onGroupSelect.call(self, name);
@@ -175,6 +178,7 @@
         );
       }
 
+
       function Next_Tab_Open() {
 
         $(".prev-tab-click").show();
@@ -200,13 +204,12 @@
         const name = $(NextTab).data("layer");
 
         // This is because "Body is Intital Tab which have index equal to length - 1"
-        if (NextTabIndex === length - 2) {
+        if (name === "pants" || name === "skirts") {
           $(".next-tab-click").hide();
         }
 
         NextTab.addClass("active");
         openLayer(name);
-
       }
 
       function Prev_Tab_Open() {
@@ -221,11 +224,9 @@
         CurrentGrpTabs.removeClass("active");
         const length = group_length[selected_group];
         let PrevTabIndex = 0;
-        //Hello
 
         if (CurrentTabIndex === 0) {
           PrevTabIndex = length - 1;
-          $(".prev-tab-click").hide();
         }
         else {
           PrevTabIndex = CurrentTabIndex - 1;
@@ -233,6 +234,10 @@
 
         const PrevTab = CurrentGrpTabs.filter(".tabIndex" + PrevTabIndex);
         const name = $(PrevTab).data("layer");
+
+        if (name === "body") {
+          $(".prev-tab-click").hide();
+        }
 
         PrevTab.addClass("active");
         openLayer(name);
@@ -336,7 +341,6 @@
           .hasClass("active");
       }
 
-
       function markLayerActive(name) {
         var /* group name */ group,
         /* layers list */ layers_list,
@@ -366,6 +370,7 @@
         zIndex = options.zIndex;
 
         // filling up all the things
+
         for (let group in options.json) {
           // don't iterate over inherited or smth
           if (!options.json.hasOwnProperty(group)) {
@@ -391,13 +396,23 @@
               ld.name === "hairstyles" ||
               ld.name === "shirts" ||
               ld.name === "pants" ||
-              ld.name === "boots";
+              ld.name === "boots" ||
+              ld.name === "skirts" ||
+              ld.name === "dresses";
+
             zIndex++;
 
-            if (
-              ld.name === name &&
-              layers.find(".layer-" + ld.name).length < 2
-            ) {
+            // Checking if Feature is Present in Both so we can render only once
+            // If, Present in both then we will loop 2 times otherwise only once
+            // for resepective gender present
+
+
+            let presentInBoth = 1;
+            if (options.json["male"][v].name === options.json["female"][v].name) {
+              presentInBoth = 2;
+            }
+
+            if (ld.name === name && layers.find(".layer-" + ld.name).length < presentInBoth) {
               // 2 - cause one will be for male and the other for female
 
               // filling hash withh all layers
@@ -413,7 +428,9 @@
 
               // sets selected item
               // sel ---> selected index
-              let sel = options.selected[group][ld.name].index ? options.selected[group][ld.name].index : 1;
+              console.log("Layer Name is ", ld.name, " and Group is ", group);
+              let sel = options.selected[group][ld.name].index ? options.selected[group][ld.name].index : 0;
+              console.log("Sel Wala Index -----------> ", sel);
 
               // cloning layer element
               // cl ---> tab clone
@@ -438,14 +455,20 @@
                 let featureName = ld.name;
                 let InitialSelection = 1;
 
-                const { selected: { [selected_group]: { [featureName]: { index = 1 } = {} } = {} } = {} } = options;
-                InitialSelection = index;
+                const { selected: { [selected_group]: { [featureName]: { itemCat = 1 } = {} } = {} } = {} } = options;
+                InitialSelection = itemCat;
 
+                console.log("Index Wala ---------------> ", itemCat);
+                console.log("Initial Selection Wala ----------> ", InitialSelection);
+                console.log();
+                console.log();
+                // console.log(featureName);
                 for (let catIdx = 0; catIdx < categoryCount; ++catIdx) {
+
                   let variationCount = ld.groups[catIdx].count;
                   let CategoryTitle = ld.groups[catIdx].title;
-                  let CategoryName = ld.groups[catIdx].name;
                   let CategoryPath = ld.groups[catIdx].path;
+                  let itemCategory = catIdx + 1 <= 9 ? "0" + (catIdx + 1) : catIdx;
 
                   let subtabItemClone = subtabItem
                     .clone()
@@ -482,33 +505,34 @@
 
                   cl.append(DeselectorItemLayer.append(deselectImgTag));
 
-                  let DeselectorItem = carousel_item
-                    .clone()
-                    .addClass(
-                      "layer-item layer-item-" +
-                      ld.name +
-                      " group-" +
-                      group +
-                      " unselector-" +
-                      ld.name +
-                      "-item"
-                    )
-                    .data("layer", ld.name)
-                    .css("zIndex", ld.zIndex || zIndex);
+                  // let DeselectorItem = carousel_item
+                  //   .clone()
+                  //   .addClass(
+                  //     "layer-item layer-item-" +
+                  //     ld.name +
+                  //     " group-" +
+                  //     group +
+                  //     " unselector-" +
+                  //     ld.name +
+                  //     "-item"
+                  //   )
+                  //   .data("layer", ld.name)
+                  //   .css("zIndex", ld.zIndex || zIndex);
 
                   // carousel_in.append(DeselectorItem);
 
                   for (let varIdx = 1; varIdx <= variationCount; ++varIdx) {
+
                     // Ye Hum Ker Rhe Taaki Hum Usse Choosen SubTabItem ke Number se Visible ker saake
                     let LayerItemName = ld.name + (catIdx + 1);
-                    let currentTickItem = String.fromCharCode(96 + i);
+                    let itemValueInVCategory = String.fromCharCode(96 + varIdx);
 
                     il = layer_item.clone().data({
                       index: varIdx,
-                      itemCat: catIdx + 1 <= 9 ? "0" + (catIdx + 1) : catIdx,
-                      itemValInCat: String.fromCharCode(96 + varIdx),
+                      itemCat: itemCategory,
+                      itemValInCat: itemValueInVCategory,
                       SkinTone: "",
-                      currentCount: String.fromCharCode(96 + varIdx)
+                      currentCount: itemValueInVCategory
                     });
 
                     il.addClass(LayerItemName);
@@ -527,7 +551,7 @@
 
                     icl = iclTempVal_2.css("zIndex", ld.zIndex || zIndex);
 
-                    if (!itemSelected && intialSelectionCategory && InitialSelection === varIdx) {
+                    if (!itemSelected && sel === varIdx && itemCat === itemCategory) {
                       // ye bta rha hai ki ye category ka ek item select ho chuka hai.. taaki hum dubra se isse category
                       // ek item aur select na ker le category section ke ander
                       itemSelected = true;
@@ -539,21 +563,39 @@
 
                       options.selected[group][ld.name] = {
                         index: sel,
-                        itemCat: catIdx + 1 <= 9 ? "0" + (catIdx + 1) : catIdx,
-                        itemValInCat: String.fromCharCode(96 + varIdx),
+                        itemCat: itemCategory,
+                        itemValInCat: itemValueInVCategory,
                         SkinTone: "",
-                        currentCount: String.fromCharCode(96 + varIdx)
+                        currentCount: itemValueInVCategory
                       };
+
                     }
-                    else if (!itemSelected && !intialSelectionCategory && InitialSelection === varIdx) {
-                      options.selected[group][ld.name] = {
-                        index: 0,
-                        itemCat: catIdx + 1 <= 9 ? "0" + (catIdx + 1) : catIdx,
-                        itemValInCat: String.fromCharCode(96 + varIdx),
-                        SkinTone: "",
-                        currentCount: String.fromCharCode(96 + varIdx)
-                      };
-                    }
+
+                    // if (!itemSelected && intialSelectionCategory && sel === varIdx) {
+
+                    //   itemSelected = true;
+                    //   il.addClass("active");
+                    //   icl.addClass("layer-active");
+
+                    //   options.selected[group][ld.name] = {
+                    //     index: sel,
+                    //     itemCat: itemCategory,
+                    //     itemValInCat: itemValueInVCategory,
+                    //     SkinTone: "",
+                    //     currentCount: itemValueInVCategory
+                    //   };
+
+                    // }
+                    // else if (!itemSelected && !intialSelectionCategory && sel === varIdx) {
+                    //   itemSelected = true;
+                    //   options.selected[group][ld.name] = {
+                    //     index: sel,
+                    //     itemCat: itemCategory,
+                    //     itemValInCat: itemValueInVCategory,
+                    //     SkinTone: "",
+                    //     currentCount: itemValueInVCategory
+                    //   };
+                    // }
 
                     // Image
                     let ImageImg =
@@ -619,11 +661,10 @@
                 const { selected: { [selected_group]: { body: { SkinTone = "a" } = {} } = {} } = {} } = options;
                 InitialSelection = SkinTone;
 
-                // if (name === "noses" || name === "face_shapes") {
-                //   const { selected: { [selected_group]: { body: { SkinTone = "a" } = {} } = {} } = {} } = options;
-                //   InitialSelection = SkinTone;
-                // }
-                console.log("intial", InitialSelection);
+                console.log("SkinTone Wala ---------------> ", SkinTone);
+                console.log("Initial Selection Wala ----------> ", InitialSelection);
+                console.log();
+                console.log();
 
                 for (let i = 1; i <= ld.count; i++) {
 
@@ -680,7 +721,7 @@
                   else if (!itemSelected && !intialSelectionCategory && currentTickItem === InitialSelection) {
                     itemSelected = true;
                     options.selected[group][ld.name] = {
-                      index: 0,
+                      index: sel,
                       itemCat: 0,
                       itemValInCat: InitialSelection,
                       SkinTone: InitialSelection,
@@ -715,7 +756,8 @@
                 // append layer to layers' element
                 layers.append(cl);
               }
-            } else if (ld.name !== name) {
+            }
+            else if (ld.name !== name) {
               if (onlyFaceNose === false) {
                 layers.find(".layer-" + ld.name).remove();
               }
@@ -746,6 +788,7 @@
               AllSubTabGrp.removeClass("subtabShow");
               CurrentSubTab.addClass("subtabShow");
               updateUI();
+              //Changes 2 because body is 2nd now
               OpenSubTab_Section(name, 1);
             }
           } else {
@@ -782,22 +825,22 @@
 
       function initConstructor() {
         var /* group name */ group,
-          /* layers list */ layers_list,
-          /* layer index */ v,
-          /* layer clone */ cl,
-          /* layer object */ ld,
-          /* previous layer */ p,
-          /* item index */ i,
-          /* carousel item clone */ icl,
-          /* item clone */ il,
-          /* item image */ im,
-          /* tab clone */ ct,
-          /* selected index */ sel,
-          /* layers' zIndex */ zIndex = options.zIndex,
-          /* subTabBarContainer Clone*/ subTabContainerClone,
-          /* subTab Clone */ subTabContainerInnerClone,
-          /* subTab Nav Clone */ subtabNavClone,
-          /* subTab Nav Item Clone */ subtabItemClone;
+        /* layers list */ layers_list,
+        /* layer index */ v,
+        /* layer clone */ cl,
+        /* layer object */ ld,
+        /* previous layer */ p,
+        /* item index */ i,
+        /* carousel item clone */ icl,
+        /* item clone */ il,
+        /* item image */ im,
+        /* tab clone */ ct,
+        /* selected index */ sel,
+        /* layers' zIndex */ zIndex = options.zIndex,
+        /* subTabBarContainer Clone*/ subTabContainerClone,
+        /* subTab Clone */ subTabContainerInnerClone,
+        /* subTab Nav Clone */ subtabNavClone,
+        /* subTab Nav Item Clone */ subtabItemClone;
 
         // This points to the anchor tag of ".tab " list element
         var /* if true, use .find+.text, .text otherwise */ par_tab_text = tab.find(
@@ -861,7 +904,9 @@
               ld.name === "hairstyles" ||
               ld.name === "shirts" ||
               ld.name === "pants" ||
-              ld.name === "boots";
+              ld.name === "boots" ||
+              ld.name === "skirts" ||
+              ld.name === "dresses";
             zIndex++;
 
             subTabContainerClone = subTabContainer
@@ -956,6 +1001,9 @@
                 subtabNavClone = subtabNav
                   .clone()
                   .addClass("subtabNav-" + ld.name);
+
+                // console.log(group)
+                // console.log(ld.name)
 
                 for (catIdx = 0; catIdx < categoryCount; ++catIdx) {
                   let variationCount = ld.groups[catIdx].count;
@@ -1062,10 +1110,10 @@
                     } else if (!itemSelected && !intialSelectionCategory) {
                       options.selected[group][ld.name] = {
                         index: 0,
-                        itemCat: catIdx + 1 <= 9 ? "0" + (catIdx + 1) : catIdx,
-                        itemValInCat: String.fromCharCode(96 + varIdx),
+                        itemCat: 0,
+                        itemValInCat: "",
                         SkinTone: "",
-                        currentCount: String.fromCharCode(96 + varIdx)
+                        currentCount: ""
                       };
                     }
 
@@ -1171,10 +1219,10 @@
                     itemSelected = true;
                     options.selected[group][ld.name] = {
                       index: 0,
-                      itemCat: i,
-                      itemValInCat: InitialSelection,
-                      SkinTone: InitialSelection,
-                      currentCount: Current_Count
+                      itemCat: 0,
+                      itemValInCat: 0,
+                      SkinTone: "",
+                      currentCount: ""
                     };
                   }
 

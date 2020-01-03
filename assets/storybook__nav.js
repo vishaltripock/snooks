@@ -5,6 +5,7 @@ function previous(e) {
   currentStep.removeClass("stepActive stepActiveTransition")
   $("#step" + (currentStepIndex - 1)).addClass("stepActive").outerWidth();
   $("#step" + (currentStepIndex - 1)).addClass('stepActiveTransition');
+
 }
 
 function next(e) {
@@ -14,21 +15,44 @@ function next(e) {
   if (InputChecker(currentStepIndex)) {
     currentStep.removeClass("stepActive");
     currentStep.removeClass("stepActiveTransition");
-    
+
     $("#step" + (currentStepIndex + 1)).addClass("stepActive").outerWidth();
     $("#step" + (currentStepIndex + 1)).addClass('stepActiveTransition');
+
   }
 }
 
+function nextForCharacter() {
+  $.LoadingOverlay("show");
+  setTimeout(function () {
+    next();
+  }, 3000);
+  setTimeout(function () {
+    $.LoadingOverlay("hide");
+  }, 3000)
+}
+
 function nextForImageUrlGetter() {
+  $.LoadingOverlay("show", {
+    image: "",
+    text: "Character Building..."
+  });
   ImageUrlGetter();
 }
 
 function nextForPreview() {
+  $.LoadingOverlay("show", {
+    image: "",
+    text: "Generating Storybook Preview..."
+  });
   Storybook_Product_Maker();
 }
 
 function nextForEditStory() {
+  $.LoadingOverlay("show", {
+    image: "",
+    text: "Generating Story..."
+  });
   Story_Generator();
 }
 
@@ -75,7 +99,7 @@ function InputChecker(index) {
 
 // Belongs for Previewing the Uploaded Image
 const reader = new FileReader();
-reader.onload = function(e) {
+reader.onload = function (e) {
   const userUploadPic = document.getElementById("userUploadPic");
   userUploadPic.setAttribute("src", e.target.result);
 };
@@ -87,13 +111,13 @@ function readURL(input) {
 }
 
 const userUploadInput = document.getElementById("storybook__photo");
-userUploadInput.addEventListener("change", function(e) {
+userUploadInput.addEventListener("change", function (e) {
   readURL(this);
 });
 
 
 // For the TextArea in Storybook Pages Steps
-$("#storybook-pages").on('keyup','.story-page-text',function(){
+$("#storybook-pages").on('keyup', '.story-page-text', function () {
   const text_length = $('.story-page-text').val().length;
   const text_remaining = 1000 - text_length;
   $('.char-left-message').text(text_remaining + " Characters Remaining");

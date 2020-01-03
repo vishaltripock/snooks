@@ -2,8 +2,8 @@ let productInfo = {};
 
 const endText = "It is hard and sad to think of someone that has passed on. But try to take comfort in all they have left for you. Always know a part of them lives on in you. As long as you share their stories and memories, they can never really be gone.";
 
-let base_asset_url = "https://09a6e81a.ngrok.io";
-// let base_asset_url = "https://avatar.tripock.com"; 
+// let base_asset_url = "https://c8110851.ngrok.io";
+let base_asset_url = "https://avatar.tripock.com"; 
 
 
 let She_Story = "";
@@ -140,6 +140,9 @@ function Story_Generator() {
 
     //Calling for next Step
     next();
+    setTimeout(function(){
+        $.LoadingOverlay("hide");
+    },5000)
 }
 
 function OccupationStories(occupationArrays) {
@@ -371,6 +374,7 @@ function Storybook_Product_Maker() {
     }
 
     let productFormData = $("#storybook_form").serializeArray();
+    console.log("Aaa gya DATA -----------> ",productFormData)
     const fileList = $("#storybook__photo").prop("files") || [];
 
     let userDp;
@@ -382,6 +386,7 @@ function Storybook_Product_Maker() {
     const formData = new FormData();
 
     $.each(productFormData, function (i, field) {
+        console.log("Field, ----------> ", field.name, "Value ---------> ", field.value)
         if (field.name === "Occupation_Hobby") {
             let fieldName = (occupation !== "" ? "Occupation" : "Hobby");
             formData.append(fieldName, field.value);
@@ -459,6 +464,7 @@ function Storybook_Product_Maker() {
             console.log(base_asset_url + productInfo.outputPdf);
             Storybook_Preview();
             next();
+            $.LoadingOverlay("hide");
         },
         error: function (err) { }
     });
@@ -473,13 +479,12 @@ function ImageUrlGetter() {
         activityValue = activityArray[currentGender][occupationHobby];
         console.log(activityValue);
     }
-    //Generating Intro Part Based on the Gender of the person
+    //Generating Intro Part Baseds on the Gender of the person
     Intro_Generator(currentGender);
 
     console.log("############# Sending Avatar Data ##############");
     console.log(AvatarConfig);
     console.log("############# Sending Avatar Data ##############");
-    console.log(base_asset_url + "/constructor/avatar/")
     $.post(
         base_asset_url + "/constructor/avatar/",
         {
@@ -495,19 +500,7 @@ function ImageUrlGetter() {
             console.log(Face_Image_URL);
             console.log(Activity_Image_URL);
             next();
+            $.LoadingOverlay("hide");
         }
     );
 }
-
-// function addProductToCart(variant_id){
-//     console.log("addPRoductToCart FUnctio -------> ",variant_id)
-//     $.post(
-//         "/cart/add/",
-//         {
-//             id: variant_id
-//         },
-//         function (data, status) {
-//             console.log("Product Data Return ------> ", data);
-//         }
-//     )
-// }
