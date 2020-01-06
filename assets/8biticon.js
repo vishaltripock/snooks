@@ -17,12 +17,13 @@
       return this;
     }
 
-    var options = $.extend(
-      {},
-      $.fn.pixel.defaults,
-      typeof option == "object" && option
-    );
+    const options = $.extend({}, $.fn.pixel.defaults, typeof option == "object" && option);
 
+    ///
+    // 
+    //
+    // 
+    // 
     // A jQuery Object is set of DOM Elements
     // this.each will call argument function for each "DOM Element(which is equal to this)"
     // .each() return next element "this" when is finish of iterating on current element
@@ -85,10 +86,10 @@
         inner = outer.find(".subtabNav");
         subtabItems = inner.children();
 
-        var leftButton = elem.find("#left-button");
+        const leftButton = elem.find("#left-button");
 
-        var maxWidth = outer.outerWidth(true);
-        var actualWidth = 0;
+        const maxWidth = outer.outerWidth(true);
+        let actualWidth = 0;
 
         $.each($(inner), function (i, item) {
           actualWidth += $(item).outerWidth(true);
@@ -100,9 +101,9 @@
       }
 
       function openGroup(name) {
-        var layers_list = options.json[name],
-          v,
-          ld;
+
+        //Extractin List of "name(next Group Name to be opened)" Layers/Features
+        const layers_list = options.json[name];
 
         // closing currenlty opened layer
         closeLayer();
@@ -118,8 +119,8 @@
 
         // reseting hash for layers
         hash_layers = {};
-        for (v = layers_list.length; v--;) {
-          ld = layers_list[v];
+        for (let v = layers_list.length; v--;) {
+          const ld = layers_list[v];
           hash_layers[ld.name] = ld;
         }
 
@@ -141,17 +142,15 @@
           .addClass("active");
 
         // open first layer from this group
-        // openLayer(layers_list[layers_list.length - 1].name);
-
-        // Now Body is at length-2 due to backhairs
-        openLayer(layers_list[layers_list.length - 2].name);
+        openLayer(layers_list[layers_list.length - 1].name);
 
         // callback
         options.onGroupSelect.call(self, name);
+
       }
 
       function closeSubTabs() {
-        let AllSubTabGrp = subtabBar.find(
+        const AllSubTabGrp = subtabBar.find(
           ".subtab-bar-container.group-" + selected_group
         );
         AllSubTabGrp.removeClass("subtabShow");
@@ -159,17 +158,17 @@
       }
 
       function OpenSubTab_Section(name, index) {
-        let CurrentLayer = layers
+        const CurrentLayer = layers
           .find(".layer.group-" + selected_group)
           .filter(".layer-" + name);
 
         CurrentLayer.find(".item").removeClass("showLayerItem");
         CurrentLayer.find(".item." + (name + index)).addClass("showLayerItem");
 
-        let CurrentSubTab = subtabBar
+        const CurrentSubTab = subtabBar
           .find(".subtab-bar-container.group-" + selected_group)
           .filter(".subtab-bar-container-" + name);
-        let CurrentSubTabInner = CurrentSubTab.find(
+        const CurrentSubTabInner = CurrentSubTab.find(
           ".subtab-bar-container-inner-" + name
         );
         CurrentSubTabInner.find(".subtab-item").removeClass("itemVisited");
@@ -177,7 +176,6 @@
           "itemVisited"
         );
       }
-
 
       function Next_Tab_Open() {
 
@@ -245,18 +243,19 @@
       }
 
       function markItemActive(name, index) {
-        let layersTempVal_1 = layers
+
+        const layersTempVal_1 = layers
           .find(".layer-" + name + ".group-" + selected_group)
           .find(".item")
           .removeClass("active");
 
-        let layersTempVal_2 = layersTempVal_1.eq(index);
+        const layersTempVal_2 = layersTempVal_1.eq(index);
 
-        let itemIndex = $(layersTempVal_2).data("index");
-        let itemCat = $(layersTempVal_2).data("itemCat");
-        let itemValInCat = $(layersTempVal_2).data("itemValInCat");
-        let SkinTone = $(layersTempVal_2).data("SkinTone");
-        let currentCount = $(layersTempVal_2).data("currentCount");
+        const itemIndex = $(layersTempVal_2).data("index");
+        const itemCat = $(layersTempVal_2).data("itemCat");
+        const itemValInCat = $(layersTempVal_2).data("itemValInCat");
+        const SkinTone = $(layersTempVal_2).data("SkinTone");
+        const currentCount = $(layersTempVal_2).data("currentCount");
 
         layersTempVal_2.addClass("active");
 
@@ -266,8 +265,6 @@
         console.log("--------------- Mark Item Active -----------------")
         console.log(name)
         console.log(options.selected[selected_group][name]);
-
-        console.log("iiiiiiiii", itemIndex, itemCat, itemValInCat, SkinTone, currentCount);
 
         options.selected[selected_group][name] = {
           index: itemIndex,
@@ -281,17 +278,28 @@
 
       }
 
-      function markCarouselItemActive(name, index) {
-        var cname = isLayerOpened(name) ? "active" : "layer-active";
+      function removingLazyFromCarouselItem(name, index) {
 
+        const lazy = $(carousel_in.find(".layer-item-" + name + ".group-" + selected_group)
+          .eq(index).children()[0]);
+        lazy.attr("src", lazy.data('src'));
+        lazy.removeAttr("data-src");
+
+      }
+
+      function markCarouselItemActive(name, index) {
+
+        const cname = isLayerOpened(name) ? "active" : "layer-active";
         carousel_in
           .find(".layer-item-" + name + ".group-" + selected_group)
           .removeClass(cname)
           .eq(index)
           .addClass(cname);
+
       }
 
       function openLayer(name) {
+
         if (isLayerOpened(name)) {
           return;
         }
@@ -309,7 +317,7 @@
           .filter(".active, .layer-active")
           .toggleClass("active layer-active");
 
-        var items = carousel_in.find(".item.group-" + selected_group);
+        const items = carousel_in.find(".item.group-" + selected_group);
 
         if (!items.filter(".active").length) {
           items.first().addClass("active");
@@ -342,33 +350,18 @@
       }
 
       function markLayerActive(name) {
-        var /* group name */ group,
-        /* layers list */ layers_list,
-        /* layer index */ v,
-        /* layer clone */ cl,
-        /* layer object */ ld,
-        /* previous layer */ p,
-        /* item index */ i,
-        /* carousel item clone */ icl,
-        /* item clone */ il,
-        /* item image */ im,
-        /* tab clone */ ct,
-        /* selected index */ sel,
-        /* layers' zIndex */ zIndex = options.zIndex,
-        /* subTabBarContainer Clone*/ subTabContainerClone,
-        /* subTab Clone */ subTabContainerInnerClone,
-        /* subTab Nav Clone */ subtabNavClone,
-        /* subTab Nav Item Clone */ subtabItemClone;
+
+        let p = null; /* previous layer */
+        let i;  /* item index */
+        let icl;  /* carousel item clone */
+        let il;  /* item clone */
+        let im;  /* item image */
+        let zIndex = options.zIndex; /* layers' zIndex */
 
         // This points to the anchor tag of ".tab " list element
-        var /* if true, use .find+.text, .text otherwise */ par_tab_text = tab.find(
-          ".tab-text"
-        ).length;
+        let par_tab_text = tab.find(".tab-text").length;
 
-
-        p = null;
-        zIndex = options.zIndex;
-
+        /* if true, use .find+.text, .text otherwise */
         // filling up all the things
 
         for (let group in options.json) {
@@ -384,8 +377,21 @@
           p = null;
 
           for (let v = layers_list.length; v--;) {
-            let ld = layers_list[v];
-            let itemSelected = false; // Flag for telling that a image item is selected for intial display
+
+            const ld = layers_list[v];
+
+            // Increasing ZIndex for next Layers so That Current Layer have higher
+            // ZIndex than the Previous Layers
+            zIndex++;
+
+            // Flag for telling that a image item is selected for intial display
+            let itemSelected = false;
+
+
+            // Lazy Loading
+            let notLazyLoading = true;
+
+            // Initial Selection
             let intialSelectionCategory =
               ld.name === "body" ||
               ld.name === "face_shapes" ||
@@ -400,12 +406,9 @@
               ld.name === "skirts" ||
               ld.name === "dresses";
 
-            zIndex++;
-
             // Checking if Feature is Present in Both so we can render only once
             // If, Present in both then we will loop 2 times otherwise only once
             // for resepective gender present
-
 
             let presentInBoth = 1;
             if (options.json["male"][v].name === options.json["female"][v].name) {
@@ -413,7 +416,6 @@
             }
 
             if (ld.name === name && layers.find(".layer-" + ld.name).length < presentInBoth) {
-              // 2 - cause one will be for male and the other for female
 
               // filling hash withh all layers
               hash_layers[ld.name] = ld;
@@ -428,19 +430,15 @@
 
               // sets selected item
               // sel ---> selected index
-              console.log("Layer Name is ", ld.name, " and Group is ", group);
-              let sel = options.selected[group][ld.name].index ? options.selected[group][ld.name].index : 0;
-              console.log("Sel Wala Index -----------> ", sel);
+              const sel = options.selected[group][ld.name].index ? options.selected[group][ld.name].index : 0;
 
               // cloning layer element
               // cl ---> tab clone
-              let tempVal = layer.clone().data({
+              const tempVal = layer.clone().data({
                 name: ld.name
               });
 
-              let cl = tempVal.addClass(
-                "layer layer-" + ld.name + " group-" + group
-              );
+              const cl = tempVal.addClass("layer layer-" + ld.name + " group-" + group);
 
               // cloning layers' tab element
               if (layer_tab.length) {
@@ -449,47 +447,22 @@
 
               if (ld.groups) {
 
-                let categoryCount = ld.count;
                 cl.addClass("category");
 
-                let featureName = ld.name;
-                let InitialSelection = 1;
+                const categoryCount = ld.count;
+                const featureName = ld.name;
 
                 const { selected: { [selected_group]: { [featureName]: { itemCat = 1 } = {} } = {} } = {} } = options;
-                InitialSelection = itemCat;
 
-                console.log("Index Wala ---------------> ", itemCat);
-                console.log("Initial Selection Wala ----------> ", InitialSelection);
-                console.log();
-                console.log();
-                // console.log(featureName);
                 for (let catIdx = 0; catIdx < categoryCount; ++catIdx) {
 
-                  let variationCount = ld.groups[catIdx].count;
-                  let CategoryTitle = ld.groups[catIdx].title;
-                  let CategoryPath = ld.groups[catIdx].path;
-                  let itemCategory = catIdx + 1 <= 9 ? "0" + (catIdx + 1) : catIdx;
+                  const variationCount = ld.groups[catIdx].count;
+                  const CategoryPath = ld.groups[catIdx].path;
+                  const itemCategory = catIdx + 1 <= 9 ? "0" + (catIdx + 1) : catIdx + 1;
 
-                  let subtabItemClone = subtabItem
+                  const DeselectorItemLayer = layer_item
                     .clone()
-                    .addClass("item-" + (catIdx + 1))
-                    .text(CategoryTitle);
-
-                  subtabItemClone.data({
-                    subTabItemName: ld.name,
-                    subTabItemIndex: catIdx + 1
-                  });
-                  // subtabNavClone.append(subtabItemClone);
-
-                  let DeselectorItemLayer = layer_item
-                    .clone()
-                    .addClass(
-                      ld.name +
-                      (catIdx + 1) +
-                      " unselector-" +
-                      ld.name +
-                      "-item"
-                    )
+                    .addClass(ld.name + (catIdx + 1) + " unselector-" + ld.name + "-item")
                     .data({
                       UnselectorName: ld.name,
                       index: 0,
@@ -499,33 +472,17 @@
                       currentCount: ""
                     });
 
-                  let deselectImg = options.images + "crossSign" + options.ext;
+                  const deselectImg = options.images + "crossSign" + options.ext;
 
-                  let deselectImgTag = $("<img />").attr("src", deselectImg);
+                  const deselectImgTag = $("<img />").attr("src", deselectImg);
 
                   cl.append(DeselectorItemLayer.append(deselectImgTag));
-
-                  // let DeselectorItem = carousel_item
-                  //   .clone()
-                  //   .addClass(
-                  //     "layer-item layer-item-" +
-                  //     ld.name +
-                  //     " group-" +
-                  //     group +
-                  //     " unselector-" +
-                  //     ld.name +
-                  //     "-item"
-                  //   )
-                  //   .data("layer", ld.name)
-                  //   .css("zIndex", ld.zIndex || zIndex);
-
-                  // carousel_in.append(DeselectorItem);
 
                   for (let varIdx = 1; varIdx <= variationCount; ++varIdx) {
 
                     // Ye Hum Ker Rhe Taaki Hum Usse Choosen SubTabItem ke Number se Visible ker saake
-                    let LayerItemName = ld.name + (catIdx + 1);
-                    let itemValueInVCategory = String.fromCharCode(96 + varIdx);
+                    const LayerItemName = ld.name + (catIdx + 1);
+                    const itemValueInVCategory = String.fromCharCode(96 + varIdx);
 
                     il = layer_item.clone().data({
                       index: varIdx,
@@ -539,13 +496,9 @@
                     // carousel item clone
 
                     // Hum yha per carousel_item bna rhe hai her ek image ke liye
-                    let iclTempVal_1 = carousel_item
-                      .clone()
-                      .addClass(
-                        "layer-item layer-item-" + ld.name + " group-" + group
-                      );
+                    const iclTempVal_1 = carousel_item.clone().addClass("layer-item layer-item-" + ld.name + " group-" + group);
 
-                    let iclTempVal_2 = iclTempVal_1.data({
+                    const iclTempVal_2 = iclTempVal_1.data({
                       layer: ld.name
                     });
 
@@ -568,163 +521,87 @@
                         SkinTone: "",
                         currentCount: itemValueInVCategory
                       };
-
                     }
 
-                    // if (!itemSelected && intialSelectionCategory && sel === varIdx) {
-
-                    //   itemSelected = true;
-                    //   il.addClass("active");
-                    //   icl.addClass("layer-active");
-
-                    //   options.selected[group][ld.name] = {
-                    //     index: sel,
-                    //     itemCat: itemCategory,
-                    //     itemValInCat: itemValueInVCategory,
-                    //     SkinTone: "",
-                    //     currentCount: itemValueInVCategory
-                    //   };
-
-                    // }
-                    // else if (!itemSelected && !intialSelectionCategory && sel === varIdx) {
-                    //   itemSelected = true;
-                    //   options.selected[group][ld.name] = {
-                    //     index: sel,
-                    //     itemCat: itemCategory,
-                    //     itemValInCat: itemValueInVCategory,
-                    //     SkinTone: "",
-                    //     currentCount: itemValueInVCategory
-                    //   };
-                    // }
-
                     // Image
-                    let ImageImg =
-                      options.images +
-                      group +
-                      CategoryPath.replace(
-                        "current_count",
-                        String.fromCharCode(96 + varIdx)
-                      );
+                    const ImageImg = options.images + group + CategoryPath.replace("current_count", itemValueInVCategory);
                     im = $("<img />").attr("src", ImageImg);
 
                     // append to layer
                     cl.append(il.append(im));
 
                     // append to carousel
-                    let currentCar = carousel_in
-                      .find(".layer-item-" + name + ".group-" + selected_group)
-                      .eq(i)
-                    currentCar.html(im.clone());
+                    // const currentCar = carousel_in.find(".layer-item-" + name + ".group-" + selected_group).eq(varIdx);
+                    // currentCar.html(im.clone());
+
                   }
 
                   // append layer to layers' element
                   layers.append(cl);
                 }
-              }
-              else {
-
-                let DeselectorItemLayer = layer_item
+              } else {
+                const DeselectorItemLayer = layer_item
                   .clone()
                   .addClass(" unselector-" + ld.name + "-item")
                   .data({
-                    UnselectorName: ld.name,
-                    index: 0,
-                    itemCat: -1,
-                    itemValInCat: -1,
-                    SkinTone: "",
+                    UnselectorName: ld.name, index: 0, itemCat: -1, itemValInCat: -1, SkinTone: "",
                     currentCount: ""
                   });
 
-                let deselectImg = options.images + "crossSign" + options.ext;
-                let deselectImgTag = $("<img />").attr("src", deselectImg);
+                const deselectImg = options.images + "crossSign" + options.ext;
+                const deselectImgTag = $("<img />").attr("src", deselectImg);
 
                 cl.append(DeselectorItemLayer.append(deselectImgTag));
 
-                let DeselectorItem = carousel_item
-                  .clone()
-                  .addClass(
-                    "layer-item layer-item-" +
-                    ld.name +
-                    " group-" +
-                    group +
-                    " unselector-" +
-                    ld.name +
-                    "-item"
-                  )
-                  .data("layer", ld.name)
-                  .css("zIndex", ld.zIndex || zIndex);
-
-                // carousel_in.append(DeselectorItem);
-
                 let InitialSelection = "a";
-
                 const { selected: { [selected_group]: { body: { SkinTone = "a" } = {} } = {} } = {} } = options;
                 InitialSelection = SkinTone;
 
-                console.log("SkinTone Wala ---------------> ", SkinTone);
-                console.log("Initial Selection Wala ----------> ", InitialSelection);
-                console.log();
-                console.log();
-
-                for (let i = 1; i <= ld.count; i++) {
+                for (let itemIdx = 1; itemIdx <= ld.count; itemIdx++) {
 
                   let currentFeaturePath = ld.path;
-                  let Current_Count = i <= 9 ? "0" + i : i;
-                  let currentTickItem = String.fromCharCode(96 + i);
+                  const Current_Count = (itemIdx <= 9 ? ("0" + itemIdx) : itemIdx);
+                  let itemValue = String.fromCharCode(96 + itemIdx);
 
-                  // item clone
+                  // Item SkinTone is same as itemValue because Values and SkinTone both have same
+                  // values (e.g "a", "b", etc)
+                  let itemSkinTone = itemValue;
+
+                  // Noses and Faces will be have same SkinTone as the Body Selected
+                  // itemValInCat is Same as Item Value in Features without any Category
                   if (name === "noses" || name === "face_shapes") {
-                    const { selected: { [selected_group]: { body: { SkinTone = "a" } = {} } = {} } = {} } = options;
-                    currentTickItem = SkinTone
-                    il = layer_item.clone().data({
-                      index: i,
-                      itemCat: 0,
-                      itemValInCat: SkinTone,
-                      SkinTone: SkinTone,
-                      currentCount: Current_Count
-                    });
-                  } else {
-                    il = layer_item.clone().data({
-                      index: i,
-                      itemCat: 0,
-                      itemValInCat: String.fromCharCode(96 + i),
-                      SkinTone: String.fromCharCode(96 + i),
-                      currentCount: Current_Count
-                    });
+                    const { selected: { [selected_group]: { body: { SkinTone = "a", itemValInCat = "a" } = {} } = {} } = {} } = options;
+                    itemSkinTone = SkinTone;
+                    itemValue = itemValInCat;
                   }
 
-                  //Current Count
+                  // item clone
+                  il = layer_item.clone().data({
+                    index: itemIdx,
+                    itemCat: 0,
+                    itemValInCat: itemValue,
+                    SkinTone: itemSkinTone,
+                    currentCount: Current_Count
+                  });
 
                   // carousel item clone
                   icl = carousel_item
                     .clone()
-                    .addClass(
-                      "layer-item layer-item-" + ld.name + " group-" + group
-                    )
-                    .data({
-                      layer: ld.name
-                    })
+                    .addClass("layer-item layer-item-" + ld.name + " group-" + group)
+                    .data({ layer: ld.name })
                     .css("zIndex", ld.zIndex || zIndex);
 
-                  if (!itemSelected && intialSelectionCategory && currentTickItem === InitialSelection) {
-                    itemSelected = true;
+                  if (!itemSelected && itemValue === InitialSelection && sel == itemIdx) {
+
+                    itemSelected = true
                     il.addClass("active");
                     icl.addClass("layer-active");
+
                     options.selected[group][ld.name] = {
                       index: sel,
                       itemCat: 0,
-                      itemValInCat: InitialSelection,
-                      SkinTone: InitialSelection,
-                      currentCount: Current_Count
-                    };
-                  }
-                  else if (!itemSelected && !intialSelectionCategory && currentTickItem === InitialSelection) {
-                    itemSelected = true;
-                    options.selected[group][ld.name] = {
-                      index: sel,
-                      itemCat: 0,
-                      itemValInCat: InitialSelection,
-                      SkinTone: InitialSelection,
+                      itemValInCat: itemValue,
+                      SkinTone: itemSkinTone,
                       currentCount: Current_Count
                     };
                   }
@@ -732,32 +609,32 @@
                   // Image
                   if (currentFeaturePath.indexOf("body_type") !== -1) {
                     currentFeaturePath = currentFeaturePath.replace(/current_count/g, Current_Count);
-                    currentFeaturePath = currentFeaturePath.replace("body_type", InitialSelection);
-                  }
-                  else {
-                    currentFeaturePath = currentFeaturePath.replace("current_count", String.fromCharCode(96 + i));
+                    currentFeaturePath = currentFeaturePath.replace("body_type", itemSkinTone);
+                  } else {
+                    currentFeaturePath = currentFeaturePath.replace(/current_count/g, itemValue);
                   }
 
-                  let ImageImg = options.images + group + currentFeaturePath;
+                  const ImageImg = options.images + group + currentFeaturePath;
                   im = $("<img />").attr("src", ImageImg);
 
                   // append to layer
                   cl.append(il.append(im));
 
-                  // append to carousel
-                  let currentCar = carousel_in
-                    .find(".layer-item-" + name + ".group-" + selected_group)
-                    .eq(i)
-                  currentCar.html(im.clone());
-                  // carousel_in.append(icl.html(im.clone()));
+                  if (itemIdx > 1) {
+                    im = $("<img />").attr("data-src", ImageImg);
+                  }
 
+                  // append to carousel
+                  const currentCar = carousel_in.find(".layer-item-" + name + ".group-" + selected_group).eq(itemIdx);
+                  currentCar.html(im.clone());
+
+                  // carousel_in.append(icl.html(im.clone()));
                 }
                 //Loop End HERE
                 // append layer to layers' element
                 layers.append(cl);
               }
-            }
-            else if (ld.name !== name) {
+            } else if (ld.name !== name) {
               if (onlyFaceNose === false) {
                 layers.find(".layer-" + ld.name).remove();
               }
@@ -767,28 +644,17 @@
 
         if (onlyFaceNose === false) {
 
-          let CurrentGrpLayer = layers.find(".layer.group-" + selected_group);
-
-          let CurrentLayer = CurrentGrpLayer.removeClass("active").filter(
-            ".layer-" + name
-          );
-
-          let AllSubTabGrp = subtabBar.find(
-            ".subtab-bar-container.group-" + selected_group
-          );
-          let CurrentSubTab = AllSubTabGrp.filter(
-            ".subtab-bar-container-" + name
-          );
-          let CurrentSubTabInner = CurrentSubTab.find(
-            ".subtab-bar-container-inner-" + name
-          );
+          const CurrentGrpLayer = layers.find(".layer.group-" + selected_group);
+          const CurrentLayer = CurrentGrpLayer.removeClass("active").filter(".layer-" + name);
+          const AllSubTabGrp = subtabBar.find(".subtab-bar-container.group-" + selected_group);
+          const CurrentSubTab = AllSubTabGrp.filter(".subtab-bar-container-" + name);
+          const CurrentSubTabInner = CurrentSubTab.find(".subtab-bar-container-inner-" + name);
 
           if (CurrentLayer.hasClass("category")) {
             if (!CurrentSubTab.hasClass("subtabShow")) {
               AllSubTabGrp.removeClass("subtabShow");
               CurrentSubTab.addClass("subtabShow");
               updateUI();
-              //Changes 2 because body is 2nd now
               OpenSubTab_Section(name, 1);
             }
           } else {
@@ -808,7 +674,7 @@
             first_tab_Open = false;
           }
 
-          var layer1 = hash_layers[name],
+          const layer1 = hash_layers[name],
             layer_name = $this.find(".layer-name"),
             layer_next = $this.find(".layer-name-next"),
             layer_prev = $this.find(".layer-name-prev");
@@ -817,20 +683,17 @@
           layer_next.text(layer1.next && layer1.next.title);
           layer_prev.text(layer1.prev && layer1.prev.title);
 
-          $this
-            .toggleClass("has-next", !!layer1.next)
-            .toggleClass("has-prev", !!layer1.prev);
+          $this.toggleClass("has-next", !!layer1.next).toggleClass("has-prev", !!layer1.prev);
         }
       }
 
       function initConstructor() {
-        var /* group name */ group,
+        let /* group name */ group,
         /* layers list */ layers_list,
         /* layer index */ v,
         /* layer clone */ cl,
         /* layer object */ ld,
         /* previous layer */ p,
-        /* item index */ i,
         /* carousel item clone */ icl,
         /* item clone */ il,
         /* item image */ im,
@@ -843,12 +706,11 @@
         /* subTab Nav Item Clone */ subtabItemClone;
 
         // This points to the anchor tag of ".tab " list element
-        var /* if true, use .find+.text, .text otherwise */ par_tab_text = tab.find(
-          ".tab-text"
-        ).length;
+        let /* if true, use .find+.text, .text otherwise */ par_tab_text = tab.find(".tab-text").length;
 
         // random
         if (options.selected === true) {
+
           options.selected = {};
 
           for (group in options.json) {
@@ -870,6 +732,7 @@
                 continue;
               }
 
+              // Initial we are Selecting 1st Item from each Feature/Layer from each Group
               options.selected[group][ld.name] = 1;
             }
           }
@@ -892,9 +755,16 @@
           p = null;
 
           for (v = layers_list.length; v--;) {
+
             ld = layers_list[v];
-            let itemSelected = false; // Flag for telling that a image item is selected for intial display
-            let intialSelectionCategory =
+
+            // Flag for telling that a image item is selected for intial display
+            let itemSelected = false;
+
+            // Not Applying Lazy for First Images for each LayerS
+            let notLazyLoading = true;
+
+            const intialSelectionCategory =
               ld.name === "body" ||
               ld.name === "face_shapes" ||
               ld.name === "eyebrows" ||
@@ -907,40 +777,29 @@
               ld.name === "boots" ||
               ld.name === "skirts" ||
               ld.name === "dresses";
+
             zIndex++;
 
-            subTabContainerClone = subTabContainer
-              .clone()
-              .addClass("subtab-bar-container-" + ld.name + " group-" + group);
-            subTabContainerClone.append(
-              '<div id="right-button" style="visibility: hidden;"><a href="#"><</a></div>'
-            );
-            subTabContainerInnerClone = subTabContainerInner
-              .clone()
-              .addClass(
-                "subtab-bar-container-inner-" + ld.name + " group-" + group
-              );
+            subTabContainerClone = subTabContainer.clone().addClass("subtab-bar-container-" + ld.name + " group-" + group);
+            subTabContainerClone.append('<div id="right-button" style="visibility: hidden;">&lt;</div>');
+            subTabContainerInnerClone = subTabContainerInner.clone().addClass("subtab-bar-container-inner-" + ld.name + " group-" + group);
 
             if (ld.skeleton) {
+
               // carousel item clone
               icl = carousel_item
                 .clone()
-                .addClass(
-                  "layer-item layer-active layer-item-" +
-                  ld.name +
-                  " group-" +
-                  group
-                )
+                .addClass("layer-item layer-active layer-item-" + ld.name + " group-" + group)
                 .css("zIndex", ld.zIndex || zIndex);
 
               // image
-              let ImagePath =
-                options.images + group + "/" + ld.name + options.ext;
+              let ImagePath = options.images + group + "/" + ld.name + options.ext;
               im = $("<img />").attr("src", ImageTag);
 
               // append to carousel
               carousel_in.append(icl.html(ImageTag));
-            } else {
+            }
+            else {
 
               // filling hash withh all layers
               hash_layers[ld.name] = ld;
@@ -960,13 +819,11 @@
               // cloning layer element
 
               // cl ---> tab clone
-              let tempVal = layer.clone().data({
+              const tempVal = layer.clone().data({
                 name: ld.name
               });
 
-              cl = tempVal.addClass(
-                "layer layer-" + ld.name + " group-" + group
-              );
+              cl = tempVal.addClass("layer layer-" + ld.name + " group-" + group);
 
               // cloning layers' tab element
               if (layer_tab.length) {
@@ -975,16 +832,14 @@
 
               // cloning tab element
               if (tab.length) {
-                let tempVal = tab.clone().data({
+                const tempVal = tab.clone().data({
                   layer: ld.name,
                   tabIndex: v
                 });
-                ct = tempVal.addClass(
-                  "tab-" + ld.name + " group-" + group + " tabIndex" + v
-                );
+                ct = tempVal.addClass("tab-" + ld.name + " group-" + group + " tabIndex" + v);
 
                 if (par_tab_text) {
-                  let tempCt = ct.find(".tab-text");
+                  const tempCt = ct.find(".tab-text");
                   tempCt.text(ld.title);
                 } else {
                   ct.text(ld.title);
@@ -995,22 +850,17 @@
 
               if (ld.groups) {
 
-                let categoryCount = ld.count;
-                let catIdx = 0; // Category Index
+                const categoryCount = ld.count;
+
                 cl.addClass("category");
-                subtabNavClone = subtabNav
-                  .clone()
-                  .addClass("subtabNav-" + ld.name);
 
-                // console.log(group)
-                // console.log(ld.name)
+                subtabNavClone = subtabNav.clone().addClass("subtabNav-" + ld.name);
 
-                for (catIdx = 0; catIdx < categoryCount; ++catIdx) {
-                  let variationCount = ld.groups[catIdx].count;
-                  let varIdx = 0;
-                  let CategoryTitle = ld.groups[catIdx].title;
-                  let CategoryName = ld.groups[catIdx].name;
-                  let CategoryPath = ld.groups[catIdx].path;
+                for (let catIdx = 0; catIdx < categoryCount; ++catIdx) {
+
+                  const variationCount = ld.groups[catIdx].count;
+                  const CategoryTitle = ld.groups[catIdx].title;
+                  const CategoryPath = ld.groups[catIdx].path;
 
                   subtabItemClone = subtabItem
                     .clone()
@@ -1025,66 +875,54 @@
                   });
                   subtabNavClone.append(subtabItemClone);
 
-                  /*
-                    ye hum deselector bna rha hai ... for deselecting hai item already selected
-                    so that.. hume koi item ya dress deselect kerni ho
-                  
-                  */
-                  let DeselectorItemLayer = layer_item.clone().
-                    addClass(ld.name + (catIdx + 1) + " unselector-" + ld.name + "-item")
-                    .data({
-                      UnselectorName: ld.name,
-                      index: 0,
-                      itemCat: -1,
-                      itemValInCat: -1,
-                      SkinTone: "",
-                      currentCount: ""
-                    });
+                  /* ye hum deselector bna rha hai ... for deselecting hai item already selected
+                    so that.. hume koi item ya dress deselect kerni ho*/
 
-                  let deselectImg = options.images + "crossSign" + options.ext;
+                  // const DeselectorItemLayer = layer_item
+                  //   .clone()
+                  //   .addClass(ld.name + (catIdx + 1) + " unselector-" + ld.name + "-item")
+                  //   .data({
+                  //     UnselectorName: ld.name,
+                  //     index: 0,
+                  //     itemCat: -1,
+                  //     itemValInCat: -1,
+                  //     SkinTone: "",
+                  //     currentCount: ""
+                  //   });
 
-                  let deselectImgTag = $("<img />").attr("src", deselectImg);
+                  // const deselectImg = options.images + "crossSign" + options.ext;
 
-                  cl.append(DeselectorItemLayer.append(deselectImgTag));
+                  // const deselectImgTag = $("<img />").attr("src", deselectImg);
 
-                  let DeselectorItem = carousel_item
+                  // cl.append(DeselectorItemLayer.append(deselectImgTag));
+
+                  const DeselectorItem = carousel_item
                     .clone()
-                    .addClass(
-                      "layer-item layer-item-" +
-                      ld.name +
-                      " group-" +
-                      group +
-                      " unselector-" +
-                      ld.name +
-                      "-item"
-                    )
+                    .addClass("layer-item layer-item-" + ld.name + " group-" + group + " unselector-" + ld.name + "-item")
                     .data("layer", ld.name)
                     .css("zIndex", ld.zIndex || zIndex);
 
                   carousel_in.append(DeselectorItem);
 
-                  for (varIdx = 1; varIdx <= variationCount; ++varIdx) {
-                    // Ye Hum Ker Rhe Taaki Hum Usse Choosen SubTabItem ke Number se Visible ker saake
-                    let LayerItemName = ld.name + (catIdx + 1);
-                    il = layer_item.clone().data({
-                      index: varIdx,
-                      itemCat: catIdx + 1 <= 9 ? "0" + (catIdx + 1) : catIdx,
-                      itemValInCat: String.fromCharCode(96 + varIdx),
-                      SkinTone: "",
-                      currentCount: String.fromCharCode(96 + varIdx)
-                    });
+                  for (let varIdx = 1; varIdx <= variationCount; ++varIdx) {
 
-                    il.addClass(LayerItemName);
-                    // carousel item clone
+                    // Ye Hum Ker Rhe Taaki Hum Usse Choosen SubTabItem ke Number se Visible ker saake
+                    // const LayerItemName = ld.name + (catIdx + 1);
+
+                    // il = layer_item.clone().data({
+                    //   index: varIdx,
+                    //   itemCat: catIdx + 1 <= 9 ? "0" + (catIdx + 1) : catIdx + 1,
+                    //   itemValInCat: String.fromCharCode(96 + varIdx),
+                    //   SkinTone: "",
+                    //   currentCount: String.fromCharCode(96 + varIdx)
+                    // });
+
+                    // il.addClass(LayerItemName);
 
                     // Hum yha per carousel_item bna rhe hai her ek image ke liye
-                    let iclTempVal_1 = carousel_item
-                      .clone()
-                      .addClass(
-                        "layer-item layer-item-" + ld.name + " group-" + group
-                      );
+                    const iclTempVal_1 = carousel_item.clone().addClass("layer-item layer-item-" + ld.name + " group-" + group);
 
-                    let iclTempVal_2 = iclTempVal_1.data({
+                    const iclTempVal_2 = iclTempVal_1.data({
                       layer: ld.name
                     });
 
@@ -1095,7 +933,7 @@
                       // ek item aur select na ker le category section ke ander
                       itemSelected = true;
                       // ye bta rha hai tick konsi image per tick mark rhega category images ke ander
-                      il.addClass("active");
+                      // il.addClass("active");
                       //ye bta rha hai ki .. kisi perticular category ka ye wala item active rhega jab hum avatar
                       // load karenge first time
                       icl.addClass("layer-active");
@@ -1118,11 +956,18 @@
                     }
 
                     // Image
-                    let ImageImg = options.images + group + CategoryPath.replace("current_count", String.fromCharCode(96 + varIdx));
-                    im = $("<img />").attr("src", ImageImg);
+                    const ImageImg = options.images + group + CategoryPath.replace("current_count", String.fromCharCode(96 + varIdx));
+
+                    if (notLazyLoading === true) {
+                      notLazyLoading = false;
+                      im = $("<img />").attr("src", ImageImg);
+                    }
+                    else {
+                      im = $("<img />").attr("data-src", ImageImg);
+                    }
 
                     // append to layer
-                    cl.append(il.append(im));
+                    // cl.append(il.append(im));
 
                     // append to carousel
                     carousel_in.append(icl.html(im.clone()));
@@ -1134,71 +979,64 @@
 
                 subTabContainerInnerClone.append(subtabNavClone);
                 subTabContainerClone.append(subTabContainerInnerClone);
-                subTabContainerClone.append(
-                  '<div id="left-button"><a href="#">></a></div>'
-                );
+                subTabContainerClone.append('<div id="left-button">&gt;</div>');
                 subtabBar.append(subTabContainerClone);
               } else {
-
                 /*ye hum deselector bna rha hai. for deselecting hai item already selected
                 so that.. hume koi item ya dress deselect kerni ho*/
 
                 let InitialSelection = "a";
 
-                let DeselectorItemLayer = layer_item
+                // const DeselectorItemLayer = layer_item
+                //   .clone()
+                //   .addClass(" unselector-" + ld.name + "-item")
+                //   .data({
+                //     UnselectorName: ld.name,
+                //     index: 0,
+                //     itemCat: -1,
+                //     itemValInCat: -1,
+                //     SkinTone: "",
+                //     currentCount: ""
+                //   });
+
+                // const deselectImg = options.images + "crossSign" + options.ext;
+                // const deselectImgTag = $("<img />").attr("src", deselectImg);
+
+                // cl.append(DeselectorItemLayer.append(deselectImgTag));
+
+                const DeselectorItem = carousel_item
                   .clone()
-                  .addClass(" unselector-" + ld.name + "-item")
-                  .data({
-                    UnselectorName: ld.name,
-                    index: 0,
-                    itemCat: -1,
-                    itemValInCat: -1,
-                    SkinTone: "",
-                    currentCount: ""
-                  });
-
-                let deselectImg = options.images + "crossSign" + options.ext;
-                let deselectImgTag = $("<img />").attr("src", deselectImg);
-
-                cl.append(DeselectorItemLayer.append(deselectImgTag));
-
-                let DeselectorItem = carousel_item
-                  .clone()
-                  .addClass(
-                    "layer-item layer-item-" +
-                    ld.name +
-                    " group-" +
-                    group +
-                    " unselector-" +
-                    ld.name +
-                    "-item"
-                  )
+                  .addClass("layer-item layer-item-" + ld.name + " group-" + group + " unselector-" + ld.name + "-item")
                   .data("layer", ld.name)
                   .css("zIndex", ld.zIndex || zIndex);
 
                 carousel_in.append(DeselectorItem);
 
-                for (i = 1; i <= ld.count; i++) {
+                for (let itemIdx = 1; itemIdx <= ld.count; itemIdx++) {
 
                   let currentFeaturePath = ld.path;
-                  let Current_Count = i <= 9 ? "0" + i : i;
+                  const Current_Count = (itemIdx <= 9 ? ("0" + itemIdx) : itemIdx);
+
+                  // Item SkinTone is same as itemValue because Values and SkinTone both have same
+                  // values (e.g "a", "b", etc)
+                  let itemValue = String.fromCharCode(96 + itemIdx)
+                  let itemSkinTone = itemValue;
+
                   // item clone
-                  il = layer_item.clone().data({
-                    index: i,
-                    itemCat: i,
-                    itemValInCat: String.fromCharCode(96 + i),
-                    SkinTone: String.fromCharCode(96 + i),
-                    currentCount: Current_Count
-                  });
+                  // il = layer_item.clone().data({
+                  //   index: itemValue,
+                  //   itemCat: 0,
+                  //   itemValInCat: itemValue,
+                  //   SkinTone: itemSkinTone,
+                  //   currentCount: Current_Count
+                  // });
 
                   //Current Count
 
                   // carousel item clone
                   icl = carousel_item
                     .clone()
-                    .addClass(
-                      "layer-item layer-item-" + ld.name + " group-" + group
-                    )
+                    .addClass("layer-item layer-item-" + ld.name + " group-" + group)
                     .data({
                       layer: ld.name
                     })
@@ -1206,11 +1044,11 @@
 
                   if (!itemSelected && intialSelectionCategory) {
                     itemSelected = true;
-                    il.addClass("active");
+                    // il.addClass("active");
                     icl.addClass("layer-active");
                     options.selected[group][ld.name] = {
                       index: sel,
-                      itemCat: i,
+                      itemCat: 0,
                       itemValInCat: InitialSelection,
                       SkinTone: InitialSelection,
                       currentCount: Current_Count
@@ -1230,20 +1068,25 @@
                   if (currentFeaturePath.indexOf("body_type") !== -1) {
                     currentFeaturePath = currentFeaturePath.replace(/current_count/g, Current_Count);
                     currentFeaturePath = currentFeaturePath.replace("body_type", InitialSelection);
+                  } else {
+                    currentFeaturePath = currentFeaturePath.replace(/current_count/g, itemValue);
+                  }
+
+                  const ImageImg = options.images + group + currentFeaturePath;
+
+                  if (notLazyLoading === true) {
+                    notLazyLoading = false;
+                    im = $("<img />").attr("src", ImageImg);
                   }
                   else {
-                    currentFeaturePath = currentFeaturePath.replace("current_count", String.fromCharCode(96 + i));
+                    im = $("<img />").attr("data-src", ImageImg);
                   }
 
-                  let ImageImg = options.images + group + currentFeaturePath;
-                  im = $("<img />").attr("src", ImageImg);
-
                   // append to layer
-                  cl.append(il.append(im));
+                  // cl.append(il.append(im));
 
                   // append to carousel
                   carousel_in.append(icl.html(im.clone()));
-
                 }
                 //Loop End HERE
                 // append layer to layers' element
@@ -1290,6 +1133,7 @@
           )
           .on("click.pixel", "#right-button", function (e) {
             // assignment
+            e.preventDefault();
             elem = $(".subtabShow");
             outer = elem.find(".subtab-bar-container-inner");
             inner = outer.find(".subtabNav");
@@ -1311,6 +1155,7 @@
             );
           })
           .on("click.pixel", "#left-button", function (e) {
+            e.preventDefault();
             elem = $(".subtabShow");
             outer = elem.find(".subtab-bar-container-inner");
             inner = outer.find(".subtabNav");
@@ -1337,6 +1182,10 @@
               name = active.data("layer");
 
             let itemIndex = items.index(active);
+
+            console.log("Click Slide Pixel Main Hai ----------> ");
+            removingLazyFromCarouselItem(name, itemIndex);
+
             markLayerActive(name);
             markItemActive(name, itemIndex);
             if (name === "body") {
@@ -1363,7 +1212,6 @@
           })
           .on("click.pixel", ".item-control", function (e) {
             var target = $(e.currentTarget);
-
             carousel.carousel(target.data("direction"));
           })
           .on("click.pixel", ".group-control", function (e) {
@@ -1401,29 +1249,30 @@
         });
       }
 
-      $.get(
-        options.json,
-        function (groups) {
-          options.json = groups;
+      $.get(options.json, function (groups) {
 
-          initConstructor();
+        options.json = groups;
 
-          // Hiding the previou Tab for body part which (have index equal to length - 1)
-          $(".prev-tab-click").hide();
+        initConstructor();
 
-          $this.waitForImages(function () {
-            options.onLoaded.call(self, groups);
-            if (options.startup.group in options.json) {
-              openGroup(options.startup.group);
-            }
+        // Hiding the previou Tab for body part which (have index equal to length - 1)
+        $(".prev-tab-click").hide();
 
-            if (options.startup.layer in hash_layers) {
-              openLayer(options.startup.layer);
-            }
-          }, options.onLoading);
-        },
-        "json"
-      );
+        $this.waitForImages(function () {
+
+          options.onLoaded.call(self, groups);
+
+          if (options.startup.group in options.json) {
+            openGroup(options.startup.group);
+          }
+
+          if (options.startup.layer in hash_layers) {
+            openLayer(options.startup.layer);
+          }
+
+        }, options.onLoading);
+      }, "json");
+
     });
   };
 

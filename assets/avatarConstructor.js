@@ -1,30 +1,44 @@
 jQuery(function ($) {
     var group = 'female';
 
-    var constructor = $("#constructor-panel"),
-        constructor2 = $("#constructor-adc"),
-        loader = $(".pixel-loading");
+    var constructor = $("#constructor-panel");
+        // constructor2 = $("#constructor-adc"),
+        // loader = $(".pixel-loading");
 
     constructor.pixel({
         //images: 'https://c8110851.ngrok.io/static/8bit/img/avatarImages/'
         images: 'https://snook-avatar.s3-us-west-2.amazonaws.com/compress/',
-        json: 'https://cdn.shopify.com/s/files/1/0291/1689/1269/files/8settings.json?637',
+        json: 'https://cdn.shopify.com/s/files/1/0291/1689/1269/files/8settings.json?738',
         selected: true,
         startup: {
             layer: 'body',
             group: group
         },
         onLoaded: function () {
+
             constructor.show();
-            constructor2.show();
-            loader.hide();
+            // constructor2.show();
+            // loader.hide();
+
+            // Global Variable Declare in storybook__nav.js 
+            // Used for Indicating that all Images Loaded or not
+            allImagesLoaded = true;
+
+            // This will Help Us When onLoaded will take more time 
+            // to call, setTimeout is used to have Overlay for some time even after 
+            // Character Part is Loaded
+            setTimeout(function(){
+                $.LoadingOverlay("hide");
+            }, 3000);
+
         },
         onLoading: function (loaded, length) {
-            constructor2.hide();
-            var perc = Math.ceil(100 * loaded / length);
+            // constructor2.hide();
+            // var perc = Math.ceil(100 * loaded / length);
 
-            loader.find('.headline span').text(perc + '%').end()
-                .find('.bar').width(perc + '%');
+            // loader.find('.headline span').text(perc + '%').end()
+            //     .find('.bar').width(perc + '%');
+            console.log("ON Loading Main aa gye hai!!!!!!!!!!!")
         },
         onLayerSelect: function () {
             // constructor.find('.layers .layer').jScrollPane();

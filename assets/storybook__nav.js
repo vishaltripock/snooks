@@ -1,3 +1,6 @@
+// Used to Indicating that all Images or Loaded or not
+let allImagesLoaded = false;
+
 function previous(e) {
   const currentStep = $(".storybook__section.stepActive"); //removeClass("stepActive");
   const currentStepIndex = Number($(currentStep).attr("data-storybook-index"));
@@ -23,13 +26,26 @@ function next(e) {
 }
 
 function nextForCharacter() {
+  
   $.LoadingOverlay("show");
-  setTimeout(function () {
-    next();
-  }, 3000);
-  setTimeout(function () {
-    $.LoadingOverlay("hide");
-  }, 3000)
+  
+  if(allImagesLoaded === true){
+
+    // all Images Loaded, setTimeout is used, in case if user choose different gender
+    // than the default one(e.g female) than OpenGroup Function is Called in (8biticon.js)
+    // which will take some time to loaded, so thats why we are using setTimeout
+    setTimeout(function(){
+      next();
+      $.LoadingOverlay("hide");
+    }, 5000);
+    
+  }
+  else{
+    setTimeout(function(){
+      next();
+    }, 5000);
+  }
+
 }
 
 function nextForImageUrlGetter() {

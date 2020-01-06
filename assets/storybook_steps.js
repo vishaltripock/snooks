@@ -2,7 +2,7 @@ let productInfo = {};
 
 const endText = "It is hard and sad to think of someone that has passed on. But try to take comfort in all they have left for you. Always know a part of them lives on in you. As long as you share their stories and memories, they can never really be gone.";
 
-// let base_asset_url = "https://c8110851.ngrok.io";
+// let base_asset_url = "https://27bf4603.ngrok.io";
 let base_asset_url = "https://avatar.tripock.com"; 
 
 
@@ -23,7 +23,7 @@ let Face_Image_URL = "";
 let Activity_Image_URL = "";
 
 $.get(
-    "https://cdn.shopify.com/s/files/1/0275/0762/1932/files/activityInfo.json?806",
+    "https://cdn.shopify.com/s/files/1/0291/1689/1269/files/activityInfo.json?740",
     function (activityInfo) {
         activityArray = activityInfo;
     },
@@ -31,7 +31,7 @@ $.get(
 );
 
 $.get(
-    "https://cdn.shopify.com/s/files/1/0275/0762/1932/files/occupationStories.json?63",
+    "https://cdn.shopify.com/s/files/1/0291/1689/1269/files/occupationStories.json?740",
     function (Stories) {
         occupationStories = Stories;
     },
@@ -39,7 +39,7 @@ $.get(
 );
 
 $.get(
-    "https://cdn.shopify.com/s/files/1/0275/0762/1932/files/hobbiesStories.json?63",
+    "https://cdn.shopify.com/s/files/1/0291/1689/1269/files/hobbiesStories.json?740",
     function (Stories) {
         hobbiesStories = Stories;
     },
@@ -47,7 +47,7 @@ $.get(
 );
 
 $.get(
-    "https://cdn.shopify.com/s/files/1/0275/0762/1932/files/characteristicsStories.json?63",
+    "https://cdn.shopify.com/s/files/1/0291/1689/1269/files/characteristicsStories.json?740",
     function (Stories) {
         characteristicsStories = Stories;
     },

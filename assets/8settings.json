@@ -399,56 +399,6 @@
 			]
 		},
 		{
-			"name": "fronthairs",
-			"title": "Front Hair Styles",
-			"count": 7,
-			"path": "/fronthairs/group_name/hairstyle_group_name_front_current_count.png",
-			"groups": [
-				{
-					"name": "01",
-					"title": "1",
-					"count": 8,
-					"path": "/fronthairs/01/hairstyle_01_front_current_count.png"
-				},
-				{
-					"name": "02",
-					"title": "2",
-					"count": 8,
-					"path": "/fronthairs/02/hairstyle_02_front_current_count.png"
-				},
-				{
-					"name": "03",
-					"title": "3",
-					"count": 8,
-					"path": "/fronthairs/03/hairstyle_03_front_current_count.png"
-				},
-				{
-					"name": "04",
-					"title": "4",
-					"count": 8,
-					"path": "/fronthairs/04/hairstyle_04_front_current_count.png"
-				},
-				{
-					"name": "05",
-					"title": "5",
-					"count": 8,
-					"path": "/fronthairs/05/hairstyle_05_front_current_count.png"
-				},
-				{
-					"name": "06",
-					"title": "6",
-					"count": 8,
-					"path": "/fronthairs/06/hairstyle_06_front_current_count.png"
-				},
-				{
-					"name": "07",
-					"title": "7",
-					"count": 8,
-					"path": "/fronthairs/07/hairstyle_07_front_current_count.png"
-				}
-			]
-		},
-		{
 			"name": "hairstyles",
 			"title": "Hair Styles",
 			"count": 16,
@@ -757,62 +707,6 @@
 			"title": "Body",
 			"count": 15,
 			"path": "/body/body_current_count.png"
-		},
-		{
-			"name": "backhairs",
-			"title": "Back Hairs Styles",
-			"count": 8,
-			"path": "/backhairs/group_name/hairstyle_group_name_back_current_count.png",
-			"groups": [
-				{
-					"name": "01",
-					"title": "1",
-					"count": 8,
-					"path": "/backhairs/01/hairstyle_01_back_current_count.png"
-				},
-				{
-					"name": "02",
-					"title": "2",
-					"count": 8,
-					"path": "/backhairs/02/hairstyle_02_back_current_count.png"
-				},
-				{
-					"name": "03",
-					"title": "3",
-					"count": 8,
-					"path": "/backhairs/03/hairstyle_03_back_current_count.png"
-				},
-				{
-					"name": "04",
-					"title": "4",
-					"count": 8,
-					"path": "/backhairs/04/hairstyle_04_back_current_count.png"
-				},
-				{
-					"name": "05",
-					"title": "5",
-					"count": 8,
-					"path": "/backhairs/05/hairstyle_05_back_current_count.png"
-				},
-				{
-					"name": "06",
-					"title": "6",
-					"count": 8,
-					"path": "/backhairs/06/hairstyle_06_back_current_count.png"
-				},
-				{
-					"name": "07",
-					"title": "7",
-					"count": 8,
-					"path": "/backhairs/07/hairstyle_07_back_current_count.png"
-				},
-				{
-					"name": "08",
-					"title": "8",
-					"count": 8,
-					"path": "/backhairs/08/hairstyle_08_back_current_count.png"
-				}
-			]
 		}
 	],
 	"female": [
@@ -1215,56 +1109,6 @@
 			]
 		},
 		{
-			"name": "fronthairs",
-			"title": "Front Hair Styles",
-			"count": 7,
-			"path": "/fronthairs/group_name/hairstyle_group_name_front_current_count.png",
-			"groups": [
-				{
-					"name": "01",
-					"title": "1",
-					"count": 8,
-					"path": "/fronthairs/01/hairstyle_01_front_current_count.png"
-				},
-				{
-					"name": "02",
-					"title": "2",
-					"count": 8,
-					"path": "/fronthairs/02/hairstyle_02_front_current_count.png"
-				},
-				{
-					"name": "03",
-					"title": "3",
-					"count": 8,
-					"path": "/fronthairs/03/hairstyle_03_front_current_count.png"
-				},
-				{
-					"name": "04",
-					"title": "4",
-					"count": 8,
-					"path": "/fronthairs/04/hairstyle_04_front_current_count.png"
-				},
-				{
-					"name": "05",
-					"title": "5",
-					"count": 8,
-					"path": "/fronthairs/05/hairstyle_05_front_current_count.png"
-				},
-				{
-					"name": "06",
-					"title": "6",
-					"count": 8,
-					"path": "/fronthairs/06/hairstyle_06_front_current_count.png"
-				},
-				{
-					"name": "07",
-					"title": "7",
-					"count": 8,
-					"path": "/fronthairs/07/hairstyle_07_front_current_count.png"
-				}
-			]
-		},
-		{
 			"name": "hairstyles",
 			"title": "Hair Styles",
 			"count": 16,
@@ -1537,62 +1381,6 @@
 			"title": "Body",
 			"count": 15,
 			"path": "/body/body_current_count.png"
-		},
-		{
-			"name": "backhairs",
-			"title": "Back Hairs Styles",
-			"count": 8,
-			"path": "/backhairs/group_name/hairstyle_group_name_back_current_count.png",
-			"groups": [
-				{
-					"name": "01",
-					"title": "1",
-					"count": 8,
-					"path": "/backhairs/01/hairstyle_01_back_current_count.png"
-				},
-				{
-					"name": "02",
-					"title": "2",
-					"count": 8,
-					"path": "/backhairs/02/hairstyle_02_back_current_count.png"
-				},
-				{
-					"name": "03",
-					"title": "3",
-					"count": 8,
-					"path": "/backhairs/03/hairstyle_03_back_current_count.png"
-				},
-				{
-					"name": "04",
-					"title": "4",
-					"count": 8,
-					"path": "/backhairs/04/hairstyle_04_back_current_count.png"
-				},
-				{
-					"name": "05",
-					"title": "5",
-					"count": 8,
-					"path": "/backhairs/05/hairstyle_05_back_current_count.png"
-				},
-				{
-					"name": "06",
-					"title": "6",
-					"count": 8,
-					"path": "/backhairs/06/hairstyle_06_back_current_count.png"
-				},
-				{
-					"name": "07",
-					"title": "7",
-					"count": 8,
-					"path": "/backhairs/07/hairstyle_07_back_current_count.png"
-				},
-				{
-					"name": "08",
-					"title": "8",
-					"count": 8,
-					"path": "/backhairs/08/hairstyle_08_back_current_count.png"
-				}
-			]
 		}
 	]
 }

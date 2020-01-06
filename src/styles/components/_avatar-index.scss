@@ -256,10 +256,9 @@
     width: 15px;
     height: 15px;
     margin: 8px;
+    display: flex;
+    align-items: center;
     text-align: center;
-    a {
-      display: block;
-    }
   }
 
   .subtab-bar-container-inner {
@@ -274,10 +273,9 @@
     width: 15px;
     height: 15px;
     margin: 8px;
+    display: flex;
+    align-items: center;
     text-align: center;
-    a {
-      display: block;
-    }
   }
 
   .subtab-bar-container .subtab-bar-container-inner .subtabNav .subtab-item {
@@ -339,6 +337,10 @@
       height: 100%;
     }
 
+    #constructor-panel .avatar-container {
+      height: 540px;
+    }
+
     .layers-container {
       margin-top: 100px;
     }
@@ -357,7 +359,7 @@
       width: 100%;
       flex-direction: column;
       position: absolute;
-      top: 575px;
+      top: 540px;
       background: #f5f5f5;
       height: 100px;
     }
@@ -439,10 +441,18 @@
   }
 
   @media (max-width: 400px) {
+    #constructor-panel .avatar-container {
+      height: 440px;
+    }
+
     #constructor-panel .carousel {
       display: inline-block;
-      width: 100%;
-      height: 100%;
+      width: 300px;
+      height: 440px;
+    }
+
+    .tabs-subtabs {
+      top: 440px;
     }
 
     #constructor-panel .viewport .viewport-col.modal-col {
