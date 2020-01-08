@@ -12,6 +12,7 @@
     .shopping-bag-non-empty {
       display: flex;
       flex-grow: 1;
+      // height: 100vh;
       align-items: center;
       justify-content: center;
       flex-direction: column;
@@ -112,11 +113,11 @@
             align-items: center;
             width: 100%;
             flex-grow: 1;
-            .shopping-bag-subtotal-container{
-              .shopping-bag-subtotal-title{
+            .shopping-bag-subtotal-container {
+              .shopping-bag-subtotal-title {
                 margin-bottom: 0px;
               }
-              .shopping-bag-subtotal-price{
+              .shopping-bag-subtotal-price {
                 margin-top: 0px;
               }
             }
@@ -138,6 +139,13 @@
           }
         }
       }
+    }
+    .shopping-bag-empty {
+      // height: 100vh;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
     }
   }
 }

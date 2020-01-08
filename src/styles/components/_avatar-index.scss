@@ -113,7 +113,8 @@
     right: 25px;
     width: 27px;
     height: 27px;
-    background: url("../images/constructor/current_item.png") 50% 50% no-repeat;
+    background: url("https://snook-avatar.s3-us-west-2.amazonaws.com/compress/current_item.png")
+      50% 50% no-repeat;
   }
 
   #constructor-panel .layers .layer .item.active > span {
@@ -188,10 +189,12 @@
 
   .tabs-bar .prev-tab {
     margin-left: 30px;
+    cursor: pointer;
   }
 
   .tabs-bar .next-tab {
     margin-right: 30px;
+    cursor: pointer;
   }
 
   .tabs-bar .tabs .tab {
@@ -247,6 +250,7 @@
     justify-content: space-between;
   }
 
+
   .subtabNav {
     display: flex;
   }
@@ -259,6 +263,7 @@
     display: flex;
     align-items: center;
     text-align: center;
+    cursor: pointer;
   }
 
   .subtab-bar-container-inner {
@@ -276,6 +281,7 @@
     display: flex;
     align-items: center;
     text-align: center;
+    cursor: pointer;
   }
 
   .subtab-bar-container .subtab-bar-container-inner .subtabNav .subtab-item {

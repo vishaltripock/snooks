@@ -2,8 +2,8 @@ let productInfo = {};
 
 const endText = "It is hard and sad to think of someone that has passed on. But try to take comfort in all they have left for you. Always know a part of them lives on in you. As long as you share their stories and memories, they can never really be gone.";
 
-// let base_asset_url = "https://27bf4603.ngrok.io";
-let base_asset_url = "https://avatar.tripock.com"; 
+// let base_asset_url = "https://ba46fa18.ngrok.io";
+let base_asset_url = "https://avatar.snooksangelbooks.com"; 
 
 
 let She_Story = "";
@@ -103,20 +103,33 @@ function Intro_Generator(currentGender) {
             characteristics = "Miss Fix It";
         }
 
-        She_Story = `Your ${relationship} was so many things to our family and their friends. She was ${occupation} and her favorite things to do included ${hobbies}. The funniest thing about them was there ${characteristics}.`;
+        if(occupation !== ""){
+            She_Story = `Your ${relationship} was so many things to our family and their friends. She was ${occupation}. The funniest thing about them was there ${characteristics}.`;
+        }
+        else if(hobbies !== ""){
+            She_Story = `Your ${relationship} was so many things to our family and their friends.Her favorite things to do included ${hobbies}. The funniest thing about them was there ${characteristics}.`;
+        }
 
+        // She_Story = `Your ${relationship} was so many things to our family and their friends. She was ${occupation} and her favorite things to do included ${hobbies}. The funniest thing about them was there ${characteristics}.`;
         $("p#person-intro-text").text(She_Story);
-    } 
+    }
     else {
         if (characteristics === "Mr./Miss Fix It") {
             characteristics = "Mr Fix It";
         }
-        He_Story = `Your ${relationship} was so many things to our family and their friends. He was ${occupation} and his favorite things to do included ${hobbies}. The funniest thing about them was there ${characteristics}.`;
+
+        if(occupation !== ""){
+            He_Story = `Your ${relationship} was so many things to our family and their friends. He was ${occupation}. The funniest thing about them was there ${characteristics}.`;
+        }
+        else if(hobbies !== ""){
+            He_Story = `Your ${relationship} was so many things to our family and their friends. His favorite things to do included ${hobbies}. The funniest thing about them was there ${characteristics}.`;
+        }
+        // He_Story = `Your ${relationship} was so many things to our family and their friends. He was ${occupation} and his favorite things to do included ${hobbies}. The funniest thing about them was there ${characteristics}.`;
         $("p#person-intro-text").text(He_Story);
     }
 }
 
-function Story_Generator() {
+function Story_Generator(event) {
 
     // Clearing all things on storybook pages before inserting new pages
     // show that it will not contains the old pages
@@ -139,10 +152,10 @@ function Story_Generator() {
     // CharacteristicsStories(characteristicsArrays);
 
     //Calling for next Step
-    next();
-    setTimeout(function(){
+    next(event);
+    setTimeout(function () {
         $.LoadingOverlay("hide");
-    },5000)
+    }, 5000)
 }
 
 function OccupationStories(occupationArrays) {
@@ -366,7 +379,7 @@ function Preview_Text_Generator(Preview_Text_String, index, length) {
     PreviewPages.appendChild(preview_inner);
 }
 
-function Storybook_Product_Maker() {
+function Storybook_Product_Maker(event) {
     // Remove Everything from Preview Pages
     let PreviewPagesContent = document.getElementById("preview-container-id");
     while (PreviewPagesContent.firstChild) {
@@ -374,7 +387,7 @@ function Storybook_Product_Maker() {
     }
 
     let productFormData = $("#storybook_form").serializeArray();
-    console.log("Aaa gya DATA -----------> ",productFormData)
+    console.log("Aaa gya DATA -----------> ", productFormData)
     const fileList = $("#storybook__photo").prop("files") || [];
 
     let userDp;
@@ -418,7 +431,7 @@ function Storybook_Product_Maker() {
     let productPagesData = [];
 
     // Adding Book Title Text ---> Image of this will be Activity Generated
-    productPagesData.push({ img: Activity_Image_URL, pagetext: book_Title });
+    productPagesData.push({ img: Avatar_Image_URL, pagetext: book_Title });
 
     // Adding Living Memory Text ---> Image of this will be set in backend
     productPagesData.push({ img: "", pagetext: livingMemoryText });
@@ -457,25 +470,33 @@ function Storybook_Product_Maker() {
         type: "POST",
         contentType: false,
         processData: false,
-        complete: function () { },
+        complete: function (jqXHR, textStatus) {
+            console.log(textStatus);
+            if (textStatus !== "success") {
+                $.LoadingOverlay("hide");
+                alert("NETWORK ERROR !!! ");
+            }
+        },
         success: function (data) {
             productInfo = data;
-            console.log(productInfo);
-            console.log(base_asset_url + productInfo.outputPdf);
+            console.log(productInfo.outputPdf);
             Storybook_Preview();
-            next();
+            next(event);
             $.LoadingOverlay("hide");
         },
-        error: function (err) { }
+        error: function (err, textStatus) {
+            // $.LoadingOverlay("hide");
+            // alert("NETWORK ERROR !!! ");
+        }
     });
 }
 
-function ImageUrlGetter() {
+function ImageUrlGetter(event) {
     let constructorAvatar = $("#constructor-panel");
     let AvatarConfig = JSON.stringify(constructorAvatar.pixel("selected"));
     let currentGender = constructorAvatar.pixel("group");
 
-    if(activityArray[currentGender].hasOwnProperty(occupationHobby)){
+    if (activityArray[currentGender].hasOwnProperty(occupationHobby)) {
         activityValue = activityArray[currentGender][occupationHobby];
         console.log(activityValue);
     }
@@ -485,22 +506,30 @@ function ImageUrlGetter() {
     console.log("############# Sending Avatar Data ##############");
     console.log(AvatarConfig);
     console.log("############# Sending Avatar Data ##############");
-    $.post(
-        base_asset_url + "/constructor/avatar/",
-        {
-            data: AvatarConfig,
-            gender: currentGender,
-            activity: activityValue
+
+    $.ajax({
+        url: base_asset_url + "/constructor/avatar/",
+        data: { data: AvatarConfig, gender: currentGender, activity: activityValue },
+        type: "POST",
+        complete: function (jqXHR, textStatus) {
+            if (textStatus !== "success") {
+                $.LoadingOverlay("hide");
+                alert("NETWORK ERROR !!! ");
+            }
         },
-        function (data, status) {
-            Avatar_Image_URL = base_asset_url + data["avatar_image"];
-            Face_Image_URL = base_asset_url + data["face_image"];
-            Activity_Image_URL = base_asset_url + data["activity_image"];
+        success: function (data, textStatus) {
+            Avatar_Image_URL = data["avatar_image"];
+            Face_Image_URL = data["face_image"];
+            Activity_Image_URL = data["activity_image"];
             console.log(Avatar_Image_URL);
             console.log(Face_Image_URL);
             console.log(Activity_Image_URL);
-            next();
+            next(event);
             $.LoadingOverlay("hide");
+        },
+        error: function (err, textStatus) {
+            // $.LoadingOverlay("hide");
+            // alert("NETWORK ERROR !!! ");
         }
-    );
+    });
 }
